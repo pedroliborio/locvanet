@@ -1,15 +1,15 @@
-file 74597 1467140798                                           
+file 74597 1467316432                                           
 version 2
-run nodebug-0-20160628-16:06:27-19488
+run nodebug-0-20160630-16:48:42-14438
 attr configname nodebug
-attr datetime 20160628-16:06:27
+attr datetime 20160630-16:48:42
 attr experiment nodebug
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network com.liborio.locvanet.LocScenario
-attr processid 19488
+attr processid 14438
 attr repetition 0
 attr replication #0
 attr resultdir results

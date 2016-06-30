@@ -19,8 +19,6 @@
 #include "veins/modules/application/ieee80211p/BaseWaveApplLayer.h"
 #include "veins/modules/mobility/traci/TraCIMobility.h"
 
-#include <omnetpp.h>
-
 using Veins::TraCIMobility;
 using Veins::AnnotationManager;
 
@@ -34,12 +32,16 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details);
         TraCIMobility* mobility;
     protected:
-
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
+
     protected:
-        virtual void onBeacon(WaveShortMessage* wsm);
+        //This method will manipulates the information received from a message
         virtual void onData(WaveShortMessage* wsm);
+        //This method will manipulates the information received on beacon
+        virtual void onBeacon(WaveShortMessage* wsm);
+        //This method crate a beacon with vehicle kinematics information
+        virtual void handleSelfMsg(cMessage* msg);
 };
 
 #endif

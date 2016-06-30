@@ -19,6 +19,7 @@ import org.car2x.veins.modules.application.ieee80211p.BaseWaveApplLayer;
 
 simple LocAppCom extends BaseWaveApplLayer
 {
-    @display("i=myfigs/car");
     @class(LocAppCom);
+    @display("i=myfigs/car");
+    
 }

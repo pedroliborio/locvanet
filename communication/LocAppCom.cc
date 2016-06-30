@@ -28,21 +28,52 @@ void LocAppCom::initialize(int stage){
         mobility = TraCIMobilityAccess().get(getParentModule());
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
-        getParentModule();
-
     }
 
 }
 
+void LocAppCom::handleSelfMsg(cMessage* msg){
+    switch (msg->getKind()) {
+        case SEND_BEACON_EVT: {
+            //Create a beacon
+            WaveShortMessage* wsm = prepareWSM("beacon", beaconLengthBits, type_CCH, beaconPriority, 0, -1);
+            //Put current position in the beacon
+            wsm->setSenderPos(mobility->getCurrentPosition());
+            //send the message
+            sendWSM(wsm);
+            //Draw annotation
+            findHost()->getDisplayString().updateWith("r=16,blue");
+            annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"green"));
+            //Schedule the beacon sent
+            scheduleAt(simTime() + par("beaconInterval").doubleValue(), sendBeaconEvt);
+            break;
+        }
+        default: {
+            if (msg)
+                DBG << "APP: Error: Got Self Message of unknown kind! Name: " << msg->getName() << endl;
+            break;
+        }
+    }
+}
+
 void  LocAppCom::onBeacon(WaveShortMessage* wsm){
+    //Draw annotation
+    findHost()->getDisplayString().updateWith("r=16,blue");
+    //annotations->scheduleErase(1, annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
+    annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
+    EV<<"Position: "<<wsm->getSenderPos()<<"\n";
+    //Here the vehicle need to maintain a vector with the position of neighbors
+    //The begin of Cooperative Positioning Approach
+}
+
+void LocAppCom::onData(WaveShortMessage* wsm){
 
 }
 
-void  LocAppCom::onData(WaveShortMessage* wsm){
-
-}
-
-void  LocAppCom::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details){
-
+void LocAppCom::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details){
+    Enter_Method_Silent();
+    if (signalID == mobilityStateChangedSignal) {
+        handlePositionUpdate(obj);
+    }
 }
 
