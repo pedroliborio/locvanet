@@ -39,10 +39,12 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
             WaveShortMessage* wsm = prepareWSM("beacon", beaconLengthBits, type_CCH, beaconPriority, 0, -1);
             //Put current position in the beacon
             wsm->setSenderPos(mobility->getCurrentPosition());
+            //Write Output (just for debug)
+            EV << "Vehicle:" << wsm->getSenderAddress() << "Position Sent:" << wsm->getSenderPos()<<"\n";
             //send the message
             sendWSM(wsm);
             //Draw annotation
-            findHost()->getDisplayString().updateWith("r=16,blue");
+            //findHost()->getDisplayString().updateWith("r=16,blue");
             annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"green"));
             //Schedule the beacon sent
             scheduleAt(simTime() + par("beaconInterval").doubleValue(), sendBeaconEvt);
@@ -58,10 +60,10 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
 
 void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //Draw annotation
-    findHost()->getDisplayString().updateWith("r=16,blue");
+    //findHost()->getDisplayString().updateWith("r=16,blue");
     //annotations->scheduleErase(1, annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
     annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
-    EV<<"Position: "<<wsm->getSenderPos()<<"\n";
+    EV << "Vehicle:" << wsm->getSenderAddress() << "Position Received: " << wsm->getSenderPos()<<"\n";
     //Here the vehicle need to maintain a vector with the position of neighbors
     //The begin of Cooperative Positioning Approach
 }
