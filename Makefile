@@ -20,7 +20,6 @@ INCLUDE_PATH = \
     -I. \
     -Icommunication \
     -Ilocalization \
-    -Ilocalization/GDR \
     -Ilocalization/GeographicLib \
     -Ilocalization/GeographicLib/doc \
     -Ilocalization/GeographicLib/include \
@@ -173,7 +172,6 @@ clean:
 	$(Q)-rm -f ./*_m.cc ./*_m.h ./*_sm.cc ./*_sm.h
 	$(Q)-rm -f communication/*_m.cc communication/*_m.h communication/*_sm.cc communication/*_sm.h
 	$(Q)-rm -f localization/*_m.cc localization/*_m.h localization/*_sm.cc localization/*_sm.h
-	$(Q)-rm -f localization/GDR/*_m.cc localization/GDR/*_m.h localization/GDR/*_sm.cc localization/GDR/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/*_m.cc localization/GeographicLib/*_m.h localization/GeographicLib/*_sm.cc localization/GeographicLib/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/doc/*_m.cc localization/GeographicLib/doc/*_m.h localization/GeographicLib/doc/*_sm.cc localization/GeographicLib/doc/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/include/*_m.cc localization/GeographicLib/include/*_m.h localization/GeographicLib/include/*_sm.cc localization/GeographicLib/include/*_sm.h
@@ -187,7 +185,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/GDR/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc simulations/*.cc simulations/results/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc simulations/*.cc simulations/results/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/communication/LocAppCom.o: communication/LocAppCom.cc \

@@ -15,8 +15,10 @@
 
 #include "LocAppCom.h"
 
+using Veins::TraCIMobility;
 using Veins::TraCIMobilityAccess;
 using Veins::AnnotationManagerAccess;
+
 
 const simsignalwrap_t LocAppCom::mobilityStateChangedSignal = simsignalwrap_t(MIXIM_SIGNAL_MOBILITY_CHANGE_NAME);
 
@@ -26,6 +28,7 @@ void LocAppCom::initialize(int stage){
     BaseWaveApplLayer::initialize(stage);
     if (stage == 0) {
         mobility = TraCIMobilityAccess().get(getParentModule());
+        traci = mobility->getCommandInterface();
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
     }
@@ -35,6 +38,12 @@ void LocAppCom::initialize(int stage){
 void LocAppCom::handleSelfMsg(cMessage* msg){
     switch (msg->getKind()) {
         case SEND_BEACON_EVT: {
+            //Update Vehicle Kinematics Information
+            //....
+            //Update GDR Information
+            //.....
+            //Update GPS Information
+            //....
             //Create a beacon
             WaveShortMessage* wsm = prepareWSM("beacon", beaconLengthBits, type_CCH, beaconPriority, 0, -1);
             //Put current position in the beacon
@@ -46,7 +55,7 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
             //Draw annotation
             //findHost()->getDisplayString().updateWith("r=16,blue");
             annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"green"));
-            //Schedule the beacon sent
+            //Schedule the beacon to sent
             scheduleAt(simTime() + par("beaconInterval").doubleValue(), sendBeaconEvt);
             break;
         }
@@ -78,4 +87,43 @@ void LocAppCom::receiveSignal(cComponent* source, simsignal_t signalID, cObject*
         handlePositionUpdate(obj);
     }
 }
+
+void LocAppCom::GeodesicDRModule(void){
+    //Here we need to get the local coordinates position
+    //Convert to lat lon points and pass to GDR algorithm.
+    Coord gDRPosition;
+
+}
+
+//Convert Between Local Coordinates to Geodesic Coordinates and calculates bearing and distance
+//Like and odometer and a gyroscope
+void LocAppCom::VehicleKinematicsModule(void){
+    // Alternatively: const Geocentric& earth = Geocentric::WGS84();
+    Geocentric earth(Constants::WGS84_a(), Constants::WGS84_f());
+    double lat0 = -22.910044, lon0 = -43.207808;
+    LocalCartesian proj(lat0, lon0, 0, earth);
+    //Reverse = between x,y to lat lon
+    Coord pos = mobility->getCurrentPosition();
+    double x = pos.x, y = pos.y, z = 0;
+    double lat, lon, h;
+    //Obtain Lat Lon Coordinates
+    proj.Reverse(x, y, z, lat, lon, h);
+    //Just for Debug
+    EV << lat << lon << "\n";
+    //cout << lat << " " << lon << " " << h << "\n";
+
+    //Update the bearing and distance with GeographicLib
+
+
+    //Forward = between lat lon to x, y
+    //double lat = 50.9, lon = 1.8, h = 0; // Calais
+    //double x, y, z;
+    //proj.Forward(lat, lon, h, x, y, z);
+    //cout << x << " " << y << " " << z << "\n";
+
+}
+
+
+
+
 

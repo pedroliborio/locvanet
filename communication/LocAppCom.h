@@ -16,11 +16,24 @@
 #ifndef __LOCVANET_LOCAPPCOM_H_
 #define __LOCVANET_LOCAPPCOM_H_
 
+//Veins libraries
 #include "veins/modules/application/ieee80211p/BaseWaveApplLayer.h"
 #include "veins/modules/mobility/traci/TraCIMobility.h"
+//Geodesic Library
+#include <localization/GeographicLib/include/GeographicLib/Geodesic.hpp>
+#include <localization/GeographicLib/include/GeographicLib/Constants.hpp>
+#include <localization/GeographicLib/include/GeographicLib/Geocentric.hpp>
+#include <localization/GeographicLib/include/GeographicLib/LocalCartesian.hpp>
+//Utils libraries
+#include <exception>
+#include <cmath>
 
 using Veins::TraCIMobility;
+using Veins::TraCICommandInterface;
+
 using Veins::AnnotationManager;
+
+using namespace GeographicLib;
 
 /**
  * Communication approach for localization based on beaconing
@@ -31,9 +44,16 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void initialize(int stage);
         virtual void receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details);
         TraCIMobility* mobility;
+        TraCICommandInterface* traci;
     protected:
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
+        //Coord gDRPosition;
+        bool gpsOutage;// Is GPS In Outage?
+        Coord lastGPSKnowPos; //Last GPS Know Position
+        Coord lastGDRKnowPosition; //Last GDR Know Position
+        double bearing; //Bearing given by sumo traci (Giroscope)
+        double distance; //Distance given by sumo traci (Odometer)
 
     protected:
         //This method will manipulates the information received from a message
@@ -42,6 +62,8 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void onBeacon(WaveShortMessage* wsm);
         //This method crate a beacon with vehicle kinematics information
         virtual void handleSelfMsg(cMessage* msg);
+        void GeodesicDRModule(void);
+        void VehicleKinematicsModule(void);
 };
 
 #endif
