@@ -28,6 +28,10 @@
 #include <exception>
 #include <cmath>
 
+//TNT and JAMA libraries
+#include <tnt_array2d.h>
+#include <jama_qr.h>
+
 using Veins::TraCIMobility;
 using Veins::TraCICommandInterface;
 
@@ -45,15 +49,23 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details);
         TraCIMobility* mobility;
         TraCICommandInterface* traci;
+
+        struct NeighborNode{
+            Coord position;
+            double distance;
+            simtime_t timestamp;
+        };
     protected:
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
         //Coord gDRPosition;
         bool gpsOutage;// Is GPS In Outage?
-        Coord lastGPSKnowPos; //Last GPS Know Position
-        Coord lastGDRKnowPosition; //Last GDR Know Position
-        double bearing; //Bearing given by sumo traci (Giroscope)
-        double distance; //Distance given by sumo traci (Odometer)
+        Coord lastGPSPos;  //Last GPS Know Position
+        Coord lastGDRPos;  //Last GDR Know Position
+        Coord lastSUMOPos; //Last SUMO Know Position used to compute bearing and distance traveled
+        double bearing; //Bearing given by Geodesic Inverse (Giroscope)
+        double distance; //Distance given by Geodesic Direct (Odometer)
+        std::list<NeighborNode> listNeighbors;//list of neighbors vehicles
 
     protected:
         //This method will manipulates the information received from a message
@@ -64,6 +76,7 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void handleSelfMsg(cMessage* msg);
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
+        Coord LeastSquares(std::list<NeighborNode> listNeighbor);
 };
 
 #endif

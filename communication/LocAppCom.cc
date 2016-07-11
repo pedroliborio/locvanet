@@ -28,6 +28,13 @@ void LocAppCom::initialize(int stage){
     BaseWaveApplLayer::initialize(stage);
     if (stage == 0) {
         mobility = TraCIMobilityAccess().get(getParentModule());
+        //Just for debug
+        EV << "Vehicle Initial Position:"  << vehCoord.x << " " << vehCoord.y <<"\n";
+        Coord vehCoord = mobility->getCurrentPosition();
+        this->lastSUMOPos.x = vehCoord.x;
+        this->lastSUMOPos.y = vehCoord.y;
+        this->lastGPSPos.x = normal(x,10.0,simT);
+        this->lastGPSPos.y = normal(y,10.0);
         traci = mobility->getCommandInterface();
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
@@ -39,7 +46,7 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
     switch (msg->getKind()) {
         case SEND_BEACON_EVT: {
             //Update Vehicle Kinematics Information
-            //....
+            //VehicleKinematicsModule(void);
             //Update GDR Information
             //.....
             //Update GPS Information
@@ -91,36 +98,47 @@ void LocAppCom::receiveSignal(cComponent* source, simsignal_t signalID, cObject*
 void LocAppCom::GeodesicDRModule(void){
     //Here we need to get the local coordinates position
     //Convert to lat lon points and pass to GDR algorithm.
-    Coord gDRPosition;
-
+    Geodesic geod(Constants::WGS84_a(), Constants::WGS84_f());
+    double latGDR, lonGDR;
+    geod.Direct(this->lastGDRPos.x,this->lastGDRPos.y,bearing,distance,latGDR,lonGDR);
+    //need put the trace in some output
 }
 
-//Convert Between Local Coordinates to Geodesic Coordinates and calculates bearing and distance
-//Like and odometer and a gyroscope
+//Convert Between Local Coordinates to Geodesic Coordinates and
+//calculates bearing and distance like and odometer and a gyroscope
 void LocAppCom::VehicleKinematicsModule(void){
+    //Coordinates of the sumo.net boundingbox
+    double lat0 = -22.910044, lon0 = -43.207808;
     // Alternatively: const Geocentric& earth = Geocentric::WGS84();
     Geocentric earth(Constants::WGS84_a(), Constants::WGS84_f());
-    double lat0 = -22.910044, lon0 = -43.207808;
+    Geodesic geod(Constants::WGS84_a(), Constants::WGS84_f());
     LocalCartesian proj(lat0, lon0, 0, earth);
-    //Reverse = between x,y to lat lon
-    Coord pos = mobility->getCurrentPosition();
+    Coord pos = this->mobility->getCurrentPosition();
     double x = pos.x, y = pos.y, z = 0;
-    double lat, lon, h;
+    double lat, lon, h, s12, azi1, azi2;
     //Obtain Lat Lon Coordinates
     proj.Reverse(x, y, z, lat, lon, h);
-    //Just for Debug
-    EV << lat << lon << "\n";
-    //cout << lat << " " << lon << " " << h << "\n";
-
-    //Update the bearing and distance with GeographicLib
-
-
+    //Update the bearing and distance with GeographicLib...
+    geod.Inverse(this->lastSUMOPos.x, this->lastSUMOPos.y,lat,lon,s12,azi1,azi2);
+    this->distance = s12;
+    this->bearing = az1;
+    //geod.Inverse(
     //Forward = between lat lon to x, y
     //double lat = 50.9, lon = 1.8, h = 0; // Calais
     //double x, y, z;
     //proj.Forward(lat, lon, h, x, y, z);
-    //cout << x << " " << y << " " << z << "\n";
 
+}
+
+void LocAppCom::LeastSquares(std::list<NeighborNode>* listNeighbor){
+    //get the node position
+    Coord discoverNode = mobility->getCurrentPosition();
+
+    int neighborListSize = listNeighbor->size();
+
+    for (std::list<NeighborNode>::iterator it=listNeighbor.begin(); it != listNeighbor.end(); ++it){
+
+    }
 }
 
 
