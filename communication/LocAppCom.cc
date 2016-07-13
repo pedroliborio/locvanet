@@ -28,13 +28,9 @@ void LocAppCom::initialize(int stage){
     BaseWaveApplLayer::initialize(stage);
     if (stage == 0) {
         mobility = TraCIMobilityAccess().get(getParentModule());
-        //Just for debug
-        EV << "Vehicle Initial Position:"  << vehCoord.x << " " << vehCoord.y <<"\n";
         Coord vehCoord = mobility->getCurrentPosition();
         this->lastSUMOPos.x = vehCoord.x;
         this->lastSUMOPos.y = vehCoord.y;
-        this->lastGPSPos.x = normal(x,10.0,simT);
-        this->lastGPSPos.y = normal(y,10.0);
         traci = mobility->getCommandInterface();
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
@@ -61,7 +57,7 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
             sendWSM(wsm);
             //Draw annotation
             //findHost()->getDisplayString().updateWith("r=16,blue");
-            annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"green"));
+            //annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"green"));
             //Schedule the beacon to sent
             scheduleAt(simTime() + par("beaconInterval").doubleValue(), sendBeaconEvt);
             break;
@@ -75,12 +71,29 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
 }
 
 void  LocAppCom::onBeacon(WaveShortMessage* wsm){
+    /***
     //Draw annotation
     //findHost()->getDisplayString().updateWith("r=16,blue");
     //annotations->scheduleErase(1, annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
-    annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
+    //annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
+    ***/
+
     EV << "Vehicle:" << wsm->getSenderAddress() << "Position Received: " << wsm->getSenderPos()<<"\n";
+
     //Here the vehicle need to maintain a vector with the position of neighbors
+    NeighborNode neighborNode;
+    //NeighborNode Position
+    neighborNode.position = wsm->getSenderPos();
+    //NeighborNode Euclidean "Real" Distance
+    neighborNode.realDistance = mobility->getCurrentPosition().sqrdist(neighborNode.position);
+    //TODO Calc the RSSI Distance
+    //TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
+    listNeighbors.push_front(neighborNode);
+
+    if(listNeighbors.size() > 3){
+        //TODO Multitrilateration Method
+    }
+
     //The begin of Cooperative Positioning Approach
 }
 
@@ -121,24 +134,33 @@ void LocAppCom::VehicleKinematicsModule(void){
     //Update the bearing and distance with GeographicLib...
     geod.Inverse(this->lastSUMOPos.x, this->lastSUMOPos.y,lat,lon,s12,azi1,azi2);
     this->distance = s12;
-    this->bearing = az1;
+    this->bearing = azi1;
     //geod.Inverse(
     //Forward = between lat lon to x, y
-    //double lat = 50.9, lon = 1.8, h = 0; // Calais
+    //double lVillasat = 50.9, lon = 1.8, h = 0; // Calais
     //double x, y, z;
     //proj.Forward(lat, lon, h, x, y, z);
 
 }
 
 void LocAppCom::LeastSquares(std::list<NeighborNode>* listNeighbor){
+
+    //capture the total of neighbors
+    int neighborListSize = listNeighbor->size();
+    //Create an matrix
+    TNT::Array2D<double> A =  TNT::Array2D<double>(neighborListSize,2);
+
+    TNT::Array2D<double> b =  TNT::Array2D<double>(neighborListSize,2);
     //get the node position
     Coord discoverNode = mobility->getCurrentPosition();
 
-    int neighborListSize = listNeighbor->size();
 
-    for (std::list<NeighborNode>::iterator it=listNeighbor.begin(); it != listNeighbor.end(); ++it){
 
-    }
+
+
+    //for (std::list<NeighborNode>::iterator it=listNeighbor.begin(); it != listNeighbor.end(); ++it){
+
+    //}
 }
 
 

@@ -25,8 +25,11 @@ INCLUDE_PATH = \
     -Ilocalization/GeographicLib/include \
     -Ilocalization/GeographicLib/include/GeographicLib \
     -Ilocalization/GeographicLib/src \
+    -Ilocalization/jama125 \
+    -Ilocalization/tnt_126 \
     -Isimulations \
-    -Isimulations/results
+    -Isimulations/results \
+    -Isumoscenarios
 
 # Additional object and library files to link with
 EXTRA_OBJS =
@@ -177,19 +180,27 @@ clean:
 	$(Q)-rm -f localization/GeographicLib/include/*_m.cc localization/GeographicLib/include/*_m.h localization/GeographicLib/include/*_sm.cc localization/GeographicLib/include/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/include/GeographicLib/*_m.cc localization/GeographicLib/include/GeographicLib/*_m.h localization/GeographicLib/include/GeographicLib/*_sm.cc localization/GeographicLib/include/GeographicLib/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/src/*_m.cc localization/GeographicLib/src/*_m.h localization/GeographicLib/src/*_sm.cc localization/GeographicLib/src/*_sm.h
+	$(Q)-rm -f localization/jama125/*_m.cc localization/jama125/*_m.h localization/jama125/*_sm.cc localization/jama125/*_sm.h
+	$(Q)-rm -f localization/tnt_126/*_m.cc localization/tnt_126/*_m.h localization/tnt_126/*_sm.cc localization/tnt_126/*_sm.h
 	$(Q)-rm -f simulations/*_m.cc simulations/*_m.h simulations/*_sm.cc simulations/*_sm.h
 	$(Q)-rm -f simulations/results/*_m.cc simulations/results/*_m.h simulations/results/*_sm.cc simulations/results/*_sm.h
+	$(Q)-rm -f sumoscenarios/*_m.cc sumoscenarios/*_m.h sumoscenarios/*_sm.cc sumoscenarios/*_sm.h
 
 cleanall: clean
 	$(Q)-rm -rf $(PROJECT_OUTPUT_DIR)
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc simulations/*.cc simulations/results/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/results/*.cc sumoscenarios/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/communication/LocAppCom.o: communication/LocAppCom.cc \
 	communication/LocAppCom.h \
+	localization/jama125/jama_qr.h \
+	localization/tnt_126/tnt_array1d.h \
+	localization/tnt_126/tnt_array2d.h \
+	localization/tnt_126/tnt_i_refvec.h \
+	localization/tnt_126/tnt_math_utils.h \
 	$(VEINS_PROJ)/src/veins/base/connectionManager/BaseConnectionManager.h \
 	$(VEINS_PROJ)/src/veins/base/connectionManager/ChannelAccess.h \
 	$(VEINS_PROJ)/src/veins/base/connectionManager/NicEntry.h \

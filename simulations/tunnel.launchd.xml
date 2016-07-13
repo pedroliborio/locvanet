@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- debug config -->
+<launch>
+	<copy file="SFDMAT.net.xml" />
+	<copy file="SFDMAT.rou.xml" />
+	<!--<copy file="erlangen.poly.xml" /> -->
+	<copy file="SFDMAT.sumo.cfg" type="config" />
+</launch>

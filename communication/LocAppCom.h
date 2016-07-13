@@ -52,8 +52,9 @@ class LocAppCom : public BaseWaveApplLayer {
 
         struct NeighborNode{
             Coord position;
-            double distance;
-            simtime_t timestamp;
+            double realDistance;
+            //double rssiDistance;
+            //simtime_t timestamp;
         };
     protected:
         AnnotationManager* annotations;
@@ -76,7 +77,7 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void handleSelfMsg(cMessage* msg);
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
-        Coord LeastSquares(std::list<NeighborNode> listNeighbor);
+        void LeastSquares(std::list<NeighborNode>* listNeighbor);
 };
 
 #endif
