@@ -51,7 +51,7 @@ class LocAppCom : public BaseWaveApplLayer {
         TraCICommandInterface* traci;
 
         struct NeighborNode{
-            Coord position;
+            Coord realPosition;
             double realDistance;
             //double rssiDistance;
             //simtime_t timestamp;
@@ -64,6 +64,7 @@ class LocAppCom : public BaseWaveApplLayer {
         Coord lastGPSPos;  //Last GPS Know Position
         Coord lastGDRPos;  //Last GDR Know Position
         Coord lastSUMOPos; //Last SUMO Know Position used to compute bearing and distance traveled
+        Coord coopPosPos;
         double bearing; //Bearing given by Geodesic Inverse (Giroscope)
         double distance; //Distance given by Geodesic Direct (Odometer)
         std::list<NeighborNode> listNeighbors;//list of neighbors vehicles

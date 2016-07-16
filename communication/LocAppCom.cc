@@ -83,7 +83,7 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //Here the vehicle need to maintain a vector with the position of neighbors
     NeighborNode neighborNode;
     //NeighborNode Position
-    neighborNode.position = wsm->getSenderPos();
+    neighborNode.realPosition = wsm->getSenderPos();
     //NeighborNode Euclidean "Real" Distance
     neighborNode.realDistance = mobility->getCurrentPosition().sqrdist(neighborNode.position);
     //TODO Calc the RSSI Distance
@@ -91,7 +91,7 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     listNeighbors.push_front(neighborNode);
 
     if(listNeighbors.size() > 3){
-        //TODO Multitrilateration Method
+        //TODO Call Multitrilateration Method
     }
 
     //The begin of Cooperative Positioning Approach
@@ -117,8 +117,9 @@ void LocAppCom::GeodesicDRModule(void){
     //need put the trace in some output
 }
 
-//Convert Between Local Coordinates to Geodesic Coordinates and
-//calculates bearing and distance like and odometer and a gyroscope
+/*Convert Between Local Coordinates to Geodesic Coordinates and
+//calculates bearing and distance like and odometer and a gyroscope*/
+
 void LocAppCom::VehicleKinematicsModule(void){
     //Coordinates of the sumo.net boundingbox
     double lat0 = -22.910044, lon0 = -43.207808;
@@ -144,15 +145,21 @@ void LocAppCom::VehicleKinematicsModule(void){
 }
 
 void LocAppCom::LeastSquares(std::list<NeighborNode>* listNeighbor){
-
+    int i;
     //capture the total of neighbors
     int neighborListSize = listNeighbor->size();
     //Create an matrix
     TNT::Array2D<double> A =  TNT::Array2D<double>(neighborListSize,2);
 
     TNT::Array2D<double> b =  TNT::Array2D<double>(neighborListSize,2);
+
     //get the node position
-    Coord discoverNode = mobility->getCurrentPosition();
+    Coord unknowNode = mobility->getCurrentPosition();
+
+    for (std::list<NeighborNode>::iterator it = fifth.begin(), i = 0; it != fifth.end(); it++, i++){
+        A[i][0] =  2.0 * it->realPosition.x - unknowNode
+    }
+
 
 
 
