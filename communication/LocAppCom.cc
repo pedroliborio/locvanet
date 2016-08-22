@@ -43,7 +43,7 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
         case SEND_BEACON_EVT: {
             //Update Vehicle Kinematics Information
             //VehicleKinematicsModule(void);
-            //Update GDR Information
+            //Update GDR Information//
             //.....
             //Update GPS Information
             //....
@@ -85,7 +85,7 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //NeighborNode Position
     neighborNode.realPosition = wsm->getSenderPos();
     //NeighborNode Euclidean "Real" Distance
-    neighborNode.realDistance = mobility->getCurrentPosition().sqrdist(neighborNode.position);
+    //neighborNode.realDistance = mobility->getCurrentPosition().sqrdist(neighborNode.position);
     //TODO Calc the RSSI Distance
     //TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
     listNeighbors.push_front(neighborNode);
@@ -145,29 +145,27 @@ void LocAppCom::VehicleKinematicsModule(void){
 }
 
 void LocAppCom::LeastSquares(std::list<NeighborNode>* listNeighbor){
-    int i;
     //capture the total of neighbors
     int neighborListSize = listNeighbor->size();
+    int i = 0;
+    double distance;
     //Create an matrix
-    TNT::Array2D<double> A =  TNT::Array2D<double>(neighborListSize,2);
-
-    TNT::Array2D<double> b =  TNT::Array2D<double>(neighborListSize,2);
+    TNT::Array2D<double> A(neighborListSize,2);
+    TNT::Array2D<double> b(neighborListSize,1);
 
     //get the node position
+    //I want to know a estimated position based on information provided by neighbors
     Coord unknowNode = mobility->getCurrentPosition();
 
-    for (std::list<NeighborNode>::iterator it = fifth.begin(), i = 0; it != fifth.end(); it++, i++){
-        A[i][0] =  2.0 * it->realPosition.x - unknowNode
+    for (std::list<NeighborNode>::iterator it = listNeighbor->begin(); it != listNeighbor->end(); it++){
+        A[i][0] =  2.0 * it->realPosition.x - unknowNode.x;
+        A[i][1] =  2.0 * it->realPosition.y - unknowNode.y;
+
+        distance = ;
+        b[i][0] = pow(unknowNode.distance(it->realPosition),2) - pow(,2)
     }
 
 
-
-
-
-
-    //for (std::list<NeighborNode>::iterator it=listNeighbor.begin(); it != listNeighbor.end(); ++it){
-
-    //}
 }
 
 

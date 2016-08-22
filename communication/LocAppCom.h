@@ -50,6 +50,7 @@ class LocAppCom : public BaseWaveApplLayer {
         TraCIMobility* mobility;
         TraCICommandInterface* traci;
 
+        //Struct with the attributes of a neighbor node
         struct NeighborNode{
             Coord realPosition;
             double realDistance;
