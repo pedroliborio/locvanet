@@ -79,7 +79,8 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void handleSelfMsg(cMessage* msg);
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
-        void LeastSquares(std::list<NeighborNode>* listNeighbor);
+        void LeastSquares(void);
+       // void UpdateNeighborsList(void);
 };
 
 #endif
