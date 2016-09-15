@@ -32,6 +32,7 @@ void LocAppCom::initialize(int stage){
         this->lastSUMOPos.x = vehCoord.x;
         this->lastSUMOPos.y = vehCoord.y;
         traci = mobility->getCommandInterface();
+
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
     }
@@ -190,7 +191,7 @@ void LocAppCom::LeastSquares(void){
     }
 
     JAMA::QR<double> qrFact(A);
-    X = qrFact.solve(b);
+    x = qrFact.solve(b);
 
     //Debugging values
     EV << "Matrix A:"<<"\n";
@@ -200,13 +201,13 @@ void LocAppCom::LeastSquares(void){
 
     EV << "Matrix b:"<<"\n";
     for(i=0; i < totalAnchorNodes; i++){
-        EV << b[i][0] << "\n";
+        EV << b[i] << "\n";
     }
 
     EV << "Matrix X:"<<"\n";
-    j  = X.dim1();
+    j  = x.dim1();
     for(i=0; i < j; i++){
-        EV << X[i][0] << "\n";
+        EV << x[i] << "\n";
     }
 
     EV << "My real position in LS" << mobility->getCurrentPosition() << "\n";
