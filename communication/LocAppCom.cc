@@ -80,6 +80,9 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     ***/
 
     EV << "Vehicle:" << wsm->getSenderAddress() << "Position Received: " << wsm->getSenderPos()<<"\n";
+    EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRcvdPower()<<"\n";
+
+
 
     //Here the vehicle need to maintain a vector with the position of neighbors
     NeighborNode neighborNode;
@@ -214,71 +217,3 @@ void LocAppCom::LeastSquares(void){
 
     //Verify the problem with 3D position affecting the calculation...
 }
-
-/*void LeastSquares(){
- * // subtract one equation by the others... We using teh first equation
-    int i = 0, j;
-    double dIesimo, dNodeToSubtract;
-    //Create an matrix
-    TNT::Array2D<double> A(TAM-1,2);
-    TNT::Array1D<double> b(TAM-1);
-    TNT::Array1D<double> x(TAM-1);
-
-    Coord positions[TAM];
-    Coord unknowNode;
-
-    unknowNode.x = 407.30;
-    unknowNode.y = 209.28;
-
-    Coord nodeToSubtract;
-
-    nodeToSubtract = positions[TAM-1];
-    cout << nodeToSubtract.x << ' ' << nodeToSubtract.y << " Node To subtract\n\n";
-
-    cout << unknowNode.x << ' ' << unknowNode.y << "Unknow Node\n\n";
-
-    cout << "List of nodes\n\n";
-    for(i=0; i < TAM-1; i++){
-        cout << positions[i].x << ' ' << positions[i].y << '\n';
-    }
-
-    for (i=0; i < TAM-1; i++){
-
-        A[i][0] =  2.0 * (positions[i].x - nodeToSubtract.x);
-        A[i][1] =  2.0 * (positions[i].y - nodeToSubtract.y);
-
-        dIesimo = Distance(unknowNode,positions[i]);
-        dNodeToSubtract = Distance(unknowNode,nodeToSubtract);
-
-        cout << "DIesimo:" << dIesimo << '\n';
-        cout << "DNodeToSubtract:" << dNodeToSubtract << '\n';
-
-        b[i] =  ( pow(dNodeToSubtract,2) - pow(dIesimo,2) ) +
-                ( pow(positions[i].x,2) - pow(nodeToSubtract.x,2) ) +
-                ( pow(positions[i].y,2) - pow(nodeToSubtract.y,2) );
-    }
-
-    JAMA::QR<double> qrFact(A);
-    x = qrFact.solve(b);
-
-    //Debugging values
-    cout << "Matrix A:"<<"\n";
-    for(i=0; i < TAM-1; i++){
-        cout << A[i][0] << " - " << A[i][1] << "\n";
-    }
-
-    std::cout << "Matrix b:"<<"\n";
-    for(i=0; i < TAM-1; i++){
-        cout << b[i] << "\n";
-    }
-
-    std::cout << "Final Position:"<<"\n";
-    j  = x.dim1();
-    for(i=0; i < j; i++){
-        cout << x[i] << "\n";
-    }
-
-}*/
-
-
-
