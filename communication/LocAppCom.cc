@@ -82,8 +82,6 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     EV << "Vehicle:" << wsm->getSenderAddress() << "Position Received: " << wsm->getSenderPos()<<"\n";
     EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRcvdPower()<<"\n";
 
-
-
     //Here the vehicle need to maintain a vector with the position of neighbors
     NeighborNode neighborNode;
     //NeighborNode Position
