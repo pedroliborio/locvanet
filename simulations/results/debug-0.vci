@@ -1,15 +1,15 @@
                                                                 
 version 2
-run debug-0-20160919-16:58:35-15604
+run debug-0-20160921-19:50:14-5481
 attr configname debug
-attr datetime 20160919-16:58:35
+attr datetime 20160921-19:50:14
 attr experiment debug
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network com.liborio.locvanet.LocScenario
-attr processid 15604
+attr processid 5481
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -86,6 +86,3 @@ vector 26  LocScenario.node[3].veinsmobility  acceleration  ETV
 vector 27  LocScenario.node[3].veinsmobility  co2emission  ETV
 vector 30  LocScenario.node[4].veinsmobility  posx  ETV
 vector 31  LocScenario.node[4].veinsmobility  posy  ETV
-vector 32  LocScenario.node[4].veinsmobility  speed  ETV
-vector 33  LocScenario.node[4].veinsmobility  acceleration  ETV
-vector 34  LocScenario.node[4].veinsmobility  co2emission  ETV

@@ -78,9 +78,9 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //annotations->scheduleErase(1, annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
     //annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
     ***/
-
     EV << "Vehicle:" << wsm->getSenderAddress() << "Position Received: " << wsm->getSenderPos()<<"\n";
-    EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRcvdPower()<<"\n";
+    EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRxPower()<<"\n";
+
 
     //Here the vehicle need to maintain a vector with the position of neighbors
     NeighborNode neighborNode;
