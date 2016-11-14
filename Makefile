@@ -1,12 +1,12 @@
 #
-# OMNeT++/OMNEST Makefile for LocVanet
+# OMNeT++/OMNEST Makefile for locvanet
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -I../veins/src -L../veins/out/$$\(CONFIGNAME\)/src -lveins -KVEINS_PROJ=../veins
+#  opp_makemake -f --deep -O out -I../veins4/src -L../veins4/out/$$\(CONFIGNAME\)/src -lveins4 -KVEINS4_PROJ=../veins4
 #
 
 # Name of target to be created (-o option)
-TARGET = LocVanet$(EXE_SUFFIX)
+TARGET = locvanet$(EXE_SUFFIX)
 
 # User interface (uncomment one) (-u option)
 USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LIBS)
@@ -16,7 +16,7 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LI
 
 # C++ include paths (with -I)
 INCLUDE_PATH = \
-    -I../veins/src \
+    -I../veins4/src \
     -I. \
     -Icommunication \
     -Ilocalization \
@@ -35,8 +35,8 @@ INCLUDE_PATH = \
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = -L../veins/out/$(CONFIGNAME)/src  -lveins
-LIBS += -Wl,-rpath,`abspath ../veins/out/$(CONFIGNAME)/src`
+LIBS = -L../veins4/out/$(CONFIGNAME)/src  -lveins4
+LIBS += -Wl,-rpath,`abspath ../veins4/out/$(CONFIGNAME)/src`
 
 # Output directory
 PROJECT_OUTPUT_DIR = out
@@ -46,44 +46,44 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 # Object files for local .cc, .msg and .sm files
 OBJS = \
     $O/communication/LocAppCom.o \
+    $O/localization/GeographicLib/src/GeodesicLineExact.o \
+    $O/localization/GeographicLib/src/CircularEngine.o \
+    $O/localization/GeographicLib/src/DMS.o \
+    $O/localization/GeographicLib/src/Gnomonic.o \
+    $O/localization/GeographicLib/src/Ellipsoid.o \
+    $O/localization/GeographicLib/src/Utility.o \
+    $O/localization/GeographicLib/src/Geohash.o \
+    $O/localization/GeographicLib/src/GeodesicExact.o \
+    $O/localization/GeographicLib/src/GeodesicExactC4.o \
     $O/localization/GeographicLib/src/EllipticFunction.o \
     $O/localization/GeographicLib/src/GeodesicLine.o \
-    $O/localization/GeographicLib/src/Georef.o \
-    $O/localization/GeographicLib/src/NormalGravity.o \
-    $O/localization/GeographicLib/src/GARS.o \
-    $O/localization/GeographicLib/src/GravityModel.o \
-    $O/localization/GeographicLib/src/GravityCircle.o \
-    $O/localization/GeographicLib/src/Geohash.o \
     $O/localization/GeographicLib/src/MagneticModel.o \
-    $O/localization/GeographicLib/src/Ellipsoid.o \
-    $O/localization/GeographicLib/src/Accumulator.o \
-    $O/localization/GeographicLib/src/Gnomonic.o \
+    $O/localization/GeographicLib/src/SphericalEngine.o \
     $O/localization/GeographicLib/src/LocalCartesian.o \
-    $O/localization/GeographicLib/src/GeodesicLineExact.o \
-    $O/localization/GeographicLib/src/MGRS.o \
+    $O/localization/GeographicLib/src/GravityModel.o \
+    $O/localization/GeographicLib/src/TransverseMercator.o \
+    $O/localization/GeographicLib/src/NormalGravity.o \
+    $O/localization/GeographicLib/src/GravityCircle.o \
     $O/localization/GeographicLib/src/Rhumb.o \
+    $O/localization/GeographicLib/src/AzimuthalEquidistant.o \
+    $O/localization/GeographicLib/src/MGRS.o \
+    $O/localization/GeographicLib/src/GeoCoords.o \
+    $O/localization/GeographicLib/src/LambertConformalConic.o \
+    $O/localization/GeographicLib/src/PolarStereographic.o \
+    $O/localization/GeographicLib/src/MagneticCircle.o \
+    $O/localization/GeographicLib/src/Geocentric.o \
+    $O/localization/GeographicLib/src/CassiniSoldner.o \
+    $O/localization/GeographicLib/src/OSGB.o \
+    $O/localization/GeographicLib/src/PolygonArea.o \
+    $O/localization/GeographicLib/src/Geoid.o \
     $O/localization/GeographicLib/src/AlbersEqualArea.o \
     $O/localization/GeographicLib/src/TransverseMercatorExact.o \
-    $O/localization/GeographicLib/src/SphericalEngine.o \
-    $O/localization/GeographicLib/src/OSGB.o \
-    $O/localization/GeographicLib/src/GeodesicExactC4.o \
-    $O/localization/GeographicLib/src/TransverseMercator.o \
-    $O/localization/GeographicLib/src/Geodesic.o \
-    $O/localization/GeographicLib/src/MagneticCircle.o \
-    $O/localization/GeographicLib/src/PolygonArea.o \
-    $O/localization/GeographicLib/src/GeodesicExact.o \
-    $O/localization/GeographicLib/src/CircularEngine.o \
-    $O/localization/GeographicLib/src/Geoid.o \
-    $O/localization/GeographicLib/src/GeoCoords.o \
-    $O/localization/GeographicLib/src/Geocentric.o \
     $O/localization/GeographicLib/src/UTMUPS.o \
-    $O/localization/GeographicLib/src/CassiniSoldner.o \
-    $O/localization/GeographicLib/src/LambertConformalConic.o \
-    $O/localization/GeographicLib/src/AzimuthalEquidistant.o \
-    $O/localization/GeographicLib/src/DMS.o \
     $O/localization/GeographicLib/src/Math.o \
-    $O/localization/GeographicLib/src/PolarStereographic.o \
-    $O/localization/GeographicLib/src/Utility.o
+    $O/localization/GeographicLib/src/Geodesic.o \
+    $O/localization/GeographicLib/src/GARS.o \
+    $O/localization/GeographicLib/src/Accumulator.o \
+    $O/localization/GeographicLib/src/Georef.o
 
 # Message files
 MSGFILES =
@@ -92,7 +92,7 @@ MSGFILES =
 SMFILES =
 
 # Other makefile variables (-K)
-VEINS_PROJ=../veins
+VEINS4_PROJ=../veins4
 
 #------------------------------------------------------------------------------
 
@@ -171,7 +171,7 @@ smheaders: $(SMFILES:.sm=_sm.h)
 clean:
 	$(qecho) Cleaning...
 	$(Q)-rm -rf $O
-	$(Q)-rm -f LocVanet LocVanet.exe libLocVanet.so libLocVanet.a libLocVanet.dll libLocVanet.dylib
+	$(Q)-rm -f locvanet locvanet.exe liblocvanet.so liblocvanet.a liblocvanet.dll liblocvanet.dylib
 	$(Q)-rm -f ./*_m.cc ./*_m.h ./*_sm.cc ./*_sm.h
 	$(Q)-rm -f communication/*_m.cc communication/*_m.h communication/*_sm.cc communication/*_sm.h
 	$(Q)-rm -f localization/*_m.cc localization/*_m.h localization/*_sm.cc localization/*_sm.h
@@ -201,40 +201,40 @@ $O/communication/LocAppCom.o: communication/LocAppCom.cc \
 	localization/tnt_126/tnt_array2d.h \
 	localization/tnt_126/tnt_i_refvec.h \
 	localization/tnt_126/tnt_math_utils.h \
-	$(VEINS_PROJ)/src/veins/base/connectionManager/BaseConnectionManager.h \
-	$(VEINS_PROJ)/src/veins/base/connectionManager/ChannelAccess.h \
-	$(VEINS_PROJ)/src/veins/base/connectionManager/NicEntry.h \
-	$(VEINS_PROJ)/src/veins/base/modules/BaseApplLayer.h \
-	$(VEINS_PROJ)/src/veins/base/modules/BaseBattery.h \
-	$(VEINS_PROJ)/src/veins/base/modules/BaseLayer.h \
-	$(VEINS_PROJ)/src/veins/base/modules/BaseMobility.h \
-	$(VEINS_PROJ)/src/veins/base/modules/BaseModule.h \
-	$(VEINS_PROJ)/src/veins/base/modules/BaseWorldUtility.h \
-	$(VEINS_PROJ)/src/veins/base/modules/BatteryAccess.h \
-	$(VEINS_PROJ)/src/veins/base/utils/Coord.h \
-	$(VEINS_PROJ)/src/veins/base/utils/FWMath.h \
-	$(VEINS_PROJ)/src/veins/base/utils/FindModule.h \
-	$(VEINS_PROJ)/src/veins/base/utils/HostState.h \
-	$(VEINS_PROJ)/src/veins/base/utils/MiXiMDefs.h \
-	$(VEINS_PROJ)/src/veins/base/utils/Move.h \
-	$(VEINS_PROJ)/src/veins/base/utils/NetwToMacControlInfo.h \
-	$(VEINS_PROJ)/src/veins/base/utils/PassedMessage.h \
-	$(VEINS_PROJ)/src/veins/base/utils/SimpleAddress.h \
-	$(VEINS_PROJ)/src/veins/base/utils/miximkerneldefs.h \
-	$(VEINS_PROJ)/src/veins/modules/application/ieee80211p/BaseWaveApplLayer.h \
-	$(VEINS_PROJ)/src/veins/modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
-	$(VEINS_PROJ)/src/veins/modules/messages/WaveShortMessage_m.h \
-	$(VEINS_PROJ)/src/veins/modules/mobility/traci/TraCIBuffer.h \
-	$(VEINS_PROJ)/src/veins/modules/mobility/traci/TraCIColor.h \
-	$(VEINS_PROJ)/src/veins/modules/mobility/traci/TraCICommandInterface.h \
-	$(VEINS_PROJ)/src/veins/modules/mobility/traci/TraCIConnection.h \
-	$(VEINS_PROJ)/src/veins/modules/mobility/traci/TraCICoord.h \
-	$(VEINS_PROJ)/src/veins/modules/mobility/traci/TraCIMobility.h \
-	$(VEINS_PROJ)/src/veins/modules/mobility/traci/TraCIScenarioManager.h \
-	$(VEINS_PROJ)/src/veins/modules/obstacle/Obstacle.h \
-	$(VEINS_PROJ)/src/veins/modules/obstacle/ObstacleControl.h \
-	$(VEINS_PROJ)/src/veins/modules/utility/Consts80211p.h \
-	$(VEINS_PROJ)/src/veins/modules/world/annotations/AnnotationManager.h
+	$(VEINS4_PROJ)/src/veins/base/connectionManager/BaseConnectionManager.h \
+	$(VEINS4_PROJ)/src/veins/base/connectionManager/ChannelAccess.h \
+	$(VEINS4_PROJ)/src/veins/base/connectionManager/NicEntry.h \
+	$(VEINS4_PROJ)/src/veins/base/modules/BaseApplLayer.h \
+	$(VEINS4_PROJ)/src/veins/base/modules/BaseBattery.h \
+	$(VEINS4_PROJ)/src/veins/base/modules/BaseLayer.h \
+	$(VEINS4_PROJ)/src/veins/base/modules/BaseMobility.h \
+	$(VEINS4_PROJ)/src/veins/base/modules/BaseModule.h \
+	$(VEINS4_PROJ)/src/veins/base/modules/BaseWorldUtility.h \
+	$(VEINS4_PROJ)/src/veins/base/modules/BatteryAccess.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/Coord.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/FWMath.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/FindModule.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/HostState.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/MiXiMDefs.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/Move.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/NetwToMacControlInfo.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/PassedMessage.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/SimpleAddress.h \
+	$(VEINS4_PROJ)/src/veins/base/utils/miximkerneldefs.h \
+	$(VEINS4_PROJ)/src/veins/modules/application/ieee80211p/BaseWaveApplLayer.h \
+	$(VEINS4_PROJ)/src/veins/modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
+	$(VEINS4_PROJ)/src/veins/modules/messages/WaveShortMessage_m.h \
+	$(VEINS4_PROJ)/src/veins/modules/mobility/traci/TraCIBuffer.h \
+	$(VEINS4_PROJ)/src/veins/modules/mobility/traci/TraCIColor.h \
+	$(VEINS4_PROJ)/src/veins/modules/mobility/traci/TraCICommandInterface.h \
+	$(VEINS4_PROJ)/src/veins/modules/mobility/traci/TraCIConnection.h \
+	$(VEINS4_PROJ)/src/veins/modules/mobility/traci/TraCICoord.h \
+	$(VEINS4_PROJ)/src/veins/modules/mobility/traci/TraCIMobility.h \
+	$(VEINS4_PROJ)/src/veins/modules/mobility/traci/TraCIScenarioManager.h \
+	$(VEINS4_PROJ)/src/veins/modules/obstacle/Obstacle.h \
+	$(VEINS4_PROJ)/src/veins/modules/obstacle/ObstacleControl.h \
+	$(VEINS4_PROJ)/src/veins/modules/utility/Consts80211p.h \
+	$(VEINS4_PROJ)/src/veins/modules/world/annotations/AnnotationManager.h
 $O/localization/GeographicLib/src/Accumulator.o: localization/GeographicLib/src/Accumulator.cc
 $O/localization/GeographicLib/src/AlbersEqualArea.o: localization/GeographicLib/src/AlbersEqualArea.cc
 $O/localization/GeographicLib/src/AzimuthalEquidistant.o: localization/GeographicLib/src/AzimuthalEquidistant.cc
