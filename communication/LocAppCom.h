@@ -32,6 +32,8 @@
 #include <tnt_array2d.h>
 #include <jama_qr.h>
 
+#include <fstream>
+
 using Veins::TraCIMobility;
 using Veins::TraCICommandInterface;
 
@@ -54,7 +56,7 @@ class LocAppCom : public BaseWaveApplLayer {
         struct NeighborNode{
             Coord realPosition;
             double realDistance;
-            //double rssiDistance;
+            double rssiDistance;
             //simtime_t timestamp;
         };
     protected:

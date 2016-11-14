@@ -35,6 +35,7 @@ void LocAppCom::initialize(int stage){
 
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
+
     }
 
 }
@@ -53,7 +54,7 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
             //Put current position in the beacon
             wsm->setSenderPos(mobility->getCurrentPosition());
             //Write Output (just for debug)
-            EV << "Vehicle:" << wsm->getSenderAddress() << "Position Sent:" << wsm->getSenderPos()<<"\n";
+            std::cout << "Function HandleSelfMessage - Vehicle " << wsm->getSenderAddress() << "Position Sent:" << wsm->getSenderPos()<<"\n";
             //send the message
             sendWSM(wsm);
             //Draw annotation
@@ -78,10 +79,15 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //annotations->scheduleErase(1, annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
     //annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
     ***/
-    EV << "Vehicle:" << wsm->getSenderAddress() << "Position Received: " << wsm->getSenderPos()<<"\n";
-    EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRxPower()<<"\n";
+
+    //Beacon Log File...
+    std::cout << "Function On Beacon - Vehicle " << myId << "received a beacon from Vehicle " << wsm->getSenderAddress() << " Position Received " << wsm->getSenderPos()<<"\n";
+    std::fstream beaconLogFile(std::to_string(myId)+".txt", std::fstream::app);
+    beaconLogFile << wsm->getSenderAddress() << '\t' << wsm->getSenderPos() << '\t' << wsm->getTimestamp() << '\n';
+    beaconLogFile.close();
 
 
+    //TODO GetRSSI EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRxPower()<<"\n";
     //Here the vehicle need to maintain a vector with the position of neighbors
     NeighborNode neighborNode;
     //NeighborNode Position
@@ -97,8 +103,8 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     listNeighbors.push_front(neighborNode);
 
     if(listNeighbors.size() > 3){
-        //TODO Call Multitrilateration Method
-        EV << "My real position out LS" << mobility->getCurrentPosition() << "\n";
+        //TODO Call Multilateration Method
+        std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n";
         LeastSquares();
     }
 
@@ -181,6 +187,7 @@ void LocAppCom::LeastSquares(void){
     for (; it != listNeighbors.end(); it++){
         //Calculate de distance from the Neighbor node to the unknowNode...
         it->realDistance = it->realPosition.distance(unknowNode);
+
         //Filling the Matrix A
         A[i][0] =  2.0 * (it->realPosition.x - nodeToSubtract.realPosition.x);
         A[i][0] =  2.0 * (it->realPosition.y - nodeToSubtract.realPosition.y);
@@ -195,23 +202,23 @@ void LocAppCom::LeastSquares(void){
     x = qrFact.solve(b);
 
     //Debugging values
-    EV << "Matrix A:"<<"\n";
+    std::cout << "Function Least Squares - Matrix A:"<<"\n";
     for(i=0; i < totalAnchorNodes; i++){
-        EV << A[i][0] << " - " << A[i][1] << "\n";
+        std::cout << A[i][0] << " - " << A[i][1] << "\n";
     }
 
-    EV << "Matrix b:"<<"\n";
+    std::cout << "Function Least Squares - Matrix b:"<<"\n";
     for(i=0; i < totalAnchorNodes; i++){
-        EV << b[i] << "\n";
+        std::cout << b[i] << "\n";
     }
 
-    EV << "Matrix X:"<<"\n";
+    std::cout << "Function Least Squares - Matrix X:"<<"\n";
     j  = x.dim1();
     for(i=0; i < j; i++){
-        EV << x[i] << "\n";
+        std::cout << x[i] << "\n";
     }
 
-    EV << "My real position in LS" << mobility->getCurrentPosition() << "\n";
+    std::cout << "Function Least Squares - My real position " << mobility->getCurrentPosition() << "\n";
 
     //Verify the problem with 3D position affecting the calculation...
 }
