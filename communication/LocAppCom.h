@@ -53,12 +53,12 @@ class LocAppCom : public BaseWaveApplLayer {
         TraCICommandInterface* traci;
 
         //Struct with the attributes of a neighbor node
-        struct NeighborNode{
+        struct AnchorNode_t{
             Coord realPosition;
             double realDistance;
             double rssiDistance;
             //simtime_t timestamp;
-        };
+        };typedef struct AnchorNode_t AnchorNode;
     protected:
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
@@ -70,7 +70,7 @@ class LocAppCom : public BaseWaveApplLayer {
         Coord coopPosPos;
         double bearing; //Bearing given by Geodesic Inverse (Giroscope)
         double distance; //Distance given by Geodesic Direct (Odometer)
-        std::list<NeighborNode> listNeighbors;//list of neighbors vehicles
+        std::vector <AnchorNode> anchorNodes;//vector of neighbor vehicles
 
     protected:
         //This method will manipulates the information received from a message

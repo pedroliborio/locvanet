@@ -89,22 +89,30 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
 
     //TODO GetRSSI EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRxPower()<<"\n";
     //Here the vehicle need to maintain a vector with the position of neighbors
-    NeighborNode neighborNode;
+    AnchorNode anchorNode;
     //NeighborNode Position
-    neighborNode.realPosition = wsm->getSenderPos();
+    anchorNode.realPosition = wsm->getSenderPos();
     //NeighborNode Euclidean "Real" Distance
     //neighborNode.realDistance = mobility->getCurrentPosition().sqrdist(neighborNode.position);
     //TODO Calc the RSSI Distance
     //https://groups.google.com/forum/#!topic/omnetpp/2ZqWow5QGS0
     //
+    //actual size of the vector of anchor nodes
+    std::size_t totalAnchorNodes = anchorNodes.size();
+
+    //If the anchor node already exists only actualize their value
+    if((std::size_t) wsm->getSenderAddress()  <  totalAnchorNodes){
+        anchorNodes[wsm->getSenderAddress()] = anchorNode;
+    }
+    else{// New anchor node found, increase the vector and storage new anchor node information
+        anchorNodes.push_back (anchorNode);
+    }
     //TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
-
-
-    listNeighbors.push_front(neighborNode);
-
-    if(listNeighbors.size() > 3){
+    //TODO Discard anchor node information with timestamp > than a determined threshold (maybe 100ms)...
+    //If there are 3 or more anchor nodes call multilateration method
+    if(totalAnchorNodes > 3){
         //TODO Call Multilateration Method
-        std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n";
+        std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n\n";
         LeastSquares();
     }
 
@@ -159,11 +167,11 @@ void LocAppCom::VehicleKinematicsModule(void){
 }
 
 void LocAppCom::LeastSquares(void){
-    int i = 0, j;
+    std::size_t i, j;
+    //double distIesimoNode;
 
-    //Capture the total of neighbors minus the node to subtract
-    //in the overdetermined system of equations (-1)
-    int totalAnchorNodes = listNeighbors.size() - 1;
+    //total of anchor nodes
+    std::size_t totalAnchorNodes = anchorNodes.size();
 
     //Create matrixes using the TNT library
     //Composing the Linear Equation Ax - b to be solved by LeastSquares
@@ -174,28 +182,27 @@ void LocAppCom::LeastSquares(void){
     //Position of ego vehicle (that want discover your own position by the network)
     Coord unknowNode = mobility->getCurrentPosition();
 
-    //Subtract on equation by the others...
-    //We using the first coordinate
-    NeighborNode nodeToSubtract;
-    nodeToSubtract.realPosition = listNeighbors.begin()->realPosition;
+    //Subtract the position of one anchorNode by the others
+    //We using the last node
+    //TODO After, we will improve this distance needed to be calculated by RSSI
+    AnchorNode nodeToSubtract;
+    nodeToSubtract.realPosition = anchorNodes[totalAnchorNodes-1].realPosition;
     nodeToSubtract.realDistance = nodeToSubtract.realPosition.distance(unknowNode);
+    std::cout << "Function Least Squares - Distance to NodeSubtract " << nodeToSubtract.realDistance << '\n';
 
-    //Beginning from the second position (advance one position in the list)
-    std::list<NeighborNode>::iterator it = listNeighbors.begin();
-    std::advance(it, 1);
-
-    for (; it != listNeighbors.end(); it++){
-        //Calculate de distance from the Neighbor node to the unknowNode...
-        it->realDistance = it->realPosition.distance(unknowNode);
+    for (i=0; i < totalAnchorNodes; i++){
+        //Calculate the distance from the Neighbor node to the unknowNode... Will be by RSSI after...
+        anchorNodes[i].realDistance = anchorNodes[i].realPosition.distance(unknowNode);
+        std::cout << "Function Least Squares - Distance to AnchorNode "<< i <<" "<< anchorNodes[i].realDistance << '\n';
 
         //Filling the Matrix A
-        A[i][0] =  2.0 * (it->realPosition.x - nodeToSubtract.realPosition.x);
-        A[i][0] =  2.0 * (it->realPosition.y - nodeToSubtract.realPosition.y);
+        A[i][0] =  2.0 * (anchorNodes[i].realPosition.x - nodeToSubtract.realPosition.x);
+        A[i][0] =  2.0 * (anchorNodes[i].realPosition.y - nodeToSubtract.realPosition.y);
+
         //Filling Matrix b
-        b[i] = pow(nodeToSubtract.realDistance,2) - pow(it->realDistance,2) +
-               pow(it->realPosition.x,2) - pow(nodeToSubtract.realPosition.x,2) +
-               pow(it->realPosition.y,2) - pow(nodeToSubtract.realPosition.y,2);
-        i++;
+        b[i] = pow(nodeToSubtract.realDistance,2) - pow(anchorNodes[i].realDistance,2) +
+               pow(anchorNodes[i].realPosition.x,2) - pow(nodeToSubtract.realPosition.x,2) +
+               pow(anchorNodes[i].realPosition.y,2) - pow(nodeToSubtract.realPosition.y,2);
     }
 
     JAMA::QR<double> qrFact(A);
@@ -218,7 +225,7 @@ void LocAppCom::LeastSquares(void){
         std::cout << x[i] << "\n";
     }
 
-    std::cout << "Function Least Squares - My real position " << mobility->getCurrentPosition() << "\n";
+    std::cout << "Function Least Squares - My real position " << mobility->getCurrentPosition() << "\n\n";
 
     //Verify the problem with 3D position affecting the calculation...
 }
