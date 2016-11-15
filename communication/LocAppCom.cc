@@ -101,22 +101,42 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     std::size_t totalAnchorNodes = anchorNodes.size();
 
     //If the anchor node already exists only actualize their value
-    if((std::size_t) wsm->getSenderAddress()  <  totalAnchorNodes){
+
+    UpdateNeighborList();
+
+    if{
         anchorNodes[wsm->getSenderAddress()] = anchorNode;
     }
     else{// New anchor node found, increase the vector and storage new anchor node information
         anchorNodes.push_back (anchorNode);
     }
-    //TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
+    std::cout << "List of Neighbor Vehicles\n";
+    for (int i=0; i < (int)totalAnchorNodes; i++){
+        std::cout << "Vehicle "<< std::to_string(i) <<' '<<anchorNodes[i].realPosition <<"\n\n";
+    }
+
+    /*//TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
     //TODO Discard anchor node information with timestamp > than a determined threshold (maybe 100ms)...
     //If there are 3 or more anchor nodes call multilateration method
     if(totalAnchorNodes > 3){
         //TODO Call Multilateration Method
         std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n\n";
         LeastSquares();
-    }
+    }*/
 
     //The begin of Cooperative Positioning Approach
+}
+
+void LocAppCom::UpdateNeighborList(AnchorNode anchorNode){
+    //Verify if anchor node already exists...
+    for(std::list<AnchorNode>::iterator it; it!= anchorNodes.end(); ++it){
+        if(it->vehID == anchorNode.vehID){
+            it->realPosition = anchorNode.realPosition;
+        }
+        else{
+            anchorNodes.push_back(anchorNode);
+        }
+    }
 }
 
 void LocAppCom::onData(WaveShortMessage* wsm){
@@ -160,18 +180,20 @@ void LocAppCom::VehicleKinematicsModule(void){
     this->bearing = azi1;
     //geod.Inverse(
     //Forward = between lat lon to x, y
-    //double lVillasat = 50.9, lon = 1.8, h = 0; // Calais
+    //double lat = 50.9, lon = 1.8, h = 0; // Calais
     //double x, y, z;
     //proj.Forward(lat, lon, h, x, y, z);
 
 }
 
 void LocAppCom::LeastSquares(void){
+    std::cout << "Function Least Squares - Vehicle" << myId << '\n';
     std::size_t i, j;
     //double distIesimoNode;
 
     //total of anchor nodes
-    std::size_t totalAnchorNodes = anchorNodes.size();
+    //we using totalAnchorNodes-1 because the last node note entry in the equation (will be subtracted by others);
+    std::size_t totalAnchorNodes = anchorNodes.size() - 1;
 
     //Create matrixes using the TNT library
     //Composing the Linear Equation Ax - b to be solved by LeastSquares
@@ -186,7 +208,7 @@ void LocAppCom::LeastSquares(void){
     //We using the last node
     //TODO After, we will improve this distance needed to be calculated by RSSI
     AnchorNode nodeToSubtract;
-    nodeToSubtract.realPosition = anchorNodes[totalAnchorNodes-1].realPosition;
+    nodeToSubtract.realPosition = anchorNodes[totalAnchorNodes].realPosition;
     nodeToSubtract.realDistance = nodeToSubtract.realPosition.distance(unknowNode);
     std::cout << "Function Least Squares - Distance to NodeSubtract " << nodeToSubtract.realDistance << '\n';
 
@@ -194,7 +216,6 @@ void LocAppCom::LeastSquares(void){
         //Calculate the distance from the Neighbor node to the unknowNode... Will be by RSSI after...
         anchorNodes[i].realDistance = anchorNodes[i].realPosition.distance(unknowNode);
         std::cout << "Function Least Squares - Distance to AnchorNode "<< i <<" "<< anchorNodes[i].realDistance << '\n';
-
         //Filling the Matrix A
         A[i][0] =  2.0 * (anchorNodes[i].realPosition.x - nodeToSubtract.realPosition.x);
         A[i][0] =  2.0 * (anchorNodes[i].realPosition.y - nodeToSubtract.realPosition.y);
@@ -221,6 +242,7 @@ void LocAppCom::LeastSquares(void){
 
     std::cout << "Function Least Squares - Matrix X:"<<"\n";
     j  = x.dim1();
+    std::cout << j<< '\n';
     for(i=0; i < j; i++){
         std::cout << x[i] << "\n";
     }
@@ -229,3 +251,5 @@ void LocAppCom::LeastSquares(void){
 
     //Verify the problem with 3D position affecting the calculation...
 }
+
+

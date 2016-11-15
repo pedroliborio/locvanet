@@ -33,6 +33,7 @@
 #include <jama_qr.h>
 
 #include <fstream>
+#define MAX_ANCHOR_NODES 100
 
 using Veins::TraCIMobility;
 using Veins::TraCICommandInterface;
@@ -54,10 +55,12 @@ class LocAppCom : public BaseWaveApplLayer {
 
         //Struct with the attributes of a neighbor node
         struct AnchorNode_t{
+            int vehID;
             Coord realPosition;
             double realDistance;
             double rssiDistance;
-            //simtime_t timestamp;
+            simtime_t timestamp;
+
         };typedef struct AnchorNode_t AnchorNode;
     protected:
         AnnotationManager* annotations;
@@ -70,7 +73,7 @@ class LocAppCom : public BaseWaveApplLayer {
         Coord coopPosPos;
         double bearing; //Bearing given by Geodesic Inverse (Giroscope)
         double distance; //Distance given by Geodesic Direct (Odometer)
-        std::vector <AnchorNode> anchorNodes;//vector of neighbor vehicles
+        std::list<AnchorNode> anchorNodes;//list of neighbor vehicles
 
     protected:
         //This method will manipulates the information received from a message
@@ -79,6 +82,7 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void onBeacon(WaveShortMessage* wsm);
         //This method crate a beacon with vehicle kinematics information
         virtual void handleSelfMsg(cMessage* msg);
+        void UpdateNeighborList(AnchorNode anchorNode);
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
         void LeastSquares(void);
