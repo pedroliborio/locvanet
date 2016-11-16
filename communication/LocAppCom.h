@@ -62,6 +62,7 @@ class LocAppCom : public BaseWaveApplLayer {
             simtime_t timestamp;
 
         };typedef struct AnchorNode_t AnchorNode;
+
     protected:
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
@@ -83,6 +84,7 @@ class LocAppCom : public BaseWaveApplLayer {
         //This method crate a beacon with vehicle kinematics information
         virtual void handleSelfMsg(cMessage* msg);
         void UpdateNeighborList(AnchorNode anchorNode);
+        void UpdateNeighborListDistances(void);
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
         void LeastSquares(void);

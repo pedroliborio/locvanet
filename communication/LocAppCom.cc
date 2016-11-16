@@ -32,7 +32,7 @@ void LocAppCom::initialize(int stage){
         this->lastSUMOPos.x = vehCoord.x;
         this->lastSUMOPos.y = vehCoord.y;
         traci = mobility->getCommandInterface();
-
+        std::cout << "Barril!"<< '\n';
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
 
@@ -43,13 +43,16 @@ void LocAppCom::initialize(int stage){
 void LocAppCom::handleSelfMsg(cMessage* msg){
     switch (msg->getKind()) {
         case SEND_BEACON_EVT: {
-            //Update Vehicle Kinematics Information
-            //VehicleKinematicsModule(void);
-            //Update GDR Information//
+            //Update the distances in the neighbors list because the vehicle is moving.
+            //UpdateNeighborListDistances();
+
+            //TODO Update Vehicle Kinematics Information
+                //VehicleKinematicsModule(void);
+                //Update GDR Information//
             //.....
             //Update GPS Information
             //....
-            //Create a beacon
+            //Create a beacon...
             WaveShortMessage* wsm = prepareWSM("beacon", beaconLengthBits, type_CCH, beaconPriority, 0, -1);
             //Put current position in the beacon
             wsm->setSenderPos(mobility->getCurrentPosition());
@@ -81,38 +84,30 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     ***/
 
     //Beacon Log File...
-    std::cout << "Function On Beacon - Vehicle " << myId << "received a beacon from Vehicle " << wsm->getSenderAddress() << " Position Received " << wsm->getSenderPos()<<"\n";
-    std::fstream beaconLogFile(std::to_string(myId)+".txt", std::fstream::app);
-    beaconLogFile << wsm->getSenderAddress() << '\t' << wsm->getSenderPos() << '\t' << wsm->getTimestamp() << '\n';
-    beaconLogFile.close();
+    //std::cout << "Function On Beacon - Vehicle " << myId << "received a beacon from Vehicle " << wsm->getSenderAddress() << " Position Received " << wsm->getSenderPos()<<"\n";
+    //std::fstream beaconLogFile(std::to_string(myId)+".txt", std::fstream::app);
+    //beaconLogFile << wsm->getSenderAddress() << '\t' << wsm->getSenderPos() << '\t' << wsm->getTimestamp() << '\n';
+    //beaconLogFile.close();
 
 
     //TODO GetRSSI EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRxPower()<<"\n";
     //Here the vehicle need to maintain a vector with the position of neighbors
     AnchorNode anchorNode;
-    //NeighborNode Position
     anchorNode.realPosition = wsm->getSenderPos();
+    anchorNode.vehID = wsm->getSenderAddress();
     //NeighborNode Euclidean "Real" Distance
     //neighborNode.realDistance = mobility->getCurrentPosition().sqrdist(neighborNode.position);
     //TODO Calc the RSSI Distance
     //https://groups.google.com/forum/#!topic/omnetpp/2ZqWow5QGS0
-    //
-    //actual size of the vector of anchor nodes
-    std::size_t totalAnchorNodes = anchorNodes.size();
 
-    //If the anchor node already exists only actualize their value
 
-    UpdateNeighborList();
+    //Update the list of neighbors vehicles
+    UpdateNeighborList(anchorNode);
+    UpdateNeighborListDistances();
 
-    if{
-        anchorNodes[wsm->getSenderAddress()] = anchorNode;
-    }
-    else{// New anchor node found, increase the vector and storage new anchor node information
-        anchorNodes.push_back (anchorNode);
-    }
     std::cout << "List of Neighbor Vehicles\n";
-    for (int i=0; i < (int)totalAnchorNodes; i++){
-        std::cout << "Vehicle "<< std::to_string(i) <<' '<<anchorNodes[i].realPosition <<"\n\n";
+    for(std::list<AnchorNode>::iterator it; it!= anchorNodes.end(); ++it){
+        std::cout << "Vehicle "<< it->vehID <<' '<<it->realPosition <<"\n\n";
     }
 
     /*//TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
@@ -127,14 +122,24 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //The begin of Cooperative Positioning Approach
 }
 
+//Update the list of neighbor vehicles with the new position
 void LocAppCom::UpdateNeighborList(AnchorNode anchorNode){
+    std::cout << "Barril!"<< '\n';
     //Verify if anchor node already exists...
-    for(std::list<AnchorNode>::iterator it; it!= anchorNodes.end(); ++it){
+    for(std::list<AnchorNode>::iterator it=anchorNodes.begin(); it!= anchorNodes.end(); ++it){
         if(it->vehID == anchorNode.vehID){
             it->realPosition = anchorNode.realPosition;
+            return;
         }
-        else{
-            anchorNodes.push_back(anchorNode);
+    }
+    anchorNodes.push_back(anchorNode);
+}
+
+//Update distances from ego vehicle to another vehicles...
+void LocAppCom::UpdateNeighborListDistances(){
+    if(anchorNodes.size() > 1){
+        for(std::list<AnchorNode>::iterator it= anchorNodes.begin(); it!= anchorNodes.end(); ++it){
+            it->realDistance = it->realPosition.distance(mobility->getCurrentPosition());
         }
     }
 }
@@ -188,12 +193,10 @@ void LocAppCom::VehicleKinematicsModule(void){
 
 void LocAppCom::LeastSquares(void){
     std::cout << "Function Least Squares - Vehicle" << myId << '\n';
-    std::size_t i, j;
-    //double distIesimoNode;
+    int i, j;
 
-    //total of anchor nodes
-    //we using totalAnchorNodes-1 because the last node note entry in the equation (will be subtracted by others);
-    std::size_t totalAnchorNodes = anchorNodes.size() - 1;
+    //Minus one because the last line of the matrix will be subtracted by the other
+    int totalAnchorNodes = anchorNodes.size() - 1;
 
     //Create matrixes using the TNT library
     //Composing the Linear Equation Ax - b to be solved by LeastSquares
@@ -204,26 +207,24 @@ void LocAppCom::LeastSquares(void){
     //Position of ego vehicle (that want discover your own position by the network)
     Coord unknowNode = mobility->getCurrentPosition();
 
-    //Subtract the position of one anchorNode by the others
-    //We using the last node
-    //TODO After, we will improve this distance needed to be calculated by RSSI
-    AnchorNode nodeToSubtract;
-    nodeToSubtract.realPosition = anchorNodes[totalAnchorNodes].realPosition;
-    nodeToSubtract.realDistance = nodeToSubtract.realPosition.distance(unknowNode);
-    std::cout << "Function Least Squares - Distance to NodeSubtract " << nodeToSubtract.realDistance << '\n';
+    //Subtract the position of the last anchorNode by the others in system of equations
+    std::list<AnchorNode>::iterator nodeToSubtract = anchorNodes.end();
+    std::list<AnchorNode>::iterator lastIter = anchorNodes.end();
+    std::advance(lastIter, -1);
 
-    for (i=0; i < totalAnchorNodes; i++){
-        //Calculate the distance from the Neighbor node to the unknowNode... Will be by RSSI after...
-        anchorNodes[i].realDistance = anchorNodes[i].realPosition.distance(unknowNode);
-        std::cout << "Function Least Squares - Distance to AnchorNode "<< i <<" "<< anchorNodes[i].realDistance << '\n';
+    std::cout << "Function Least Squares - Distance to NodeSubtract " << nodeToSubtract->realDistance << '\n';
+
+    i=0;
+    for(std::list<AnchorNode>::iterator it = anchorNodes.begin(); it!= lastIter; ++it){
         //Filling the Matrix A
-        A[i][0] =  2.0 * (anchorNodes[i].realPosition.x - nodeToSubtract.realPosition.x);
-        A[i][0] =  2.0 * (anchorNodes[i].realPosition.y - nodeToSubtract.realPosition.y);
+        A[i][0] =  2.0 * (it->realPosition.x - nodeToSubtract->realPosition.x);
+        A[i][1] =  2.0 * (it->realPosition.y - nodeToSubtract->realPosition.y);
 
         //Filling Matrix b
-        b[i] = pow(nodeToSubtract.realDistance,2) - pow(anchorNodes[i].realDistance,2) +
-               pow(anchorNodes[i].realPosition.x,2) - pow(nodeToSubtract.realPosition.x,2) +
-               pow(anchorNodes[i].realPosition.y,2) - pow(nodeToSubtract.realPosition.y,2);
+        b[i] = pow(nodeToSubtract->realDistance,2) - pow(it->realDistance,2) +
+               pow(it->realPosition.x,2) - pow(nodeToSubtract->realPosition.x,2) +
+               pow(it->realPosition.y,2) - pow(nodeToSubtract->realPosition.y,2);
+        i++;
     }
 
     JAMA::QR<double> qrFact(A);
@@ -249,7 +250,7 @@ void LocAppCom::LeastSquares(void){
 
     std::cout << "Function Least Squares - My real position " << mobility->getCurrentPosition() << "\n\n";
 
-    //Verify the problem with 3D position affecting the calculation...
+    //Verify the problem with 3D position affecting the calculation...*/
 }
 
 
