@@ -85,6 +85,7 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void handleSelfMsg(cMessage* msg);
         void UpdateNeighborList(AnchorNode anchorNode);
         void UpdateNeighborListDistances(void);
+        void PrintNeighborList(void);
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
         void LeastSquares(void);
