@@ -1,0 +1,1 @@
+../locvanet -u Cmdenv -r 0 -n ..:../../veins-RSSI/examples/veins:../../veins-RSSI/src/veins --image-path=../../veins-RSSI/images -l ../../veins-RSSI/src/veins-RSSI --debug-on-errors=false omnetpp.ini > saida.txt

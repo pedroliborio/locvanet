@@ -86,12 +86,19 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //Beacon Log File...
     std::cout << "Function On Beacon - Vehicle " << myId << "received a beacon from Vehicle " << wsm->getSenderAddress()
             << " Position Received "<< wsm->getSenderPos()
-            << " Position Received " << wsm->getSenderPos()
-            "\n";
+            << " Potency received" << wsm->getRxPower() << "\n";
 
-    //std::fstream beaconLogFile(std::to_string(myId)+".txt", std::fstream::app);
-    //beaconLogFile << wsm->getSenderAddress() << '\t' << wsm->getSenderPos() << '\t' << wsm->getTimestamp() << '\n';
-    //beaconLogFile.close();
+    //Estimated distance by RSSI..
+    //double distRSSI = 0.00404913 * pow(10,(-wsm->getRxPower()/20)) * sqrt(20);
+
+    std::fstream beaconLogFile(std::to_string(myId)+".txt", std::fstream::app);
+    beaconLogFile << wsm->getTimestamp() << '\t' << wsm->getSenderAddress() << '\t' << wsm->getSenderPos() << '\t' << wsm->getSenderPos().distance(mobility->getCurrentPosition()) << '\t' << wsm->getRxPower() << endl;
+    beaconLogFile.close();
+
+    //std::fstream rssiLogFile(std::to_string(myId)+"-RSSI-DIST.txt", std::fstream::app);
+    //rssiLogFile <<
+
+
 
 
     //TODO GetRSSI EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRxPower()<<"\n";
@@ -100,7 +107,7 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     anchorNode.realPosition = wsm->getSenderPos();
     anchorNode.vehID = wsm->getSenderAddress();
     //neighborNode.realDistance = mobility->getCurrentPosition().sqrdist(neighborNode.position);
-    //TODO Calc the RSSI Distance
+    //TODO Calc the RSSI Distancet
     //https://groups.google.com/forum/#!topic/omnetpp/2ZqWow5QGS0
     std::cout << "List of Neighbor Vehicles Before Update\n";
     PrintNeighborList();
