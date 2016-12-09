@@ -44,8 +44,7 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
         case SEND_BEACON_EVT: {
             //Update the distances in the neighbors list because the vehicle is moving.
             //Also call Least Squares to update self position estimation
-            UpdateNeighborListDistances();
-
+            //UpdateNeighborListDistances();
             //TODO Update Vehicle Kinematics Information
                 //VehicleKinematicsModule(void);
                 //Update GDR Information//
@@ -95,6 +94,7 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     beaconLogFile << wsm->getTimestamp() << '\t' << wsm->getSenderAddress() << '\t' << wsm->getSenderPos() << '\t' << wsm->getSenderPos().distance(mobility->getCurrentPosition()) << '\t' << wsm->getRxPower() << endl;
     beaconLogFile.close();
 
+
     //std::fstream rssiLogFile(std::to_string(myId)+"-RSSI-DIST.txt", std::fstream::app);
     //rssiLogFile <<
 
@@ -132,7 +132,7 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //The begin of Cooperative Positioning Approach
 }
 
-//Update the list of neighbor vehicles with the new position
+//Update thea position of a neighbor vehicle in the list
 void LocAppCom::UpdateNeighborList(AnchorNode anchorNode){
 
     //Verify if anchor node already exists...
@@ -207,6 +207,31 @@ void LocAppCom::VehicleKinematicsModule(void){
 
 }
 
+/*
+void LocAppCom::CalcDistRSSI(void){
+    double constVelLight = 299792458.0; //m/s
+    double lambda = 0.051; //for CCH frequency
+    double frequencyCCH = 5.890; //GHz
+    double potencyTx = 20.0; //mW
+    double alpha = 2.0;
+
+
+
+}
+*/
+
+//Calculate the RSSI based on free space model for different alpha values
+/*double LocAppCom::FreeSpace(double alpha, double c, double f, double lambda, double pTx, double d){
+    double rssi;
+    rssi = 10*math.log10(pTx) -
+           10 * math.log10((16* math.pi * math.pi * math.pow(d, alpha)) /
+           math.pow(lambda,alpha));
+    return rssi;
+}*/
+
+//double LocAppCom::TwoRayInterferenceModel
+
+//Least Squares Method to Trilateration
 void LocAppCom::LeastSquares(void){
     std::cout << "Function Least Squares - Vehicle" << myId << '\n';
     int i, j;

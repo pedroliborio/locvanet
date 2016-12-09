@@ -1,14 +1,14 @@
 version 2
-run General-0-20161202-17:35:16-14047
+run General-0-20161209-17:42:16-31577
 attr configname General
-attr datetime 20161202-17:35:16
+attr datetime 20161209-17:42:16
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network com.liborio.locvanet.LocScenario
-attr processid 14047
+attr processid 31577
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -19,8 +19,8 @@ param **.debug false
 param *.**.nic.mac1609_4.bitrate 18Mbps
 param *.**.nic.mac1609_4.txPower 20mW
 param *.**.nic.mac1609_4.useServiceChannel false
-param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
-param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config_trgi.xml\")"
+param *.**.nic.phy80211p.decider "xmldoc(\"config_trgi.xml\")"
 param *.**.nic.phy80211p.sensitivity -89dBm
 param *.**.nic.phy80211p.thermalNoise -110dBm
 param *.**.nic.phy80211p.usePropagationDelay true
