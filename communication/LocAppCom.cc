@@ -182,7 +182,6 @@ void LocAppCom::GeodesicDRModule(void){
 
 /*Convert Between Local Coordinates to Geodesic Coordinates and
 //calculates bearing and distance like and odometer and a gyroscope*/
-
 void LocAppCom::VehicleKinematicsModule(void){
     //Coordinates of the sumo.net boundingbox
     double lat0 = -22.910044, lon0 = -43.207808;
@@ -207,29 +206,56 @@ void LocAppCom::VehicleKinematicsModule(void){
 
 }
 
-/*
 void LocAppCom::CalcDistRSSI(void){
-    double constVelLight = 299792458.0; //m/s
-    double lambda = 0.051; //for CCH frequency
-    double frequencyCCH = 5.890; //GHz
-    double potencyTx = 20.0; //mW
-    double alpha = 2.0;
+
 
 
 
 }
-*/
 
-//Calculate the RSSI based on free space model for different alpha values
-/*double LocAppCom::FreeSpace(double alpha, double c, double f, double lambda, double pTx, double d){
+
+//Calculate the distance based on free space model for different alpha values
+double LocAppCom::FreeSpace(double alpha, double c, double f, double lambda, double pTx, double d){
     double rssi;
-    rssi = 10*math.log10(pTx) -
-           10 * math.log10((16* math.pi * math.pi * math.pow(d, alpha)) /
-           math.pow(lambda,alpha));
-    return rssi;
-}*/
+    double distBasRSSI;
 
-//double LocAppCom::TwoRayInterferenceModel
+    /*rssi = 10*log10(pTx) - 10 * log10((16* M_PI * M_PI * pow(d, alpha)) / pow(lambda,alpha));
+    print("Distance Input:", d, "\n")*/
+
+    distBasRSSI = (lambda / (pow((4 * M_PI),(2/alpha)) ) ) * (pow(pTx, (1/alpha))) * (pow(10,( - (rssi / (10*alpha) ) )));
+
+    //print("Distance retrieved from RSSI:", distBasRSSI, "\n")
+
+    return rssi;
+}
+
+//Calculate the distance based on Two Ray Ground Interference for different epsilon values
+double LocAppCom::TwoRayInterferenceModel(double c, double f, double lambda, double pTx, double d, double ht, double hr, double epsilonR){
+    //Simplified model...
+    //rssi = 10*math.log10(20) - 20 * math.log10((d*d)/(1.895 * 1.895))
+    //return rssi
+    //Complete model...
+    double distLOS, distRef, sinTheta, cosTheta, gamma, phi, attenuation;
+    double rssi;
+    double distBasRSSI;
+
+    distLOS = sqrt( pow (d,2) + pow((ht - hr),2) ); //distance in the LOS (Line Of sight)
+    distRef = sqrt( pow (d,2) + pow((ht + hr),2) ); //distance in the reflection path
+    sinTheta = (ht + hr) / distRef; //sin of the incidence angle theta
+    cosTheta = d/distRef; //cos of the angle of incidence
+    gamma = (sinTheta - sqrt(epsilonR - pow(cosTheta,2))) / (sinTheta + sqrt(epsilonR - pow(cosTheta,2))); //Coeficiente of reflection
+    phi = (2*M_PI/lambda * (distLOS - distRef)); //Phase difference of two interfereing rays
+    attenuation = pow(4 * M_PI * (d/lambda) * 1/(sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) )), 2); //# mw
+
+    /*rssi = 10*math.log10(pTx) - 10 * math.log10(attenuation);
+
+    //print("Distance Input:", d, "\n")*/
+
+    distBasRSSI = sqrt(pTx) *  (lambda / 4 * M_PI) * (pow(10,( (-20 -(rssi)) / 20)))  * (sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) ));
+
+    //print("Distance retrieved from RSSI:", distBasRSSI, "\n")
+    return rssi;
+}
 
 //Least Squares Method to Trilateration
 void LocAppCom::LeastSquares(void){

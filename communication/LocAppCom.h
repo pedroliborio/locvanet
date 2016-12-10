@@ -63,6 +63,13 @@ class LocAppCom : public BaseWaveApplLayer {
 
         };typedef struct AnchorNode_t AnchorNode;
 
+        //Consts for RSSI...
+        const double constVelLight = 299792458.0; //m/s
+        const double lambda = 0.051; //wave length for CCH frequency
+        const double frequencyCCH = 5.890; //GHz
+        const double potencyTx = 20.0; //mW
+        const double alpha = 2.0; // pathloss exponent
+
     protected:
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
@@ -89,6 +96,8 @@ class LocAppCom : public BaseWaveApplLayer {
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
         void LeastSquares(void);
+        double TwoRayInterferenceModel(double c, double f, double lambda, double pTx, double d, double ht, double hr, double epsilonR);
+        double FreeSpace(double alpha, double c, double f, double lambda, double pTx, double d);
        // void UpdateNeighborsList(void);
 };
 
