@@ -34,7 +34,6 @@
 #include <jama_qr.h>
 
 #include <fstream>
-#define MAX_ANCHOR_NODES 100
 
 using Veins::TraCIMobility;
 using Veins::TraCICommandInterface;
@@ -60,15 +59,14 @@ class LocAppCom : public BaseWaveApplLayer {
             int vehID; //sender vehicle ID
             Coord realPosition; //vehicle sender real position
             double realDistance; //real distance (euclidean)
-            double rssiDistanceFSPM; //Distance Free Space
-            double rssiDistanceTRGI; //Distance Two Ray Interference
-            double rssiFSPM; //Received RSSI FSPM;
-            double rssiTRGI; //Received RSSI FSPM;
+            double rssiDistance; //Distance RSSI
+            double rssi; //RSSI;
             simtime_t timestamp; // timestamp of the message
 
         };typedef struct AnchorNode_t AnchorNode;
 
         //Consts for RSSI...
+        const char lossModel = 'N'; //pathLoss Model RSSI F = FreeSpace, T = Two Ray Ground, N = none
         const double constVelLight = 299792458.0; //m/s
         const double lambda = 0.051; //wave length for CCH frequency
         const double frequencyCCH = 5.890; //GHz
@@ -83,7 +81,7 @@ class LocAppCom : public BaseWaveApplLayer {
         Coord lastGPSPos;  //Last GPS Know Position
         Coord lastGDRPos;  //Last GDR Know Position
         Coord lastSUMOPos; //Last SUMO Know Position used to compute bearing and distance traveled
-        Coord coopPosPos;
+        Coord coopPos;
         double bearing; //Bearing given by Geodesic Inverse (Giroscope)
         double distance; //Distance given by Geodesic Direct (Odometer)
         std::list<AnchorNode> anchorNodes;//list of neighbor vehicles

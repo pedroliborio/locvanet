@@ -28,11 +28,9 @@ INCLUDE_PATH = \
     -Ilocalization/jama125 \
     -Ilocalization/tnt_126 \
     -Isimulations \
-    -Isimulations/SPLM \
-    -Isimulations/SPLM/0 \
+    -Isimulations/FSPM \
+    -Isimulations/RealDist \
     -Isimulations/TRGI \
-    -Isimulations/TRGI/0 \
-    -Isimulations/TRGI/1 \
     -Isimulations/results \
     -Isumoscenarios
 
@@ -188,11 +186,9 @@ clean:
 	$(Q)-rm -f localization/jama125/*_m.cc localization/jama125/*_m.h localization/jama125/*_sm.cc localization/jama125/*_sm.h
 	$(Q)-rm -f localization/tnt_126/*_m.cc localization/tnt_126/*_m.h localization/tnt_126/*_sm.cc localization/tnt_126/*_sm.h
 	$(Q)-rm -f simulations/*_m.cc simulations/*_m.h simulations/*_sm.cc simulations/*_sm.h
-	$(Q)-rm -f simulations/SPLM/*_m.cc simulations/SPLM/*_m.h simulations/SPLM/*_sm.cc simulations/SPLM/*_sm.h
-	$(Q)-rm -f simulations/SPLM/0/*_m.cc simulations/SPLM/0/*_m.h simulations/SPLM/0/*_sm.cc simulations/SPLM/0/*_sm.h
+	$(Q)-rm -f simulations/FSPM/*_m.cc simulations/FSPM/*_m.h simulations/FSPM/*_sm.cc simulations/FSPM/*_sm.h
+	$(Q)-rm -f simulations/RealDist/*_m.cc simulations/RealDist/*_m.h simulations/RealDist/*_sm.cc simulations/RealDist/*_sm.h
 	$(Q)-rm -f simulations/TRGI/*_m.cc simulations/TRGI/*_m.h simulations/TRGI/*_sm.cc simulations/TRGI/*_sm.h
-	$(Q)-rm -f simulations/TRGI/0/*_m.cc simulations/TRGI/0/*_m.h simulations/TRGI/0/*_sm.cc simulations/TRGI/0/*_sm.h
-	$(Q)-rm -f simulations/TRGI/1/*_m.cc simulations/TRGI/1/*_m.h simulations/TRGI/1/*_sm.cc simulations/TRGI/1/*_sm.h
 	$(Q)-rm -f simulations/results/*_m.cc simulations/results/*_m.h simulations/results/*_sm.cc simulations/results/*_sm.h
 	$(Q)-rm -f sumoscenarios/*_m.cc sumoscenarios/*_m.h sumoscenarios/*_sm.cc sumoscenarios/*_sm.h
 
@@ -201,7 +197,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/SPLM/*.cc simulations/SPLM/0/*.cc simulations/TRGI/*.cc simulations/TRGI/0/*.cc simulations/TRGI/1/*.cc simulations/results/*.cc sumoscenarios/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/FSPM/*.cc simulations/RealDist/*.cc simulations/TRGI/*.cc simulations/results/*.cc sumoscenarios/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/communication/LocAppCom.o: communication/LocAppCom.cc \

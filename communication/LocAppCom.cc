@@ -91,25 +91,32 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     anchorNode.realDistance = wsm->getSenderPos().distance(mobility->getCurrentPosition());
     anchorNode.vehID = wsm->getSenderAddress();
     //TODO Calc the RSSI Distance
-    anchorNode.rssiFSPM = FreeSpaceRSSI(anchorNode.realDistance);
-    anchorNode.rssiDistanceFSPM = FreeSpaceRSSIDist(anchorNode.rssiFSPM);
-    anchorNode.rssiTRGI = TwoRayInterferenceRSSI(anchorNode.realDistance);
-    anchorNode.rssiDistanceTRGI = TwoRayInterferenceRSSIDist(anchorNode.rssiTRGI,anchorNode.realDistance);
-
-    std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
-    beaconLogFile << anchorNode.timestamp <<'\t'<< anchorNode.realPosition <<'\t'<< anchorNode.realDistance <<'\t'<< anchorNode.vehID
-            <<'\t'<< anchorNode.rssiFSPM <<'\t'<< anchorNode.rssiDistanceFSPM <<'\t'<< anchorNode.rssiTRGI <<'\t'<< anchorNode.rssiDistanceTRGI << endl;
-    beaconLogFile.close();
-
-
+    switch(lossModel){
+    case 'F':
+        printf("FSPM");
+        anchorNode.rssi = FreeSpaceRSSI(anchorNode.realDistance);
+        anchorNode.rssiDistance = FreeSpaceRSSIDist(anchorNode.rssi);
+        break;
+    case 'T':
+        printf("TRGI");
+        anchorNode.rssi = TwoRayInterferenceRSSI(anchorNode.realDistance);
+        anchorNode.rssiDistance = TwoRayInterferenceRSSIDist(anchorNode.rssi,anchorNode.realDistance);
+        break;
+    default:
+        //Use real distance
+        printf("Real Distance");
+        anchorNode.rssi = 0;
+        anchorNode.rssiDistance = anchorNode.realDistance;
+    }
 
     //std::cout << "List of Neighbor Vehicles Before Update\n";
     //PrintNeighborList();
 
     //Update the list of neighbors vehicles
     UpdateNeighborList(anchorNode);
-    //Update distances by radio ranging
-    UpdateNeighborListDistances();
+
+    //Update distances by radio ranging (precisa do rssi tem que ser passivo)
+    //UpdateNeighborListDistances();
 
     std::cout << "List of Neighbor Vehicles Updated\n";
     PrintNeighborList();
@@ -117,33 +124,53 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
     //TODO Discard anchor node information with timestamp > than a determined threshold (maybe 100ms)...
     //If there are 4 or more anchor nodes call multilateration method
-    if(anchorNodes.size() > 4){
+    if(anchorNodes.size() > 3){
         //TODO Call Multilateration Method
         std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n\n";
         LeastSquares();
     }
+    else{
+        coopPos.x = coopPos.y = coopPos.z =  0;
+    }
+
+    //Log File with results of CP Approach
+    std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
+    beaconLogFile << anchorNode.vehID <<'\t'<< anchorNode.timestamp <<'\t'<< anchorNode.realPosition <<'\t'<< anchorNode.realDistance
+                    <<'\t'<< anchorNode.rssi <<'\t'<< anchorNode.rssiDistance << '\t'<< coopPos <<endl;
+    beaconLogFile.close();
 
     //The begin of Cooperative Positioning Approach
 }
 
-//Update thea position of a neighbor vehicle in the list
+//Update the position of a neighbor vehicle in the list
 void LocAppCom::UpdateNeighborList(AnchorNode anchorNode){
 
     //Verify if anchor node already exists...
     for(std::list<AnchorNode>::iterator it=anchorNodes.begin(); it!= anchorNodes.end(); ++it){
         if(it->vehID == anchorNode.vehID){
+            it->timestamp = anchorNode.timestamp;
             it->realPosition = anchorNode.realPosition;
+            it->realDistance = anchorNode.realDistance;
+            it->rssi = anchorNode.rssi;
+            it->rssiDistance = anchorNode.rssiDistance;
             return;
         }
     }
+    //If anchor node not exists add this one
     anchorNodes.push_back(anchorNode);
 }
 
-//Update distances from ego vehicle to another vehicles...
+/*Update distances from ego vehicle to another vehicles...
+* As the ego vehicle need reiceive positions from neighborhood
+* to measure his own position we cannot actualize the position in a active form
+* only in a passive way is possible, in another words the vehicle needs to wait
+* for new positions for anchor nodes this can be improved by the use of an rsu.
+*/
 void LocAppCom::UpdateNeighborListDistances(){
     if(anchorNodes.size() > 0){
         for(std::list<AnchorNode>::iterator it= anchorNodes.begin(); it!= anchorNodes.end(); ++it){
             it->realDistance = it->realPosition.distance(mobility->getCurrentPosition());
+
         }
     }
 }
@@ -154,8 +181,9 @@ void LocAppCom::PrintNeighborList(){
     }
 }
 
+//We not using data messages in our approach :)
 void LocAppCom::onData(WaveShortMessage* wsm){
-    //We not using data messages in our approach :)
+
 }
 
 void LocAppCom::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details){
@@ -368,7 +396,7 @@ void LocAppCom::LeastSquares(void){
         A[i][1] =  2.0 * (it->realPosition.y - nodeToSubtract->realPosition.y);
 
         //Filling Matrix b
-        b[i] = pow(nodeToSubtract->realDistance,2) - pow(it->realDistance,2) +
+        b[i] = pow(nodeToSubtract->rssiDistance,2) - pow(it->rssiDistance,2) +
                pow(it->realPosition.x,2) - pow(nodeToSubtract->realPosition.x,2) +
                pow(it->realPosition.y,2) - pow(nodeToSubtract->realPosition.y,2);
         i++;
@@ -398,8 +426,11 @@ void LocAppCom::LeastSquares(void){
 
     std::cout << "Function Least Squares - My real position " << mobility->getCurrentPosition() << "\n\n";
 
-    //Verify the problem with 3D position affecting the calculation...
+    coopPos.x = x[0];
+    coopPos.y = x[1];
+    coopPos.z = mobility->getCurrentPosition().z;
 }
+
 
 void LocAppCom::finish(){
     BaseWaveApplLayer::finish();
