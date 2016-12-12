@@ -1,14 +1,14 @@
 version 2
-run General-0-20161209-17:42:16-31577
+run General-0-20161210-20:39:08-20972
 attr configname General
-attr datetime 20161209-17:42:16
+attr datetime 20161210-20:39:08
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network com.liborio.locvanet.LocScenario
-attr processid 31577
+attr processid 20972
 attr repetition 0
 attr replication #0
 attr resultdir results

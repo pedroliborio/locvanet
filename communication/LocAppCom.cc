@@ -32,6 +32,7 @@ void LocAppCom::initialize(int stage){
         this->lastSUMOPos.x = vehCoord.x;
         this->lastSUMOPos.y = vehCoord.y;
         traci = mobility->getCommandInterface();
+        timeSeed = time(0);
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
 
@@ -82,35 +83,28 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
     ***/
 
-    //Beacon Log File...
-    std::cout << "Function On Beacon - Vehicle " << myId << "received a beacon from Vehicle " << wsm->getSenderAddress()
-            << " Position Received "<< wsm->getSenderPos()
-            << " Potency received" << wsm->getRxPower() << "\n";
-
-    //Estimated distance by RSSI..
-    //double distRSSI = 0.00404913 * pow(10,(-wsm->getRxPower()/20)) * sqrt(20);
-
-    std::fstream beaconLogFile(std::to_string(myId)+".txt", std::fstream::app);
-    beaconLogFile << wsm->getTimestamp() << '\t' << wsm->getSenderAddress() << '\t' << wsm->getSenderPos() << '\t' << wsm->getSenderPos().distance(mobility->getCurrentPosition()) << '\t' << wsm->getRxPower() << endl;
-    beaconLogFile.close();
-
-
-    //std::fstream rssiLogFile(std::to_string(myId)+"-RSSI-DIST.txt", std::fstream::app);
-    //rssiLogFile <<
-
-
-
-
     //TODO GetRSSI EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRxPower()<<"\n";
     //Here the vehicle need to maintain a vector with the position of neighbors
     AnchorNode anchorNode;
+    anchorNode.timestamp = wsm->getTimestamp();
     anchorNode.realPosition = wsm->getSenderPos();
+    anchorNode.realDistance = wsm->getSenderPos().distance(mobility->getCurrentPosition());
     anchorNode.vehID = wsm->getSenderAddress();
-    //neighborNode.realDistance = mobility->getCurrentPosition().sqrdist(neighborNode.position);
-    //TODO Calc the RSSI Distancet
-    //https://groups.google.com/forum/#!topic/omnetpp/2ZqWow5QGS0
-    std::cout << "List of Neighbor Vehicles Before Update\n";
-    PrintNeighborList();
+    //TODO Calc the RSSI Distance
+    anchorNode.rssiFSPM = FreeSpaceRSSI(anchorNode.realDistance);
+    anchorNode.rssiDistanceFSPM = FreeSpaceRSSIDist(anchorNode.rssiFSPM);
+    anchorNode.rssiTRGI = TwoRayInterferenceRSSI(anchorNode.realDistance);
+    anchorNode.rssiDistanceTRGI = TwoRayInterferenceRSSIDist(anchorNode.rssiTRGI,anchorNode.realDistance);
+
+    std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
+    beaconLogFile << anchorNode.timestamp <<'\t'<< anchorNode.realPosition <<'\t'<< anchorNode.realDistance <<'\t'<< anchorNode.vehID
+            <<'\t'<< anchorNode.rssiFSPM <<'\t'<< anchorNode.rssiDistanceFSPM <<'\t'<< anchorNode.rssiTRGI <<'\t'<< anchorNode.rssiDistanceTRGI << endl;
+    beaconLogFile.close();
+
+
+
+    //std::cout << "List of Neighbor Vehicles Before Update\n";
+    //PrintNeighborList();
 
     //Update the list of neighbors vehicles
     UpdateNeighborList(anchorNode);
@@ -122,8 +116,8 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
 
     //TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
     //TODO Discard anchor node information with timestamp > than a determined threshold (maybe 100ms)...
-    //If there are 3 or more anchor nodes call multilateration method
-    if(anchorNodes.size() > 3){
+    //If there are 4 or more anchor nodes call multilateration method
+    if(anchorNodes.size() > 4){
         //TODO Call Multilateration Method
         std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n\n";
         LeastSquares();
@@ -161,7 +155,7 @@ void LocAppCom::PrintNeighborList(){
 }
 
 void LocAppCom::onData(WaveShortMessage* wsm){
-
+    //We not using data messages in our approach :)
 }
 
 void LocAppCom::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details){
@@ -183,6 +177,59 @@ void LocAppCom::GeodesicDRModule(void){
 /*Convert Between Local Coordinates to Geodesic Coordinates and
 //calculates bearing and distance like and odometer and a gyroscope*/
 void LocAppCom::VehicleKinematicsModule(void){
+
+    //Abou Geocentric Coordinates:
+    /**
+      * \brief %Geocentric coordinates
+      *
+      * Convert between geodetic coordinates latitude = \e lat, longitude = \e
+      * lon, height = \e h (measured vertically from the surface of the ellipsoid)
+      * to geocentric coordinates (\e X, \e Y, \e Z).  The origin of geocentric
+      * coordinates is at the center of the earth.  The \e Z axis goes thru the
+      * north pole, \e lat = 90&deg;.  The \e X axis goes thru \e lat = 0,
+      * \e lon = 0.  %Geocentric coordinates are also known as earth centered,
+      * earth fixed (ECEF) coordinates.
+      *
+      * The conversion from geographic to geocentric coordinates is
+      * straightforward.  For the reverse transformation we use
+      * - H. Vermeille,
+      *   <a href="https://dx.doi.org/10.1007/s00190-002-0273-6"> Direct
+      *   transformation from geocentric coordinates to geodetic coordinates</a>,
+      *   J. Geodesy 76, 451--454 (2002).
+      * .
+      * Several changes have been made to ensure that the method returns accurate
+      * results for all finite inputs (even if \e h is infinite).  The changes are
+      * described in Appendix B of
+      * - C. F. F. Karney,
+      *   <a href="http://arxiv.org/abs/1102.1215v1">Geodesics
+      *   on an ellipsoid of revolution</a>,
+      *   Feb. 2011;
+      *   preprint
+      *   <a href="http://arxiv.org/abs/1102.1215v1">arxiv:1102.1215v1</a>.
+      * .
+      * Vermeille similarly updated his method in
+      * - H. Vermeille,
+      *   <a href="https://dx.doi.org/10.1007/s00190-010-0419-x">
+      *   An analytical method to transform geocentric into
+      *   geodetic coordinates</a>, J. Geodesy 85, 105--117 (2011).
+      * .
+      * See \ref geocentric for more information.
+      *
+      * The errors in these routines are close to round-off.  Specifically, for
+      * points within 5000 km of the surface of the ellipsoid (either inside or
+      * outside the ellipsoid), the error is bounded by 7 nm (7 nanometers) for
+      * the WGS84 ellipsoid.  See \ref geocentric for further information on the
+      * errors.
+      *
+      * Example of use:
+      * \include example-Geocentric.cpp
+      *
+      * <a href="CartConvert.1.html">CartConvert</a> is a command-line utility
+      * providing access to the functionality of Geocentric and LocalCartesian.
+      **********************************************************************/
+
+
+
     //Coordinates of the sumo.net boundingbox
     double lat0 = -22.910044, lon0 = -43.207808;
     // Alternatively: const Geocentric& earth = Geocentric::WGS84();
@@ -206,39 +253,37 @@ void LocAppCom::VehicleKinematicsModule(void){
 
 }
 
-void LocAppCom::CalcDistRSSI(void){
-
-
-
-
-}
-
-
-//Calculate the distance based on free space model for different alpha values
-double LocAppCom::FreeSpace(double alpha, double c, double f, double lambda, double pTx, double d){
+double LocAppCom::FreeSpaceRSSI(double d){
     double rssi;
-    double distBasRSSI;
+    //double distBasRSSI;
 
-    /*rssi = 10*log10(pTx) - 10 * log10((16* M_PI * M_PI * pow(d, alpha)) / pow(lambda,alpha));
-    print("Distance Input:", d, "\n")*/
+    rssi = 10*log10(pTx) - 10 * log10((16* M_PI * M_PI * pow(d, alpha)) / pow(lambda,alpha));
+    //print("Distance Input:", d, "\n")
 
-    distBasRSSI = (lambda / (pow((4 * M_PI),(2/alpha)) ) ) * (pow(pTx, (1/alpha))) * (pow(10,( - (rssi / (10*alpha) ) )));
+    //distBasRSSI = (lambda / (pow((4 * M_PI),(2/alpha)) ) ) * (pow(pTx, (1/alpha))) * (pow(10,( - (rssi / (10*alpha) ) )));
 
     //print("Distance retrieved from RSSI:", distBasRSSI, "\n")
 
     return rssi;
 }
 
-//Calculate the distance based on Two Ray Ground Interference for different epsilon values
-double LocAppCom::TwoRayInterferenceModel(double c, double f, double lambda, double pTx, double d, double ht, double hr, double epsilonR){
+double LocAppCom::FreeSpaceRSSIDist(double rssi){
+    double distRSSI;
+    distRSSI = (lambda / (pow((4 * M_PI),(2/alpha)) ) ) * (pow(pTx, (1/alpha))) * (pow(10,( - (rssi / (10*alpha) ) )));
+    return distRSSI;
+}
+
+double LocAppCom::TwoRayInterferenceRSSI(double d){
     //Simplified model...
     //rssi = 10*math.log10(20) - 20 * math.log10((d*d)/(1.895 * 1.895))
     //return rssi
     //Complete model...
+    double ht, hr;
     double distLOS, distRef, sinTheta, cosTheta, gamma, phi, attenuation;
     double rssi;
-    double distBasRSSI;
+    //double distBasRSSI;
 
+    ht = hr = 1.895;
     distLOS = sqrt( pow (d,2) + pow((ht - hr),2) ); //distance in the LOS (Line Of sight)
     distRef = sqrt( pow (d,2) + pow((ht + hr),2) ); //distance in the reflection path
     sinTheta = (ht + hr) / distRef; //sin of the incidence angle theta
@@ -247,17 +292,46 @@ double LocAppCom::TwoRayInterferenceModel(double c, double f, double lambda, dou
     phi = (2*M_PI/lambda * (distLOS - distRef)); //Phase difference of two interfereing rays
     attenuation = pow(4 * M_PI * (d/lambda) * 1/(sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) )), 2); //# mw
 
-    /*rssi = 10*math.log10(pTx) - 10 * math.log10(attenuation);
+    rssi = 10*log10(pTx) - 10 * log10(attenuation);
+
+    //print("Distance Input:", d, "\n")*/
+
+    //distBasRSSI = sqrt(pTx) *  (lambda / 4 * M_PI) * (pow(10,( (-20 -(rssi)) / 20)))  * (sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) ));
+
+    //print("Distance retrieved from RSSI:", distBasRSSI, "\n")
+    return rssi;
+}
+
+double LocAppCom::TwoRayInterferenceRSSIDist(double rssi, double d){
+    //Simplified model...
+    //rssi = 10*math.log10(20) - 20 * math.log10((d*d)/(1.895 * 1.895))
+    //return rssi
+    //Complete model...
+    double ht, hr;
+    ht = hr = 1.895;
+    double distLOS, distRef, sinTheta, cosTheta, gamma, phi;
+    //double rssi;
+    double distBasRSSI;
+
+    distLOS = sqrt( pow (d,2) + pow((ht - hr),2) ); //distance in the LOS (Line Of sight)
+    distRef = sqrt( pow (d,2) + pow((ht + hr),2) ); //distance in the reflection path
+    sinTheta = (ht + hr) / distRef; //sin of the incidence angle theta
+    cosTheta = d/distRef; //cos of the angle of incidence
+    gamma = (sinTheta - sqrt(epsilonR - pow(cosTheta,2))) / (sinTheta + sqrt(epsilonR - pow(cosTheta,2))); //Coeficiente of reflection
+    phi = (2*M_PI/lambda * (distLOS - distRef)); //Phase difference of two interfereing rays
+    //attenuation = pow(4 * M_PI * (d/lambda) * 1/(sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) )), 2); //# mw
+
+    //rssi = 10*log10(pTx) - 10 * log10(attenuation);
 
     //print("Distance Input:", d, "\n")*/
 
     distBasRSSI = sqrt(pTx) *  (lambda / 4 * M_PI) * (pow(10,( (-20 -(rssi)) / 20)))  * (sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) ));
 
     //print("Distance retrieved from RSSI:", distBasRSSI, "\n")
-    return rssi;
+    return distBasRSSI;
 }
 
-//Least Squares Method to Trilateration
+//Least Squares Method to Multilateration
 void LocAppCom::LeastSquares(void){
     std::cout << "Function Least Squares - Vehicle" << myId << '\n';
     int i, j;
@@ -326,5 +400,11 @@ void LocAppCom::LeastSquares(void){
 
     //Verify the problem with 3D position affecting the calculation...
 }
+
+void LocAppCom::finish(){
+    BaseWaveApplLayer::finish();
+
+}
+
 
 

@@ -27,6 +27,7 @@
 //Utils libraries
 #include <exception>
 #include <cmath>
+#include <ctime>
 
 //TNT and JAMA libraries
 #include <tnt_array2d.h>
@@ -49,17 +50,21 @@ using namespace GeographicLib;
 class LocAppCom : public BaseWaveApplLayer {
     public:
         virtual void initialize(int stage);
+        virtual void finish();
         virtual void receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details);
         TraCIMobility* mobility;
         TraCICommandInterface* traci;
-
+        time_t timeSeed;
         //Struct with the attributes of a neighbor node
         struct AnchorNode_t{
-            int vehID;
-            Coord realPosition;
-            double realDistance;
-            double rssiDistance;
-            simtime_t timestamp;
+            int vehID; //sender vehicle ID
+            Coord realPosition; //vehicle sender real position
+            double realDistance; //real distance (euclidean)
+            double rssiDistanceFSPM; //Distance Free Space
+            double rssiDistanceTRGI; //Distance Two Ray Interference
+            double rssiFSPM; //Received RSSI FSPM;
+            double rssiTRGI; //Received RSSI FSPM;
+            simtime_t timestamp; // timestamp of the message
 
         };typedef struct AnchorNode_t AnchorNode;
 
@@ -67,9 +72,9 @@ class LocAppCom : public BaseWaveApplLayer {
         const double constVelLight = 299792458.0; //m/s
         const double lambda = 0.051; //wave length for CCH frequency
         const double frequencyCCH = 5.890; //GHz
-        const double potencyTx = 20.0; //mW
+        const double pTx = 20.0; //mW
         const double alpha = 2.0; // pathloss exponent
-
+        const double epsilonR = 1.02;// dieletric constant
     protected:
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
@@ -96,8 +101,11 @@ class LocAppCom : public BaseWaveApplLayer {
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
         void LeastSquares(void);
-        double TwoRayInterferenceModel(double c, double f, double lambda, double pTx, double d, double ht, double hr, double epsilonR);
-        double FreeSpace(double alpha, double c, double f, double lambda, double pTx, double d);
+        double FreeSpaceRSSI(double d);
+        double FreeSpaceRSSIDist(double rssi);
+        double TwoRayInterferenceRSSI(double d);
+        double TwoRayInterferenceRSSIDist(double rssi, double d);
+
        // void UpdateNeighborsList(void);
 };
 
