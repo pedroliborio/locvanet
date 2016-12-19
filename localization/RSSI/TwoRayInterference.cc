@@ -5,7 +5,7 @@
  *      Author: liborio
  */
 
-#include <RSSI/TwoRayInterference.h>
+#include <TwoRayInterference.hpp>
 
 TwoRayInterference::TwoRayInterference() {
     // TODO Auto-generated constructor stub
@@ -16,7 +16,7 @@ TwoRayInterference::~TwoRayInterference() {
     // TODO Auto-generated destructor stub
 }
 
-TwoRayInterference::getRSSI(double d){
+double TwoRayInterference::getRSSI(double d){
     double rssi;
     double distLOS, distRef, sinTheta, cosTheta, gamma, phi, attenuation;
 
@@ -39,7 +39,8 @@ TwoRayInterference::getRSSI(double d){
     return rssi;
 }
 
-TwoRayInterference::getDistance(double rssi, double d){
+double TwoRayInterference::getDistance(double rssi, double d){
+    double distance;
     double distLOS, distRef, sinTheta, cosTheta, gamma, phi;
 
     distLOS = sqrt( pow (d,2) + pow((ht - hr),2) ); //distance in the LOS (Line Of sight)

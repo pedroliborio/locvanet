@@ -35,6 +35,10 @@
 
 #include <fstream>
 
+#include "localization/Multilateration/Multilateration.hpp"
+#include "localization/RSSI/FreeSpaceModel.hpp"
+#include "localization/RSSI/TwoRayInterference.hpp"
+
 using Veins::TraCIMobility;
 using Veins::TraCICommandInterface;
 
@@ -55,37 +59,19 @@ class LocAppCom : public BaseWaveApplLayer {
         TraCICommandInterface* traci;
         time_t timeSeed;
         //Struct with the attributes of a neighbor node
-        struct AnchorNode_t{
-            int vehID; //sender vehicle ID
-            Coord realPosition; //vehicle sender real position
-            double realDistance; //real distance (euclidean)
-            double rssiDistance; //Distance RSSI
-            double rssi; //RSSI;
-            simtime_t timestamp; // timestamp of the message
-
-        };typedef struct AnchorNode_t AnchorNode;
-
-        //Consts for RSSI...
-        const char lossModel = 'F'; //pathLoss Model RSSI F = FreeSpace, T = Two Ray Ground, N = none
-        const double constVelLight = 299792458.0; //m/s
-        const double lambda = 0.051; //wave length for CCH frequency
-        const double frequencyCCH = 5.890; //GHz
-        const double pTx = 20.0; //mW
-        const double alpha = 2.0; // pathloss exponent
-        const double epsilonR = 1.02;// dieletric constant
     protected:
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
-        //Coord gDRPosition;
-        bool gpsOutage;// Is GPS In Outage?
-        Coord lastGPSPos;  //Last GPS Know Position
-        Coord lastGDRPos;  //Last GDR Know Position
-        Coord lastSUMOPos; //Last SUMO Know Position used to compute bearing and distance traveled
-        Coord coopPos;
-        double bearing; //Bearing given by Geodesic Inverse (Giroscope)
-        double distance; //Distance given by Geodesic Direct (Odometer)
         std::list<AnchorNode> anchorNodes;//list of neighbor vehicles
-
+        Coord coopPosFS; //cooperative Positioning Estimation
+        Coord coopPosTRGI; //cooperative Positioning Estimation
+        //Coord gDRPosition;
+        //bool gpsOutage;// Is GPS In Outage?
+        //Coord lastGPSPos;  //Last GPS Know Position
+        //Coord lastGDRPos;  //Last GDR Know Position
+        //Coord lastSUMOPos; //Last SUMO Know Position used to compute bearing and distance traveled
+        //double bearing; //Bearing given by Geodesic Inverse (Giroscope)
+        //double distance; //Distance given by Geodesic Direct (Odometer)
     protected:
         //This method will manipulates the information received from a message
         virtual void onData(WaveShortMessage* wsm);
@@ -98,11 +84,6 @@ class LocAppCom : public BaseWaveApplLayer {
         void PrintNeighborList(void);
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
-        void LeastSquares(void);
-        double FreeSpaceRSSI(double d);
-        double FreeSpaceRSSIDist(double rssi);
-        double TwoRayInterferenceRSSI(double d);
-        double TwoRayInterferenceRSSIDist(double rssi, double d);
 
        // void UpdateNeighborsList(void);
 };

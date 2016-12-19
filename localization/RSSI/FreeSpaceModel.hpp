@@ -5,8 +5,10 @@
  *      Author: liborio
  */
 
-#ifndef LOCALIZATION_RSSI_FREESPACEMODEL_H_
-#define LOCALIZATION_RSSI_FREESPACEMODEL_H_
+#ifndef LOCALIZATION_RSSI_FREESPACEMODEL_HPP_
+#define LOCALIZATION_RSSI_FREESPACEMODEL_HPP_
+
+#include<Math.hpp>
 
 class FreeSpaceModel {
 private:
@@ -63,4 +65,4 @@ public:
     }
 };
 
-#endif /* LOCALIZATION_RSSI_FREESPACEMODEL_H_ */
+#endif /* LOCALIZATION_RSSI_FREESPACEMODEL_HPP_ */

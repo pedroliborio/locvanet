@@ -20,11 +20,13 @@ INCLUDE_PATH = \
     -I. \
     -Icommunication \
     -Ilocalization \
+    -Ilocalization/DeadReckoning \
     -Ilocalization/GeographicLib \
     -Ilocalization/GeographicLib/doc \
     -Ilocalization/GeographicLib/include \
     -Ilocalization/GeographicLib/include/GeographicLib \
     -Ilocalization/GeographicLib/src \
+    -Ilocalization/Multilateration \
     -Ilocalization/RSSI \
     -Ilocalization/jama125 \
     -Ilocalization/tnt_126 \
@@ -50,6 +52,7 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 # Object files for local .cc, .msg and .sm files
 OBJS = \
     $O/communication/LocAppCom.o \
+    $O/localization/DeadReckoning/DeadReckoning.o \
     $O/localization/GeographicLib/src/GeodesicLineExact.o \
     $O/localization/GeographicLib/src/CircularEngine.o \
     $O/localization/GeographicLib/src/DMS.o \
@@ -88,6 +91,7 @@ OBJS = \
     $O/localization/GeographicLib/src/GARS.o \
     $O/localization/GeographicLib/src/Accumulator.o \
     $O/localization/GeographicLib/src/Georef.o \
+    $O/localization/Multilateration/Multilateration.o \
     $O/localization/RSSI/FreeSpaceModel.o \
     $O/localization/RSSI/TwoRayInterference.o
 
@@ -181,11 +185,13 @@ clean:
 	$(Q)-rm -f ./*_m.cc ./*_m.h ./*_sm.cc ./*_sm.h
 	$(Q)-rm -f communication/*_m.cc communication/*_m.h communication/*_sm.cc communication/*_sm.h
 	$(Q)-rm -f localization/*_m.cc localization/*_m.h localization/*_sm.cc localization/*_sm.h
+	$(Q)-rm -f localization/DeadReckoning/*_m.cc localization/DeadReckoning/*_m.h localization/DeadReckoning/*_sm.cc localization/DeadReckoning/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/*_m.cc localization/GeographicLib/*_m.h localization/GeographicLib/*_sm.cc localization/GeographicLib/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/doc/*_m.cc localization/GeographicLib/doc/*_m.h localization/GeographicLib/doc/*_sm.cc localization/GeographicLib/doc/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/include/*_m.cc localization/GeographicLib/include/*_m.h localization/GeographicLib/include/*_sm.cc localization/GeographicLib/include/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/include/GeographicLib/*_m.cc localization/GeographicLib/include/GeographicLib/*_m.h localization/GeographicLib/include/GeographicLib/*_sm.cc localization/GeographicLib/include/GeographicLib/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/src/*_m.cc localization/GeographicLib/src/*_m.h localization/GeographicLib/src/*_sm.cc localization/GeographicLib/src/*_sm.h
+	$(Q)-rm -f localization/Multilateration/*_m.cc localization/Multilateration/*_m.h localization/Multilateration/*_sm.cc localization/Multilateration/*_sm.h
 	$(Q)-rm -f localization/RSSI/*_m.cc localization/RSSI/*_m.h localization/RSSI/*_sm.cc localization/RSSI/*_sm.h
 	$(Q)-rm -f localization/jama125/*_m.cc localization/jama125/*_m.h localization/jama125/*_sm.cc localization/jama125/*_sm.h
 	$(Q)-rm -f localization/tnt_126/*_m.cc localization/tnt_126/*_m.h localization/tnt_126/*_sm.cc localization/tnt_126/*_sm.h
@@ -201,7 +207,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/RSSI/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/FSPM/*.cc simulations/RealDist/*.cc simulations/TRGI/*.cc simulations/results/*.cc sumoscenarios/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/DeadReckoning/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/Multilateration/*.cc localization/RSSI/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/FSPM/*.cc simulations/RealDist/*.cc simulations/TRGI/*.cc simulations/results/*.cc sumoscenarios/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/communication/LocAppCom.o: communication/LocAppCom.cc \
@@ -245,6 +251,8 @@ $O/communication/LocAppCom.o: communication/LocAppCom.cc \
 	$(VEINS_RSSI_PROJ)/src/veins/modules/obstacle/ObstacleControl.h \
 	$(VEINS_RSSI_PROJ)/src/veins/modules/utility/Consts80211p.h \
 	$(VEINS_RSSI_PROJ)/src/veins/modules/world/annotations/AnnotationManager.h
+$O/localization/DeadReckoning/DeadReckoning.o: localization/DeadReckoning/DeadReckoning.cc \
+	localization/DeadReckoning/DeadReckoning.h
 $O/localization/GeographicLib/src/Accumulator.o: localization/GeographicLib/src/Accumulator.cc
 $O/localization/GeographicLib/src/AlbersEqualArea.o: localization/GeographicLib/src/AlbersEqualArea.cc
 $O/localization/GeographicLib/src/AzimuthalEquidistant.o: localization/GeographicLib/src/AzimuthalEquidistant.cc
@@ -283,8 +291,7 @@ $O/localization/GeographicLib/src/TransverseMercator.o: localization/GeographicL
 $O/localization/GeographicLib/src/TransverseMercatorExact.o: localization/GeographicLib/src/TransverseMercatorExact.cc
 $O/localization/GeographicLib/src/UTMUPS.o: localization/GeographicLib/src/UTMUPS.cc
 $O/localization/GeographicLib/src/Utility.o: localization/GeographicLib/src/Utility.cc
-$O/localization/RSSI/FreeSpaceModel.o: localization/RSSI/FreeSpaceModel.cc \
-	localization/RSSI/FreeSpaceModel.h
-$O/localization/RSSI/TwoRayInterference.o: localization/RSSI/TwoRayInterference.cc \
-	localization/RSSI/TwoRayInterference.h
+$O/localization/Multilateration/Multilateration.o: localization/Multilateration/Multilateration.cc
+$O/localization/RSSI/FreeSpaceModel.o: localization/RSSI/FreeSpaceModel.cc
+$O/localization/RSSI/TwoRayInterference.o: localization/RSSI/TwoRayInterference.cc
 

@@ -5,7 +5,7 @@
  *      Author: liborio
  */
 
-#include <RSSI/FreeSpaceModel.h>
+#include <FreeSpaceModel.hpp>
 
 FreeSpaceModel::FreeSpaceModel() {
     // TODO Auto-generated constructor stub
@@ -17,7 +17,8 @@ FreeSpaceModel::~FreeSpaceModel() {
 }
 
 double FreeSpaceModel::getRSSI(double distance){
-    rssi = 10*log10(pTx) - 10 * log10((16* M_PI * M_PI * pow(d, alpha)) / pow(lambda,alpha));
+    double rssi;
+    rssi = 10*log10(pTx) - 10 * log10((16* M_PI * M_PI * pow(distance, alpha)) / pow(lambda,alpha));
     return rssi;
 }
 
