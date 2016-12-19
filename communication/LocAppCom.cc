@@ -19,7 +19,6 @@ using Veins::TraCIMobility;
 using Veins::TraCIMobilityAccess;
 using Veins::AnnotationManagerAccess;
 
-
 const simsignalwrap_t LocAppCom::mobilityStateChangedSignal = simsignalwrap_t(MIXIM_SIGNAL_MOBILITY_CHANGE_NAME);
 
 Define_Module(LocAppCom);
@@ -121,6 +120,7 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     std::cout << "List of Neighbor Vehicles Updated\n";
     PrintNeighborList();
 
+    //FIXME IMplement a mechanism to discard a beacon after some round
     //TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
     //TODO Discard anchor node information with timestamp > than a determined threshold (maybe 100ms)...
     //If there are 4 or more anchor nodes call multilateration method
@@ -134,9 +134,13 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     }
 
     //Log File with results of CP Approach
+    //MyRealPosition (SUMO) | My Estimated Position (Via CP) | vehID (Neighbor) | Timestamp | Neighbor Position (SUMO) |  Real Distance | Est. RSSI Dist | RSSI
+
     std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
-    beaconLogFile << anchorNode.vehID <<'\t'<< anchorNode.timestamp <<'\t'<< anchorNode.realPosition <<'\t'<< anchorNode.realDistance
-                    <<'\t'<< anchorNode.rssi <<'\t'<< anchorNode.rssiDistance << '\t'<< coopPos <<endl;
+    beaconLogFile << mobility->getCurrentPosition().x <<'\t'<< mobility->getCurrentPosition().y <<'\t'<< mobility->getCurrentPosition().z
+                <<'\t'<< coopPos.x << '\t'<< coopPos.y << '\t'<< coopPos.z <<'\t'<<  anchorNode.vehID <<'\t'<< anchorNode.timestamp
+                <<'\t'<< anchorNode.realPosition.x <<'\t'<< anchorNode.realPosition.y <<'\t'<< anchorNode.realPosition.z
+                <<'\t'<< anchorNode.realDistance <<'\t'<< anchorNode.rssiDistance <<'\t'<< anchorNode.rssi <<'\t' <<endl;
     beaconLogFile.close();
 
     //The begin of Cooperative Positioning Approach
@@ -144,7 +148,6 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
 
 //Update the position of a neighbor vehicle in the list
 void LocAppCom::UpdateNeighborList(AnchorNode anchorNode){
-
     //Verify if anchor node already exists...
     for(std::list<AnchorNode>::iterator it=anchorNodes.begin(); it!= anchorNodes.end(); ++it){
         if(it->vehID == anchorNode.vehID){
@@ -323,9 +326,7 @@ double LocAppCom::TwoRayInterferenceRSSI(double d){
     rssi = 10*log10(pTx) - 10 * log10(attenuation);
 
     //print("Distance Input:", d, "\n")*/
-
     //distBasRSSI = sqrt(pTx) *  (lambda / 4 * M_PI) * (pow(10,( (-20 -(rssi)) / 20)))  * (sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) ));
-
     //print("Distance retrieved from RSSI:", distBasRSSI, "\n")
     return rssi;
 }
@@ -353,7 +354,7 @@ double LocAppCom::TwoRayInterferenceRSSIDist(double rssi, double d){
 
     //print("Distance Input:", d, "\n")*/
 
-    distBasRSSI = sqrt(pTx) *  (lambda / 4 * M_PI) * (pow(10,( (-20 -(rssi)) / 20)))  * (sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) ));
+    distBasRSSI = sqrt(pTx) * (lambda / 4 * M_PI) * (pow(10,( (-20 -(rssi)) / 20)))  * (sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) ));
 
     //print("Distance retrieved from RSSI:", distBasRSSI, "\n")
     return distBasRSSI;
@@ -361,7 +362,7 @@ double LocAppCom::TwoRayInterferenceRSSIDist(double rssi, double d){
 
 //Least Squares Method to Multilateration
 void LocAppCom::LeastSquares(void){
-    std::cout << "Function Least Squares - Vehicle" << myId << '\n';
+    //std::cout << "Function Least Squares - Vehicle" << myId << '\n';
     int i, j;
 
     //Minus one because the last line of the matrix will be subtracted by the other
@@ -379,7 +380,7 @@ void LocAppCom::LeastSquares(void){
     //Subtract the position of the last anchorNode by the others in system of equations
     std::list<AnchorNode>::iterator nodeToSubtract = anchorNodes.begin();
     std::advance(nodeToSubtract, anchorNodes.size()-1);
-    std::cout << "Function Least Squares - NodeToSubtract: " << nodeToSubtract->realPosition <<' '<< nodeToSubtract->realDistance <<  '\n';
+    //std::cout << "Function Least Squares - NodeToSubtract: " << nodeToSubtract->realPosition <<' '<< nodeToSubtract->realDistance <<  '\n';
     std::list<AnchorNode>::iterator lastIter = anchorNodes.end();
     std::advance(lastIter, -1);
 
@@ -388,8 +389,8 @@ void LocAppCom::LeastSquares(void){
     i=0;
     for(std::list<AnchorNode>::iterator it = anchorNodes.begin(); it!= lastIter; ++it){
         //Filling the Matrix A
-        std::cout << "node on list"<< it->realPosition <<' '<< it->realDistance << endl;
-        std::cout << "node to subtract"<< nodeToSubtract->realPosition <<' '<< nodeToSubtract->realDistance << endl;
+        //std::cout << "node on list"<< it->realPosition <<' '<< it->realDistance << endl;
+        //std::cout << "node to subtract"<< nodeToSubtract->realPosition <<' '<< nodeToSubtract->realDistance << endl;
         //std::cout << "node to subtract"<< anchorNodes.end()->realPosition <<' '<< anchorNodes.end()->realDistance << endl;
 
         A[i][0] =  2.0 * (it->realPosition.x - nodeToSubtract->realPosition.x);
@@ -401,30 +402,30 @@ void LocAppCom::LeastSquares(void){
                pow(it->realPosition.y,2) - pow(nodeToSubtract->realPosition.y,2);
         i++;
     }
-    std::cout << i << endl;
+    //std::cout << i << endl;
 
     JAMA::QR<double> qrFact(A);
     x = qrFact.solve(b);
 
     //Debugging values
-    std::cout << "Function Least Squares - Matrix A:"<<"\n";
-    for(i=0; i < totalAnchorNodes; i++){
-        std::cout << A[i][0] << " - " << A[i][1] << "\n";
-    }
+    //std::cout << "Function Least Squares - Matrix A:"<<"\n";
+    //for(i=0; i < totalAnchorNodes; i++){
+        //std::cout << A[i][0] << " - " << A[i][1] << "\n";
+    //}
 
-    std::cout << "Function Least Squares - Matrix b:"<<"\n";
-    for(i=0; i < totalAnchorNodes; i++){
-        std::cout << b[i] << "\n";
-    }
+    //std::cout << "Function Least Squares - Matrix b:"<<"\n";
+    //for(i=0; i < totalAnchorNodes; i++){
+        //std::cout << b[i] << "\n";
+    //}
 
-    std::cout << "Function Least Squares - Matrix X:"<<"\n";
-    j  = x.dim1();
-    std::cout << j<< '\n';
-    for(i=0; i < j; i++){
-        std::cout << x[i] << "\n";
-    }
+    //std::cout << "Function Least Squares - Matrix X:"<<"\n";
+    //j  = x.dim1();
+    //std::cout << j<< '\n';
+    //for(i=0; i < j; i++){
+        //std::cout << x[i] << "\n";
+    //}
 
-    std::cout << "Function Least Squares - My real position " << mobility->getCurrentPosition() << "\n\n";
+    //std::cout << "Function Least Squares - My real position " << mobility->getCurrentPosition() << "\n\n";
 
     coopPos.x = x[0];
     coopPos.y = x[1];

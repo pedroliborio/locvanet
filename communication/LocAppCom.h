@@ -66,7 +66,7 @@ class LocAppCom : public BaseWaveApplLayer {
         };typedef struct AnchorNode_t AnchorNode;
 
         //Consts for RSSI...
-        const char lossModel = 'N'; //pathLoss Model RSSI F = FreeSpace, T = Two Ray Ground, N = none
+        const char lossModel = 'F'; //pathLoss Model RSSI F = FreeSpace, T = Two Ray Ground, N = none
         const double constVelLight = 299792458.0; //m/s
         const double lambda = 0.051; //wave length for CCH frequency
         const double frequencyCCH = 5.890; //GHz

@@ -1,15 +1,15 @@
-file 290573 1481583461                                          
+                                                                
 version 2
-run General-0-20161212-17:57:24-18060
+run General-0-20161216-19:02:34-12963
 attr configname General
-attr datetime 20161212-17:57:24
+attr datetime 20161216-19:02:34
 attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network com.liborio.locvanet.LocScenario
-attr processid 18060
+attr processid 12963
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -34,7 +34,7 @@ param *.connectionManager.sat -89dBm
 param *.connectionManager.sendDirect true
 param *.manager.autoShutdown true
 param *.manager.host "\"localhost\""
-param *.manager.launchConfig "xmldoc(\"tunnel.launchd.xml\")"
+param *.manager.launchConfig "xmldoc(\"rclt.launchd.xml\")"
 param *.manager.margin 25
 param *.manager.moduleDisplayString "\"\""
 param *.manager.moduleName "\"node\""
@@ -58,109 +58,38 @@ param *.node[*].veinsmobility.y 0
 param *.node[*].veinsmobility.z 1.895
 param *.node[*].veinsmobilityType "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
 param *.node[*].veinsmobilityType.debug true
-param *.playgroundSizeX 5000m
-param *.playgroundSizeY 5000m
+param *.playgroundSizeX 100000m
+param *.playgroundSizeY 100000m
 param *.playgroundSizeZ 50m
 param *.world.use2D false
 param *.world.useTorus false
 
 vector 2  LocScenario.node[0].veinsmobility  posx  ETV
 vector 3  LocScenario.node[0].veinsmobility  posy  ETV
-vector 4  LocScenario.node[0].veinsmobility  speed  ETV
-vector 5  LocScenario.node[0].veinsmobility  acceleration  ETV
-vector 6  LocScenario.node[0].veinsmobility  co2emission  ETV
 vector 9  LocScenario.node[1].veinsmobility  posx  ETV
 vector 10  LocScenario.node[1].veinsmobility  posy  ETV
+vector 4  LocScenario.node[0].veinsmobility  speed  ETV
 vector 11  LocScenario.node[1].veinsmobility  speed  ETV
+vector 5  LocScenario.node[0].veinsmobility  acceleration  ETV
+vector 6  LocScenario.node[0].veinsmobility  co2emission  ETV
 vector 12  LocScenario.node[1].veinsmobility  acceleration  ETV
 vector 13  LocScenario.node[1].veinsmobility  co2emission  ETV
 vector 16  LocScenario.node[2].veinsmobility  posx  ETV
 vector 17  LocScenario.node[2].veinsmobility  posy  ETV
-vector 18  LocScenario.node[2].veinsmobility  speed  ETV
-vector 19  LocScenario.node[2].veinsmobility  acceleration  ETV
-vector 20  LocScenario.node[2].veinsmobility  co2emission  ETV
 vector 23  LocScenario.node[3].veinsmobility  posx  ETV
 vector 24  LocScenario.node[3].veinsmobility  posy  ETV
+vector 18  LocScenario.node[2].veinsmobility  speed  ETV
 vector 25  LocScenario.node[3].veinsmobility  speed  ETV
+vector 19  LocScenario.node[2].veinsmobility  acceleration  ETV
+vector 20  LocScenario.node[2].veinsmobility  co2emission  ETV
 vector 26  LocScenario.node[3].veinsmobility  acceleration  ETV
 vector 27  LocScenario.node[3].veinsmobility  co2emission  ETV
 vector 30  LocScenario.node[4].veinsmobility  posx  ETV
 vector 31  LocScenario.node[4].veinsmobility  posy  ETV
-vector 32  LocScenario.node[4].veinsmobility  speed  ETV
-vector 33  LocScenario.node[4].veinsmobility  acceleration  ETV
-vector 34  LocScenario.node[4].veinsmobility  co2emission  ETV
 vector 37  LocScenario.node[5].veinsmobility  posx  ETV
 vector 38  LocScenario.node[5].veinsmobility  posy  ETV
+vector 32  LocScenario.node[4].veinsmobility  speed  ETV
 vector 39  LocScenario.node[5].veinsmobility  speed  ETV
-vector 40  LocScenario.node[5].veinsmobility  acceleration  ETV
-vector 41  LocScenario.node[5].veinsmobility  co2emission  ETV
-vector 44  LocScenario.node[6].veinsmobility  posx  ETV
-vector 45  LocScenario.node[6].veinsmobility  posy  ETV
-vector 46  LocScenario.node[6].veinsmobility  speed  ETV
-vector 47  LocScenario.node[6].veinsmobility  acceleration  ETV
-vector 48  LocScenario.node[6].veinsmobility  co2emission  ETV
-vector 51  LocScenario.node[7].veinsmobility  posx  ETV
-vector 52  LocScenario.node[7].veinsmobility  posy  ETV
-vector 53  LocScenario.node[7].veinsmobility  speed  ETV
-vector 54  LocScenario.node[7].veinsmobility  acceleration  ETV
-vector 55  LocScenario.node[7].veinsmobility  co2emission  ETV
-vector 58  LocScenario.node[8].veinsmobility  posx  ETV
-vector 59  LocScenario.node[8].veinsmobility  posy  ETV
-vector 60  LocScenario.node[8].veinsmobility  speed  ETV
-vector 61  LocScenario.node[8].veinsmobility  acceleration  ETV
-vector 62  LocScenario.node[8].veinsmobility  co2emission  ETV
-vector 65  LocScenario.node[9].veinsmobility  posx  ETV
-vector 66  LocScenario.node[9].veinsmobility  posy  ETV
-vector 67  LocScenario.node[9].veinsmobility  speed  ETV
-vector 68  LocScenario.node[9].veinsmobility  acceleration  ETV
-vector 69  LocScenario.node[9].veinsmobility  co2emission  ETV
-6	5292 5053 22 84797 0.3 19.6 194 0.57339435374697 8.2158535193553 607.43576984218 2616.911795488
-5	10345 5677 22 84797 0.3 19.6 194 -1.1824273481034 1.1109287468717 0.23083407415545 46.184439823429
-4	16022 5384 12 84797 0.2 19.6 195 19.990149889628 20.119843015617 3910.9399814388 78438.466179904
-3	21406 5416 2 84797 0.1 19.6 196 27.262546396062 416.34012864494 43674.56832532 12254977.3744
-2	26822 5415 2 84797 0.1 19.6 196 26.697598627787 30.328976309398 5586.723626356 159462.02896634
-13	32237 5306 164 91596 1.3 20.9 197 0.58922051943281 11.703543274266 701.1288650759 3776.6182951593
-12	37543 5977 164 91596 1.3 20.9 197 -1.6348987146239 1.8341770648497 14.728686317831 88.034490635324
-11	43520 5717 133 91596 1.2 20.9 198 18.566314861134 20.113683835944 3895.2860733313 76663.265651906
-10	49237 5739 102 91596 1.1 20.9 199 28.825214776855 416.34012864494 44886.469151264 12681185.480364
-9	54976 5538 102 91596 1.1 20.9 199 26.697598627787 30.314391457068 5667.1628702175 161613.33365095
-20	60514 5277 540 94564 2.3 21.6 194 0.59775467656906 8.6337544003009 614.27923751322 2808.9222124176
-19	65791 5945 540 94564 2.3 21.6 194 -1.2385572002269 1.1969682039926 -0.50292403388301 55.537255600308
-18	71736 5648 476 94564 2.2 21.6 195 19.990264907209 20.119992804453 3911.8509942874 78475.044000903
-17	77384 5687 412 94564 2.1 21.6 196 27.136975368207 416.30025728988 43653.461491725 12246797.857112
-16	83071 5673 412 94564 2.1 21.6 196 23.397598627787 27.029867794606 4940.056617932 124730.91465428
-27	88744 5301 1270 97817 3.3 22.6 194 0.61947314993515 8.2972564503991 602.35666685905 2675.6248107073
-26	94045 5986 1270 97817 3.3 22.6 194 -1.1798592210747 1.1281483650207 -0.85953217127827 49.555248743011
-25	100031 5689 1161 97817 3.2 22.6 195 19.991151584999 20.118893493533 3911.0647128797 78443.460572519
-24	105720 5713 1052 97817 3.1 22.6 196 27.245119172883 416.34012864494 43662.457706341 12249847.812572
-23	111433 5713 1052 97817 3.1 22.6 196 26.697598627787 30.329138962895 5586.8366583925 159468.49594153
-34	117146 5313 2474 100953 4.3 23.9 197 0.67448827794387 11.406336070124 708.09390191505 3866.7438444932
-33	122459 6034 2474 100953 4.3 23.9 197 -1.837489349874 1.938101524859 15.164436509202 92.703984970132
-32	128493 5795 2308 100953 4.2 23.9 198 18.528389003836 20.108940109881 3895.2320296605 76660.257022878
-31	134288 5824 2142 100953 4.1 23.9 199 28.831183909547 416.34012864494 44879.903022271 12678346.641999
-30	140112 5818 2142 100953 4.1 23.9 199 26.697598627787 30.314335745364 5667.2241538673 161616.83488628
-41	145930 5309 4272 102184 5.3 24.6 194 0.55452474094655 8.7271258223258 622.77892235794 2879.4455641693
-40	151239 6011 4272 102184 5.3 24.6 194 -1.0816382465418 1.2158175215125 0.49550876743158 57.001681800415
-39	157250 5741 4037 102184 5.2 24.6 195 19.990984162218 20.119597059374 3910.2469971982 78410.700926028
-38	162991 5767 3802 102184 5.1 24.6 196 27.305886407327 416.30025728988 43667.111244108 12251169.284312
-37	168758 5765 3802 102184 5.1 24.6 196 23.397598627787 27.028291257487 4939.9292174885 124724.34369937
-48	174523 5351 6784 103331 6.3 25.6 194 0.56097042317238 8.9485734058722 633.75544034897 2892.4242147349
-47	179874 6049 6784 103331 6.3 25.6 194 -1.2688026530202 1.2612737311982 0.69913185071201 58.695673973919
-46	185923 5757 6468 103331 6.2 25.6 195 19.991958670311 20.119929023788 3910.6462731386 78426.720649608
-45	191680 5794 6152 103331 6.1 25.6 196 27.29158502935 416.34012864494 43668.642456455 12251924.936688
-44	197474 5788 6152 103331 6.1 25.6 196 26.697598627787 30.32870528313 5586.7789342661 159465.14607774
-55	203262 5351 10130 104208 7.3 26.9 197 0.59343714086227 11.579743274241 730.05267545733 4250.7632443507
-54	208613 6132 10130 104208 7.3 26.9 197 -1.5257201440192 1.9833392837547 15.605989046901 109.94225746865
-53	214745 5885 9721 104208 7.2 26.9 198 18.526128921026 20.110594451961 3894.7256187951 76640.721569785
-52	220630 5919 9312 104208 7.1 26.9 199 28.886775955158 416.34012864494 44888.302555949 12681215.644104
-51	226549 5920 9312 104208 7.1 26.9 199 26.697598627787 30.313816888141 5667.1457585021 161612.28960877
-62	232469 5418 14430 104458 8.3 27.6 194 0.56937690189522 8.1515295909855 606.25947344041 2571.5112142353
-61	237887 6103 14430 104458 8.3 27.6 194 -1.1239633552963 1.0984078466659 -0.0427699458087 43.977275736422
-60	243990 5814 13916 104458 8.2 27.6 195 19.991038538257 20.118741168694 3910.2178210165 78409.504505551
-59	249804 5842 13402 104458 8.1 27.6 196 27.300844930652 416.30025728988 43666.511931783 12250218.285188
-58	255646 5826 13402 104458 8.1 27.6 196 23.397598627787 27.028338312286 4939.9348111912 124724.56608087
-69	261472 5413 19804 104579 9.3 28.6 194 0.54853839020489 8.4143818897623 621.21881937788 2877.2003613112
-68	266885 6122 19804 104579 9.3 28.6 194 -1.0834168132395 1.1513978519244 -0.33813872938044 57.997870657107
-67	273007 5833 19173 104579 9.2 28.6 195 19.990024885156 20.119651981085 3909.7281561597 78389.899163624
-66	278840 5866 18542 104579 9.1 28.6 196 27.383745092757 416.34012864494 43678.764553424 12255432.752052
-65	284706 5867 18542 104579 9.1 28.6 196 26.697598627787 30.327845125638 5586.6844617015 159459.67305589
+vector 33  LocScenario.node[4].veinsmobility  acceleration  ETV
+vector 34  LocScenario.node[4].veinsmobility  co2emission  ETV
+vector 40  LocScenario.node[5].veinsmobility  ac

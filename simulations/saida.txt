@@ -1,0 +1,3295 @@
+OMNeT++ Discrete Event Simulation  (C) 1992-2016 Andras Varga, OpenSim Ltd.
+Version: 5.0, build: 160414-aa4629c, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+Setting up Cmdenv...
+Loading NED files from ..:  3
+Loading NED files from ../../veins-RSSI/examples/veins:  1
+Loading NED files from ../../veins-RSSI/src/veins:  30
+Loading NED files from /home/liborio/VehicularNetworking/workspace/locvanet/simulations:  0
+
+Preparing for running configuration General, run #0...
+Scenario: $repetition=0
+Assigned runID=General-0-20161216-19:02:18-12950
+Setting up network `com.liborio.locvanet.LocScenario'...
+Initializing...
+
+Running simulation...
+** Event #0   t=0   Elapsed: 0.000s (0m 00s)  0% completed
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 3   present: 3   in FES: 3
+Function HandleSelfMessage - Vehicle 1Position Sent:(2324.47,809.574,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(894.481,1057.3,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2322.28,813.282,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(897.213,1056.85,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2319.55,813.738,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(899.943,1056.39,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2316.81,814.189,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(902.672,1055.93,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2314.07,814.639,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(905.401,1055.48,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2311.34,815.08,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(908.133,1055.02,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2308.6,815.521,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(910.869,1054.57,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2305.86,815.962,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(913.605,1054.11,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2303.13,816.402,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(916.344,1053.65,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2300.4,816.842,1.895)
+Function HandleSelfMessage - Vehicle 0Position Sent:(919.081,1053.2,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2297.67,817.283,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7484
+My Debug: RX (mW) power on Decider Layer4.2185e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2297.67,817.283,1.895)Dist: 27.8889
+Function HandleSelfMessage - Vehicle 0Position Sent:(921.815,1052.74,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.6932
+My Debug: RX (mW) power on Decider Layer4.27248e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (921.815,1052.74,1.895)Dist: 27.7122
+Function HandleSelfMessage - Vehicle 3Position Sent:(2324.47,809.574,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7484
+My Debug: RX (mW) power on Decider Layer4.2185e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2324.47,809.574,1.895)Dist: 27.8889
+Function HandleSelfMessage - Vehicle 2Position Sent:(894.481,1057.3,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.6932
+My Debug: RX (mW) power on Decider Layer4.27248e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (894.481,1057.3,1.895)Dist: 27.7122
+Function HandleSelfMessage - Vehicle 1Position Sent:(2294.93,817.723,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7473
+My Debug: RX (mW) power on Decider Layer4.21957e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2294.93,817.723,1.895)Dist: 27.8854
+Function HandleSelfMessage - Vehicle 0Position Sent:(924.549,1052.29,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7285
+My Debug: RX (mW) power on Decider Layer4.23787e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (924.549,1052.29,1.895)Dist: 27.8251
+Function HandleSelfMessage - Vehicle 3Position Sent:(2321.74,810.032,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7473
+My Debug: RX (mW) power on Decider Layer4.21957e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2321.74,810.032,1.895)Dist: 27.8854
+Function HandleSelfMessage - Vehicle 2Position Sent:(897.103,1056.86,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7285
+My Debug: RX (mW) power on Decider Layer4.23787e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (897.103,1056.86,1.895)Dist: 27.8251
+Function HandleSelfMessage - Vehicle 1Position Sent:(2292.19,818.164,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7614
+My Debug: RX (mW) power on Decider Layer4.20593e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2292.19,818.164,1.895)Dist: 27.9306
+Function HandleSelfMessage - Vehicle 0Position Sent:(927.277,1051.83,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7632
+My Debug: RX (mW) power on Decider Layer4.20415e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (927.277,1051.83,1.895)Dist: 27.9365
+Function HandleSelfMessage - Vehicle 3Position Sent:(2319.05,810.48,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7614
+My Debug: RX (mW) power on Decider Layer4.20593e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2319.05,810.48,1.895)Dist: 27.9306
+Function HandleSelfMessage - Vehicle 2Position Sent:(899.721,1056.43,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7632
+My Debug: RX (mW) power on Decider Layer4.20415e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (899.721,1056.43,1.895)Dist: 27.9365
+Function HandleSelfMessage - Vehicle 1Position Sent:(2289.45,818.606,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7889
+My Debug: RX (mW) power on Decider Layer4.17937e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2289.45,818.606,1.895)Dist: 28.0192
+Function HandleSelfMessage - Vehicle 0Position Sent:(930.016,1051.37,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8013
+My Debug: RX (mW) power on Decider Layer4.16744e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (930.016,1051.37,1.895)Dist: 28.0593
+Function HandleSelfMessage - Vehicle 3Position Sent:(2316.4,810.913,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7889
+My Debug: RX (mW) power on Decider Layer4.17937e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2316.4,810.913,1.895)Dist: 28.0192
+Function HandleSelfMessage - Vehicle 2Position Sent:(902.339,1055.99,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8013
+My Debug: RX (mW) power on Decider Layer4.16744e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (902.339,1055.99,1.895)Dist: 28.0593
+Function HandleSelfMessage - Vehicle 1Position Sent:(2286.71,819.047,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7694
+My Debug: RX (mW) power on Decider Layer4.19816e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2286.71,819.047,1.895)Dist: 27.9564
+Function HandleSelfMessage - Vehicle 0Position Sent:(932.745,1050.92,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.834
+My Debug: RX (mW) power on Decider Layer4.13622e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (932.745,1050.92,1.895)Dist: 28.1649
+Function HandleSelfMessage - Vehicle 3Position Sent:(2314.31,814.601,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7694
+My Debug: RX (mW) power on Decider Layer4.19816e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2314.31,814.601,1.895)Dist: 27.9564
+Function HandleSelfMessage - Vehicle 2Position Sent:(904.964,1055.55,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.834
+My Debug: RX (mW) power on Decider Layer4.13622e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (904.964,1055.55,1.895)Dist: 28.1649
+Function HandleSelfMessage - Vehicle 1Position Sent:(2283.98,819.487,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7999
+My Debug: RX (mW) power on Decider Layer4.16877e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2283.98,819.487,1.895)Dist: 28.0548
+Function HandleSelfMessage - Vehicle 0Position Sent:(935.474,1050.46,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8682
+My Debug: RX (mW) power on Decider Layer4.10378e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (935.474,1050.46,1.895)Dist: 28.276
+Function HandleSelfMessage - Vehicle 3Position Sent:(2311.68,815.025,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7999
+My Debug: RX (mW) power on Decider Layer4.16877e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2311.68,815.025,1.895)Dist: 28.0548
+Function HandleSelfMessage - Vehicle 2Position Sent:(907.584,1055.12,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8682
+My Debug: RX (mW) power on Decider Layer4.10378e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (907.584,1055.12,1.895)Dist: 28.276
+Function HandleSelfMessage - Vehicle 1Position Sent:(2281.25,819.927,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8325
+My Debug: RX (mW) power on Decider Layer4.1376e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2281.25,819.927,1.895)Dist: 28.1602
+Function HandleSelfMessage - Vehicle 0Position Sent:(938.204,1050.01,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9019
+My Debug: RX (mW) power on Decider Layer4.07205e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (938.204,1050.01,1.895)Dist: 28.386
+Function HandleSelfMessage - Vehicle 3Position Sent:(2309.05,815.448,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8325
+My Debug: RX (mW) power on Decider Layer4.1376e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2309.05,815.448,1.895)Dist: 28.1602
+Function HandleSelfMessage - Vehicle 2Position Sent:(910.205,1054.68,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9019
+My Debug: RX (mW) power on Decider Layer4.07205e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (910.205,1054.68,1.895)Dist: 28.386
+Function HandleSelfMessage - Vehicle 1Position Sent:(2278.51,820.368,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8675
+My Debug: RX (mW) power on Decider Layer4.10442e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2278.51,820.368,1.895)Dist: 28.2738
+Function HandleSelfMessage - Vehicle 0Position Sent:(940.935,1049.55,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9343
+My Debug: RX (mW) power on Decider Layer4.04175e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (940.935,1049.55,1.895)Dist: 28.4922
+Function HandleSelfMessage - Vehicle 3Position Sent:(2306.43,815.871,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8675
+My Debug: RX (mW) power on Decider Layer4.10442e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2306.43,815.871,1.895)Dist: 28.2738
+Function HandleSelfMessage - Vehicle 2Position Sent:(912.831,1054.24,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9343
+My Debug: RX (mW) power on Decider Layer4.04175e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (912.831,1054.24,1.895)Dist: 28.4922
+Function HandleSelfMessage - Vehicle 1Position Sent:(2275.77,820.809,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9022
+My Debug: RX (mW) power on Decider Layer4.07178e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2275.77,820.809,1.895)Dist: 28.3869
+Function HandleSelfMessage - Vehicle 0Position Sent:(943.667,1049.1,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9663
+My Debug: RX (mW) power on Decider Layer4.01213e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (943.667,1049.1,1.895)Dist: 28.5972
+Function HandleSelfMessage - Vehicle 3Position Sent:(2303.8,816.295,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9022
+My Debug: RX (mW) power on Decider Layer4.07178e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2303.8,816.295,1.895)Dist: 28.3869
+Function HandleSelfMessage - Vehicle 2Position Sent:(915.459,1053.8,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9663
+My Debug: RX (mW) power on Decider Layer4.01213e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (915.459,1053.8,1.895)Dist: 28.5972
+Function HandleSelfMessage - Vehicle 1Position Sent:(2273.03,821.251,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9342
+My Debug: RX (mW) power on Decider Layer4.04189e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2273.03,821.251,1.895)Dist: 28.4917
+Function HandleSelfMessage - Vehicle 0Position Sent:(946.395,1048.64,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9966
+My Debug: RX (mW) power on Decider Layer3.98416e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (946.395,1048.64,1.895)Dist: 28.6974
+Function HandleSelfMessage - Vehicle 3Position Sent:(2301.16,816.72,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9342
+My Debug: RX (mW) power on Decider Layer4.04189e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2301.16,816.72,1.895)Dist: 28.4917
+Function HandleSelfMessage - Vehicle 2Position Sent:(918.088,1053.36,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9966
+My Debug: RX (mW) power on Decider Layer3.98416e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (918.088,1053.36,1.895)Dist: 28.6974
+Function HandleSelfMessage - Vehicle 1Position Sent:(2270.3,821.692,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9625
+My Debug: RX (mW) power on Decider Layer4.01563e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2270.3,821.692,1.895)Dist: 28.5847
+My Debug: RX (dBm) power on Decider Layer-69.7274
+My Debug: RX (mW) power on Decider Layer1.06478e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2270.3,821.692,1.895)Dist: 55.5112
+Function HandleSelfMessage - Vehicle 5Position Sent:(2324.47,809.574,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4778
+My Debug: RX (mW) power on Decider Layer4.48968e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2270.3,821.692,1.895)Dist: 28.5847
+Vehicle 5 Pos: (2324.47,809.574,1.895)Dist: 27.0335
+My Debug: RX (dBm) power on Decider Layer-69.7274
+My Debug: RX (mW) power on Decider Layer1.06478e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2301.16,816.72,1.895)Dist: 28.4917
+Vehicle 5 Pos: (2324.47,809.574,1.895)Dist: 55.5112
+Function HandleSelfMessage - Vehicle 0Position Sent:(949.13,1048.19,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.0285
+My Debug: RX (mW) power on Decider Layer3.95504e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (949.13,1048.19,1.895)Dist: 28.8028
+My Debug: RX (dBm) power on Decider Layer-69.7106
+My Debug: RX (mW) power on Decider Layer1.06891e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (949.13,1048.19,1.895)Dist: 55.4039
+Function HandleSelfMessage - Vehicle 3Position Sent:(2298.52,817.145,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(894.481,1057.3,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4778
+My Debug: RX (mW) power on Decider Layer4.48968e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2270.3,821.692,1.895)Dist: 55.5112
+Vehicle 3 Pos: (2298.52,817.145,1.895)Dist: 27.0335
+My Debug: RX (dBm) power on Decider Layer-63.9625
+My Debug: RX (mW) power on Decider Layer4.01563e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2298.52,817.145,1.895)Dist: 28.5847
+Vehicle 5 Pos: (2324.47,809.574,1.895)Dist: 55.5112
+My Debug: RX (dBm) power on Decider Layer-63.3378
+My Debug: RX (mW) power on Decider Layer4.63683e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (949.13,1048.19,1.895)Dist: 28.8028
+Vehicle 4 Pos: (894.481,1057.3,1.895)Dist: 26.6011
+My Debug: RX (dBm) power on Decider Layer-69.7106
+My Debug: RX (mW) power on Decider Layer1.06891e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (918.088,1053.36,1.895)Dist: 28.6974
+Vehicle 4 Pos: (894.481,1057.3,1.895)Dist: 55.4039
+Function HandleSelfMessage - Vehicle 2Position Sent:(920.719,1052.92,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.3378
+My Debug: RX (mW) power on Decider Layer4.63683e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (949.13,1048.19,1.895)Dist: 55.4039
+Vehicle 2 Pos: (920.719,1052.92,1.895)Dist: 26.6011
+My Debug: RX (dBm) power on Decider Layer-64.0285
+My Debug: RX (mW) power on Decider Layer3.95504e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (920.719,1052.92,1.895)Dist: 28.8028
+Vehicle 4 Pos: (894.481,1057.3,1.895)Dist: 55.4039
+Function HandleSelfMessage - Vehicle 1Position Sent:(2267.56,822.133,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9955
+My Debug: RX (mW) power on Decider Layer3.98516e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2267.56,822.133,1.895)Dist: 28.6938
+Vehicle 5 Pos: (2324.47,809.574,1.895)Dist: 27.0335
+My Debug: RX (dBm) power on Decider Layer-69.7272
+My Debug: RX (mW) power on Decider Layer1.06483e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2267.56,822.133,1.895)Dist: 55.51
+Vehicle 3 Pos: (2298.52,817.145,1.895)Dist: 27.0335
+Function HandleSelfMessage - Vehicle 5Position Sent:(2321.73,810.033,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4422
+My Debug: RX (mW) power on Decider Layer4.52663e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2267.56,822.133,1.895)Dist: 28.6938
+Vehicle 5 Pos: (2321.73,810.033,1.895)Dist: 26.923
+My Debug: RX (dBm) power on Decider Layer-69.7272
+My Debug: RX (mW) power on Decider Layer1.06483e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2298.52,817.145,1.895)Dist: 28.5847
+Vehicle 5 Pos: (2321.73,810.033,1.895)Dist: 55.51
+Function HandleSelfMessage - Vehicle 0Position Sent:(951.86,1047.73,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.0566
+My Debug: RX (mW) power on Decider Layer3.92951e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (951.86,1047.73,1.895)Dist: 28.8962
+Vehicle 4 Pos: (894.481,1057.3,1.895)Dist: 26.6011
+My Debug: RX (dBm) power on Decider Layer-69.7444
+My Debug: RX (mW) power on Decider Layer1.06061e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (951.86,1047.73,1.895)Dist: 55.6201
+Vehicle 2 Pos: (920.719,1052.92,1.895)Dist: 26.6011
+Function HandleSelfMessage - Vehicle 3Position Sent:(2295.88,817.57,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(896.998,1056.88,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4422
+My Debug: RX (mW) power on Decider Layer4.52663e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2267.56,822.133,1.895)Dist: 55.51
+Vehicle 3 Pos: (2295.88,817.57,1.895)Dist: 26.923
+My Debug: RX (dBm) power on Decider Layer-63.9955
+My Debug: RX (mW) power on Decider Layer3.98516e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2295.88,817.57,1.895)Dist: 28.6938
+Vehicle 5 Pos: (2321.73,810.033,1.895)Dist: 55.51
+My Debug: RX (dBm) power on Decider Layer-63.3778
+My Debug: RX (mW) power on Decider Layer4.59432e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (951.86,1047.73,1.895)Dist: 28.8962
+Vehicle 4 Pos: (896.998,1056.88,1.895)Dist: 26.7239
+My Debug: RX (dBm) power on Decider Layer-69.7444
+My Debug: RX (mW) power on Decider Layer1.06061e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (920.719,1052.92,1.895)Dist: 28.8028
+Vehicle 4 Pos: (896.998,1056.88,1.895)Dist: 55.6201
+Function HandleSelfMessage - Vehicle 2Position Sent:(923.358,1052.48,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.3778
+My Debug: RX (mW) power on Decider Layer4.59432e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (951.86,1047.73,1.895)Dist: 55.6201
+Vehicle 2 Pos: (923.358,1052.48,1.895)Dist: 26.7239
+My Debug: RX (dBm) power on Decider Layer-64.0566
+My Debug: RX (mW) power on Decider Layer3.92951e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (923.358,1052.48,1.895)Dist: 28.8962
+Vehicle 4 Pos: (896.998,1056.88,1.895)Dist: 55.6201
+Function HandleSelfMessage - Vehicle 1Position Sent:(2264.81,822.575,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.0241
+My Debug: RX (mW) power on Decider Layer3.95907e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2264.81,822.575,1.895)Dist: 28.7881
+Vehicle 5 Pos: (2321.73,810.033,1.895)Dist: 26.923
+My Debug: RX (dBm) power on Decider Layer-69.7335
+My Debug: RX (mW) power on Decider Layer1.06328e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2264.81,822.575,1.895)Dist: 55.5503
+Vehicle 3 Pos: (2295.88,817.57,1.895)Dist: 26.923
+Function HandleSelfMessage - Vehicle 5Position Sent:(2319.03,810.482,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4246
+My Debug: RX (mW) power on Decider Layer4.54502e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2264.81,822.575,1.895)Dist: 28.7881
+Vehicle 5 Pos: (2319.03,810.482,1.895)Dist: 26.8684
+My Debug: RX (dBm) power on Decider Layer-69.7335
+My Debug: RX (mW) power on Decider Layer1.06328e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2295.88,817.57,1.895)Dist: 28.6938
+Vehicle 5 Pos: (2319.03,810.482,1.895)Dist: 55.5503
+Function HandleSelfMessage - Vehicle 0Position Sent:(954.596,1047.27,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.0876
+My Debug: RX (mW) power on Decider Layer3.90159e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (954.596,1047.27,1.895)Dist: 28.9994
+Vehicle 4 Pos: (896.998,1056.88,1.895)Dist: 26.7239
+My Debug: RX (dBm) power on Decider Layer-69.7774
+My Debug: RX (mW) power on Decider Layer1.05258e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (954.596,1047.27,1.895)Dist: 55.8319
+Vehicle 2 Pos: (923.358,1052.48,1.895)Dist: 26.7239
+Function HandleSelfMessage - Vehicle 3Position Sent:(2293.24,817.996,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(899.525,1056.46,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4246
+My Debug: RX (mW) power on Decider Layer4.54502e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2264.81,822.575,1.895)Dist: 55.5503
+Vehicle 3 Pos: (2293.24,817.996,1.895)Dist: 26.8684
+My Debug: RX (dBm) power on Decider Layer-64.0241
+My Debug: RX (mW) power on Decider Layer3.95907e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2293.24,817.996,1.895)Dist: 28.7881
+Vehicle 5 Pos: (2319.03,810.482,1.895)Dist: 55.5503
+My Debug: RX (dBm) power on Decider Layer-63.413
+My Debug: RX (mW) power on Decider Layer4.55721e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (954.596,1047.27,1.895)Dist: 28.9994
+Vehicle 4 Pos: (899.525,1056.46,1.895)Dist: 26.8325
+My Debug: RX (dBm) power on Decider Layer-69.7774
+My Debug: RX (mW) power on Decider Layer1.05258e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (923.358,1052.48,1.895)Dist: 28.8962
+Vehicle 4 Pos: (899.525,1056.46,1.895)Dist: 55.8319
+Function HandleSelfMessage - Vehicle 2Position Sent:(925.992,1052.04,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.413
+My Debug: RX (mW) power on Decider Layer4.55721e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (954.596,1047.27,1.895)Dist: 55.8319
+Vehicle 2 Pos: (925.992,1052.04,1.895)Dist: 26.8325
+My Debug: RX (dBm) power on Decider Layer-64.0876
+My Debug: RX (mW) power on Decider Layer3.90159e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (925.992,1052.04,1.895)Dist: 28.9994
+Vehicle 4 Pos: (899.525,1056.46,1.895)Dist: 55.8319
+Function HandleSelfMessage - Vehicle 1Position Sent:(2262.07,823.016,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.0527
+My Debug: RX (mW) power on Decider Layer3.93303e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2262.07,823.016,1.895)Dist: 28.8833
+Vehicle 5 Pos: (2319.03,810.482,1.895)Dist: 26.8684
+My Debug: RX (dBm) power on Decider Layer-69.7463
+My Debug: RX (mW) power on Decider Layer1.06015e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2262.07,823.016,1.895)Dist: 55.6322
+Vehicle 3 Pos: (2293.24,817.996,1.895)Dist: 26.8684
+Function HandleSelfMessage - Vehicle 5Position Sent:(2316.38,810.917,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4203
+My Debug: RX (mW) power on Decider Layer4.54956e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2262.07,823.016,1.895)Dist: 28.8833
+Vehicle 5 Pos: (2316.38,810.917,1.895)Dist: 26.855
+My Debug: RX (dBm) power on Decider Layer-69.7463
+My Debug: RX (mW) power on Decider Layer1.06015e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2293.24,817.996,1.895)Dist: 28.7881
+Vehicle 5 Pos: (2316.38,810.917,1.895)Dist: 55.6322
+Function HandleSelfMessage - Vehicle 0Position Sent:(957.332,1046.82,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.1176
+My Debug: RX (mW) power on Decider Layer3.87471e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (957.332,1046.82,1.895)Dist: 29.0998
+Vehicle 4 Pos: (899.525,1056.46,1.895)Dist: 26.8325
+My Debug: RX (dBm) power on Decider Layer-69.8121
+My Debug: RX (mW) power on Decider Layer1.04422e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (957.332,1046.82,1.895)Dist: 56.0551
+Vehicle 2 Pos: (925.992,1052.04,1.895)Dist: 26.8325
+Function HandleSelfMessage - Vehicle 3Position Sent:(2290.59,818.422,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(902.04,1056.04,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4203
+My Debug: RX (mW) power on Decider Layer4.54956e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2262.07,823.016,1.895)Dist: 55.6322
+Vehicle 3 Pos: (2290.59,818.422,1.895)Dist: 26.855
+My Debug: RX (dBm) power on Decider Layer-64.0527
+My Debug: RX (mW) power on Decider Layer3.93303e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2290.59,818.422,1.895)Dist: 28.8833
+Vehicle 5 Pos: (2316.38,810.917,1.895)Dist: 55.6322
+My Debug: RX (dBm) power on Decider Layer-63.4526
+My Debug: RX (mW) power on Decider Layer4.5158e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (957.332,1046.82,1.895)Dist: 29.0998
+Vehicle 4 Pos: (902.04,1056.04,1.895)Dist: 26.9552
+My Debug: RX (dBm) power on Decider Layer-69.8121
+My Debug: RX (mW) power on Decider Layer1.04422e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (925.992,1052.04,1.895)Dist: 28.9994
+Vehicle 4 Pos: (902.04,1056.04,1.895)Dist: 56.0551
+Function HandleSelfMessage - Vehicle 2Position Sent:(928.628,1051.61,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4526
+My Debug: RX (mW) power on Decider Layer4.5158e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (957.332,1046.82,1.895)Dist: 56.0551
+Vehicle 2 Pos: (928.628,1051.61,1.895)Dist: 26.9552
+My Debug: RX (dBm) power on Decider Layer-64.1176
+My Debug: RX (mW) power on Decider Layer3.87471e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (928.628,1051.61,1.895)Dist: 29.0998
+Vehicle 4 Pos: (902.04,1056.04,1.895)Dist: 56.0551
+Function HandleSelfMessage - Vehicle 1Position Sent:(2259.34,823.457,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.0798
+My Debug: RX (mW) power on Decider Layer3.90859e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2259.34,823.457,1.895)Dist: 28.9735
+Vehicle 5 Pos: (2316.38,810.917,1.895)Dist: 26.855
+My Debug: RX (dBm) power on Decider Layer-69.7647
+My Debug: RX (mW) power on Decider Layer1.05568e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2259.34,823.457,1.895)Dist: 55.7498
+Vehicle 3 Pos: (2290.59,818.422,1.895)Dist: 26.855
+Function HandleSelfMessage - Vehicle 5Position Sent:(2313.76,811.345,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4291
+My Debug: RX (mW) power on Decider Layer4.5404e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2259.34,823.457,1.895)Dist: 28.9735
+Vehicle 5 Pos: (2313.76,811.345,1.895)Dist: 26.8821
+My Debug: RX (dBm) power on Decider Layer-69.7647
+My Debug: RX (mW) power on Decider Layer1.05568e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2290.59,818.422,1.895)Dist: 28.8833
+Vehicle 5 Pos: (2313.76,811.345,1.895)Dist: 55.7498
+Function HandleSelfMessage - Vehicle 0Position Sent:(960.064,1046.36,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.1445
+My Debug: RX (mW) power on Decider Layer3.85082e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (960.064,1046.36,1.895)Dist: 29.19
+Vehicle 4 Pos: (902.04,1056.04,1.895)Dist: 26.9552
+My Debug: RX (dBm) power on Decider Layer-69.8456
+My Debug: RX (mW) power on Decider Layer1.0362e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (960.064,1046.36,1.895)Dist: 56.2716
+Vehicle 2 Pos: (928.628,1051.61,1.895)Dist: 26.9552
+Function HandleSelfMessage - Vehicle 3Position Sent:(2287.94,818.849,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(904.559,1055.62,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4291
+My Debug: RX (mW) power on Decider Layer4.5404e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2259.34,823.457,1.895)Dist: 55.7498
+Vehicle 3 Pos: (2287.94,818.849,1.895)Dist: 26.8821
+My Debug: RX (dBm) power on Decider Layer-64.0798
+My Debug: RX (mW) power on Decider Layer3.90859e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2287.94,818.849,1.895)Dist: 28.9735
+Vehicle 5 Pos: (2313.76,811.345,1.895)Dist: 55.7498
+My Debug: RX (dBm) power on Decider Layer-63.4933
+My Debug: RX (mW) power on Decider Layer4.47375e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (960.064,1046.36,1.895)Dist: 29.19
+Vehicle 4 Pos: (904.559,1055.62,1.895)Dist: 27.0816
+My Debug: RX (dBm) power on Decider Layer-69.8456
+My Debug: RX (mW) power on Decider Layer1.0362e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (928.628,1051.61,1.895)Dist: 29.0998
+Vehicle 4 Pos: (904.559,1055.62,1.895)Dist: 56.2716
+Function HandleSelfMessage - Vehicle 2Position Sent:(931.272,1051.16,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4933
+My Debug: RX (mW) power on Decider Layer4.47375e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (960.064,1046.36,1.895)Dist: 56.2716
+Vehicle 2 Pos: (931.272,1051.16,1.895)Dist: 27.0816
+My Debug: RX (dBm) power on Decider Layer-64.1445
+My Debug: RX (mW) power on Decider Layer3.85082e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (931.272,1051.16,1.895)Dist: 29.19
+Vehicle 4 Pos: (904.559,1055.62,1.895)Dist: 56.2716
+Function HandleSelfMessage - Vehicle 1Position Sent:(2256.6,823.898,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.1079
+My Debug: RX (mW) power on Decider Layer3.88334e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2256.6,823.898,1.895)Dist: 29.0675
+Vehicle 5 Pos: (2313.76,811.345,1.895)Dist: 26.8821
+My Debug: RX (dBm) power on Decider Layer-69.7891
+My Debug: RX (mW) power on Decider Layer1.04975e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2256.6,823.898,1.895)Dist: 55.9072
+Vehicle 3 Pos: (2287.94,818.849,1.895)Dist: 26.8821
+Function HandleSelfMessage - Vehicle 5Position Sent:(2311.17,811.762,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4494
+My Debug: RX (mW) power on Decider Layer4.51916e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2256.6,823.898,1.895)Dist: 29.0675
+Vehicle 5 Pos: (2311.17,811.762,1.895)Dist: 26.9452
+My Debug: RX (dBm) power on Decider Layer-69.7891
+My Debug: RX (mW) power on Decider Layer1.04975e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2287.94,818.849,1.895)Dist: 28.9735
+Vehicle 5 Pos: (2311.17,811.762,1.895)Dist: 55.9072
+Function HandleSelfMessage - Vehicle 0Position Sent:(962.792,1045.91,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.1711
+My Debug: RX (mW) power on Decider Layer3.82724e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (962.792,1045.91,1.895)Dist: 29.2798
+Vehicle 4 Pos: (904.559,1055.62,1.895)Dist: 27.0816
+My Debug: RX (dBm) power on Decider Layer-69.8764
+My Debug: RX (mW) power on Decider Layer1.02886e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (962.792,1045.91,1.895)Dist: 56.4719
+Vehicle 2 Pos: (931.272,1051.16,1.895)Dist: 27.0816
+Function HandleSelfMessage - Vehicle 3Position Sent:(2285.29,819.276,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(907.089,1055.2,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4494
+My Debug: RX (mW) power on Decider Layer4.51916e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2256.6,823.898,1.895)Dist: 55.9072
+Vehicle 3 Pos: (2285.29,819.276,1.895)Dist: 26.9452
+My Debug: RX (dBm) power on Decider Layer-64.1079
+My Debug: RX (mW) power on Decider Layer3.88334e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2285.29,819.276,1.895)Dist: 29.0675
+Vehicle 5 Pos: (2311.17,811.762,1.895)Dist: 55.9072
+My Debug: RX (dBm) power on Decider Layer-63.5287
+My Debug: RX (mW) power on Decider Layer4.43745e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (962.792,1045.91,1.895)Dist: 29.2798
+Vehicle 4 Pos: (907.089,1055.2,1.895)Dist: 27.1922
+My Debug: RX (dBm) power on Decider Layer-69.8764
+My Debug: RX (mW) power on Decider Layer1.02886e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (931.272,1051.16,1.895)Dist: 29.19
+Vehicle 4 Pos: (907.089,1055.2,1.895)Dist: 56.4719
+Function HandleSelfMessage - Vehicle 2Position Sent:(933.911,1050.72,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.5287
+My Debug: RX (mW) power on Decider Layer4.43745e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (962.792,1045.91,1.895)Dist: 56.4719
+Vehicle 2 Pos: (933.911,1050.72,1.895)Dist: 27.1922
+My Debug: RX (dBm) power on Decider Layer-64.1711
+My Debug: RX (mW) power on Decider Layer3.82724e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (933.911,1050.72,1.895)Dist: 29.2798
+Vehicle 4 Pos: (907.089,1055.2,1.895)Dist: 56.4719
+Function HandleSelfMessage - Vehicle 1Position Sent:(2253.86,824.34,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.1344
+My Debug: RX (mW) power on Decider Layer3.85974e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2253.86,824.34,1.895)Dist: 29.1562
+Vehicle 5 Pos: (2311.17,811.762,1.895)Dist: 26.9452
+My Debug: RX (dBm) power on Decider Layer-69.8194
+My Debug: RX (mW) power on Decider Layer1.04245e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2253.86,824.34,1.895)Dist: 56.1025
+Vehicle 3 Pos: (2285.29,819.276,1.895)Dist: 26.9452
+Function HandleSelfMessage - Vehicle 5Position Sent:(2308.62,812.173,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4835
+My Debug: RX (mW) power on Decider Layer4.48379e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2253.86,824.34,1.895)Dist: 29.1562
+Vehicle 5 Pos: (2308.62,812.173,1.895)Dist: 27.0513
+My Debug: RX (dBm) power on Decider Layer-69.8194
+My Debug: RX (mW) power on Decider Layer1.04245e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2285.29,819.276,1.895)Dist: 29.0675
+Vehicle 5 Pos: (2308.62,812.173,1.895)Dist: 56.1025
+Function HandleSelfMessage - Vehicle 0Position Sent:(965.527,1045.45,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.1988
+My Debug: RX (mW) power on Decider Layer3.8029e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (965.527,1045.45,1.895)Dist: 29.3733
+Vehicle 4 Pos: (907.089,1055.2,1.895)Dist: 27.1922
+My Debug: RX (dBm) power on Decider Layer-69.9089
+My Debug: RX (mW) power on Decider Layer1.02119e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (965.527,1045.45,1.895)Dist: 56.6836
+Vehicle 2 Pos: (933.911,1050.72,1.895)Dist: 27.1922
+Function HandleSelfMessage - Vehicle 3Position Sent:(2282.64,819.703,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(909.616,1054.78,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4835
+My Debug: RX (mW) power on Decider Layer4.48379e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2253.86,824.34,1.895)Dist: 56.1025
+Vehicle 3 Pos: (2282.64,819.703,1.895)Dist: 27.0513
+My Debug: RX (dBm) power on Decider Layer-64.1344
+My Debug: RX (mW) power on Decider Layer3.85974e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2282.64,819.703,1.895)Dist: 29.1562
+Vehicle 5 Pos: (2308.62,812.173,1.895)Dist: 56.1025
+My Debug: RX (dBm) power on Decider Layer-63.5663
+My Debug: RX (mW) power on Decider Layer4.39915e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (965.527,1045.45,1.895)Dist: 29.3733
+Vehicle 4 Pos: (909.616,1054.78,1.895)Dist: 27.3103
+My Debug: RX (dBm) power on Decider Layer-69.9089
+My Debug: RX (mW) power on Decider Layer1.02119e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (933.911,1050.72,1.895)Dist: 29.2798
+Vehicle 4 Pos: (909.616,1054.78,1.895)Dist: 56.6836
+Function HandleSelfMessage - Vehicle 2Position Sent:(936.554,1050.28,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.5663
+My Debug: RX (mW) power on Decider Layer4.39915e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (965.527,1045.45,1.895)Dist: 56.6836
+Vehicle 2 Pos: (936.554,1050.28,1.895)Dist: 27.3103
+My Debug: RX (dBm) power on Decider Layer-64.1988
+My Debug: RX (mW) power on Decider Layer3.8029e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (936.554,1050.28,1.895)Dist: 29.3733
+Vehicle 4 Pos: (909.616,1054.78,1.895)Dist: 56.6836
+Function HandleSelfMessage - Vehicle 1Position Sent:(2251.12,824.78,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.1593
+My Debug: RX (mW) power on Decider Layer3.83771e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2251.12,824.78,1.895)Dist: 29.2398
+Vehicle 5 Pos: (2308.62,812.173,1.895)Dist: 27.0513
+My Debug: RX (dBm) power on Decider Layer-69.8405
+My Debug: RX (mW) power on Decider Layer1.0374e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2251.12,824.78,1.895)Dist: 56.2389
+Vehicle 3 Pos: (2282.64,819.703,1.895)Dist: 27.0513
+Function HandleSelfMessage - Vehicle 5Position Sent:(2306.64,815.836,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4668
+My Debug: RX (mW) power on Decider Layer4.50114e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2251.12,824.78,1.895)Dist: 29.2398
+Vehicle 5 Pos: (2306.64,815.836,1.895)Dist: 26.9991
+My Debug: RX (dBm) power on Decider Layer-69.8405
+My Debug: RX (mW) power on Decider Layer1.0374e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2282.64,819.703,1.895)Dist: 29.1562
+Vehicle 5 Pos: (2306.64,815.836,1.895)Dist: 56.2389
+Function HandleSelfMessage - Vehicle 0Position Sent:(968.263,1044.99,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.2258
+My Debug: RX (mW) power on Decider Layer3.77937e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (968.263,1044.99,1.895)Dist: 29.4646
+Vehicle 4 Pos: (909.616,1054.78,1.895)Dist: 27.3103
+My Debug: RX (dBm) power on Decider Layer-69.9391
+My Debug: RX (mW) power on Decider Layer1.01411e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (968.263,1044.99,1.895)Dist: 56.881
+Vehicle 2 Pos: (936.554,1050.28,1.895)Dist: 27.3103
+Function HandleSelfMessage - Vehicle 3Position Sent:(2279.99,820.13,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(912.157,1054.35,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.4668
+My Debug: RX (mW) power on Decider Layer4.50114e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2251.12,824.78,1.895)Dist: 56.2389
+Vehicle 3 Pos: (2279.99,820.13,1.895)Dist: 26.9991
+My Debug: RX (dBm) power on Decider Layer-64.1593
+My Debug: RX (mW) power on Decider Layer3.83771e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2279.99,820.13,1.895)Dist: 29.2398
+Vehicle 5 Pos: (2306.64,815.836,1.895)Dist: 56.2389
+My Debug: RX (dBm) power on Decider Layer-63.6
+My Debug: RX (mW) power on Decider Layer4.36518e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (968.263,1044.99,1.895)Dist: 29.4646
+Vehicle 4 Pos: (912.157,1054.35,1.895)Dist: 27.4163
+My Debug: RX (dBm) power on Decider Layer-69.9391
+My Debug: RX (mW) power on Decider Layer1.01411e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (936.554,1050.28,1.895)Dist: 29.3733
+Vehicle 4 Pos: (912.157,1054.35,1.895)Dist: 56.881
+Function HandleSelfMessage - Vehicle 2Position Sent:(939.2,1049.84,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.6
+My Debug: RX (mW) power on Decider Layer4.36518e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (968.263,1044.99,1.895)Dist: 56.881
+Vehicle 2 Pos: (939.2,1049.84,1.895)Dist: 27.4163
+My Debug: RX (dBm) power on Decider Layer-64.2258
+My Debug: RX (mW) power on Decider Layer3.77937e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (939.2,1049.84,1.895)Dist: 29.4646
+Vehicle 4 Pos: (912.157,1054.35,1.895)Dist: 56.881
+Function HandleSelfMessage - Vehicle 1Position Sent:(2248.39,825.225,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.1876
+My Debug: RX (mW) power on Decider Layer3.81277e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2248.39,825.225,1.895)Dist: 29.3353
+Vehicle 5 Pos: (2306.64,815.836,1.895)Dist: 26.9991
+My Debug: RX (dBm) power on Decider Layer-69.8741
+My Debug: RX (mW) power on Decider Layer1.02941e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2248.39,825.225,1.895)Dist: 56.4568
+Vehicle 3 Pos: (2279.99,820.13,1.895)Dist: 26.9991
+Function HandleSelfMessage - Vehicle 5Position Sent:(2304.12,816.242,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.5061
+My Debug: RX (mW) power on Decider Layer4.46059e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2248.39,825.225,1.895)Dist: 29.3353
+Vehicle 5 Pos: (2304.12,816.242,1.895)Dist: 27.1215
+My Debug: RX (dBm) power on Decider Layer-69.8741
+My Debug: RX (mW) power on Decider Layer1.02941e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2279.99,820.13,1.895)Dist: 29.2398
+Vehicle 5 Pos: (2304.12,816.242,1.895)Dist: 56.4568
+Function HandleSelfMessage - Vehicle 0Position Sent:(970.991,1044.54,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.248
+My Debug: RX (mW) power on Decider Layer3.76013e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (970.991,1044.54,1.895)Dist: 29.5399
+Vehicle 4 Pos: (912.157,1054.35,1.895)Dist: 27.4163
+My Debug: RX (dBm) power on Decider Layer-69.9686
+My Debug: RX (mW) power on Decider Layer1.00726e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (970.991,1044.54,1.895)Dist: 57.0742
+Vehicle 2 Pos: (939.2,1049.84,1.895)Dist: 27.4163
+Function HandleSelfMessage - Vehicle 3Position Sent:(2277.35,820.556,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(914.695,1053.93,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.5061
+My Debug: RX (mW) power on Decider Layer4.46059e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2248.39,825.225,1.895)Dist: 56.4568
+Vehicle 3 Pos: (2277.35,820.556,1.895)Dist: 27.1215
+My Debug: RX (dBm) power on Decider Layer-64.1876
+My Debug: RX (mW) power on Decider Layer3.81277e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2277.35,820.556,1.895)Dist: 29.3353
+Vehicle 5 Pos: (2304.12,816.242,1.895)Dist: 56.4568
+My Debug: RX (dBm) power on Decider Layer-63.6373
+My Debug: RX (mW) power on Decider Layer4.32787e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (970.991,1044.54,1.895)Dist: 29.5399
+Vehicle 4 Pos: (914.695,1053.93,1.895)Dist: 27.5343
+My Debug: RX (dBm) power on Decider Layer-69.9686
+My Debug: RX (mW) power on Decider Layer1.00726e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (939.2,1049.84,1.895)Dist: 29.4646
+Vehicle 4 Pos: (914.695,1053.93,1.895)Dist: 57.0742
+Function HandleSelfMessage - Vehicle 2Position Sent:(941.854,1049.4,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.6373
+My Debug: RX (mW) power on Decider Layer4.32787e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (970.991,1044.54,1.895)Dist: 57.0742
+Vehicle 2 Pos: (941.854,1049.4,1.895)Dist: 27.5343
+My Debug: RX (dBm) power on Decider Layer-64.248
+My Debug: RX (mW) power on Decider Layer3.76013e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (941.854,1049.4,1.895)Dist: 29.5399
+Vehicle 4 Pos: (914.695,1053.93,1.895)Dist: 57.0742
+Function HandleSelfMessage - Vehicle 1Position Sent:(2245.65,825.671,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.2157
+My Debug: RX (mW) power on Decider Layer3.78816e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2245.65,825.671,1.895)Dist: 29.4304
+Vehicle 5 Pos: (2304.12,816.242,1.895)Dist: 27.1215
+My Debug: RX (dBm) power on Decider Layer-69.9057
+My Debug: RX (mW) power on Decider Layer1.02194e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2245.65,825.671,1.895)Dist: 56.6627
+Vehicle 3 Pos: (2277.35,820.556,1.895)Dist: 27.1215
+Function HandleSelfMessage - Vehicle 5Position Sent:(2301.59,816.651,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.5415
+My Debug: RX (mW) power on Decider Layer4.42438e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2245.65,825.671,1.895)Dist: 29.4304
+Vehicle 5 Pos: (2301.59,816.651,1.895)Dist: 27.2323
+My Debug: RX (dBm) power on Decider Layer-69.9057
+My Debug: RX (mW) power on Decider Layer1.02194e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2277.35,820.556,1.895)Dist: 29.3353
+Vehicle 5 Pos: (2301.59,816.651,1.895)Dist: 56.6627
+Function HandleSelfMessage - Vehicle 0Position Sent:(973.719,1044.08,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.2739
+My Debug: RX (mW) power on Decider Layer3.73778e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (973.719,1044.08,1.895)Dist: 29.6281
+Vehicle 4 Pos: (914.695,1053.93,1.895)Dist: 27.5343
+My Debug: RX (dBm) power on Decider Layer-69.9964
+My Debug: RX (mW) power on Decider Layer1.00083e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (973.719,1044.08,1.895)Dist: 57.2574
+Vehicle 2 Pos: (941.854,1049.4,1.895)Dist: 27.5343
+Function HandleSelfMessage - Vehicle 3Position Sent:(2274.7,820.982,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(917.241,1053.5,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.5415
+My Debug: RX (mW) power on Decider Layer4.42438e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2245.65,825.671,1.895)Dist: 56.6627
+Vehicle 3 Pos: (2274.7,820.982,1.895)Dist: 27.2323
+My Debug: RX (dBm) power on Decider Layer-64.2157
+My Debug: RX (mW) power on Decider Layer3.78816e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2274.7,820.982,1.895)Dist: 29.4304
+Vehicle 5 Pos: (2301.59,816.651,1.895)Dist: 56.6627
+My Debug: RX (dBm) power on Decider Layer-63.6672
+My Debug: RX (mW) power on Decider Layer4.29816e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (973.719,1044.08,1.895)Dist: 29.6281
+Vehicle 4 Pos: (917.241,1053.5,1.895)Dist: 27.6293
+My Debug: RX (dBm) power on Decider Layer-69.9964
+My Debug: RX (mW) power on Decider Layer1.00083e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (941.854,1049.4,1.895)Dist: 29.5399
+Vehicle 4 Pos: (917.241,1053.5,1.895)Dist: 57.2574
+Function HandleSelfMessage - Vehicle 2Position Sent:(944.494,1048.96,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.6672
+My Debug: RX (mW) power on Decider Layer4.29816e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (973.719,1044.08,1.895)Dist: 57.2574
+Vehicle 2 Pos: (944.494,1048.96,1.895)Dist: 27.6293
+My Debug: RX (dBm) power on Decider Layer-64.2739
+My Debug: RX (mW) power on Decider Layer3.73778e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (944.494,1048.96,1.895)Dist: 29.6281
+Vehicle 4 Pos: (917.241,1053.5,1.895)Dist: 57.2574
+Function HandleSelfMessage - Vehicle 7Position Sent:(2324.47,809.574,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2242.91,826.116,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.3043
+My Debug: RX (mW) power on Decider Layer4.67276e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2245.65,825.671,1.895)Dist: 56.6627
+Vehicle 3 Pos: (2274.7,820.982,1.895)Dist: 27.2323
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 26.4986
+My Debug: RX (dBm) power on Decider Layer-69.4457
+My Debug: RX (mW) power on Decider Layer1.13612e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2245.65,825.671,1.895)Dist: 29.4304
+Vehicle 5 Pos: (2301.59,816.651,1.895)Dist: 27.2323
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 53.74
+My Debug: RX (dBm) power on Decider Layer-73.2445
+My Debug: RX (mW) power on Decider Layer4.7375e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2274.7,820.982,1.895)Dist: 29.4304
+Vehicle 5 Pos: (2301.59,816.651,1.895)Dist: 56.6627
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 83.2216
+My Debug: RX (dBm) power on Decider Layer-64.2416
+My Debug: RX (mW) power on Decider Layer3.76569e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 29.5181
+Vehicle 5 Pos: (2301.59,816.651,1.895)Dist: 27.2323
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 53.74
+My Debug: RX (dBm) power on Decider Layer-69.9371
+My Debug: RX (mW) power on Decider Layer1.0146e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 56.8674
+Vehicle 3 Pos: (2274.7,820.982,1.895)Dist: 27.2323
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 26.4986
+My Debug: RX (dBm) power on Decider Layer-73.2445
+My Debug: RX (mW) power on Decider Layer4.7375e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 83.2216
+Function HandleSelfMessage - Vehicle 5Position Sent:(2299.05,817.06,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.3043
+My Debug: RX (mW) power on Decider Layer4.67276e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 83.2216
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 26.4986
+My Debug: RX (dBm) power on Decider Layer-63.5787
+My Debug: RX (mW) power on Decider Layer4.38659e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 29.5181
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 27.3493
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 53.74
+My Debug: RX (dBm) power on Decider Layer-69.9371
+My Debug: RX (mW) power on Decider Layer1.0146e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2274.7,820.982,1.895)Dist: 29.4304
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 56.8674
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 83.2216
+Function HandleSelfMessage - Vehicle 0Position Sent:(976.453,1043.63,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.2998
+My Debug: RX (mW) power on Decider Layer3.71548e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 29.7169
+Vehicle 4 Pos: (917.241,1053.5,1.895)Dist: 27.6293
+My Debug: RX (dBm) power on Decider Layer-70.0268
+My Debug: RX (mW) power on Decider Layer9.93841e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 57.4582
+Vehicle 2 Pos: (944.494,1048.96,1.895)Dist: 27.6293
+My Debug: RX (dBm) power on Decider Layer-73.2323
+My Debug: RX (mW) power on Decider Layer4.75085e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 83.1046
+Function HandleSelfMessage - Vehicle 6Position Sent:(894.481,1057.3,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.0203
+My Debug: RX (mW) power on Decider Layer4.9885e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 57.4582
+Vehicle 2 Pos: (944.494,1048.96,1.895)Dist: 27.6293
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 25.6463
+My Debug: RX (dBm) power on Decider Layer-69.3886
+My Debug: RX (mW) power on Decider Layer1.15117e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 29.7169
+Vehicle 4 Pos: (917.241,1053.5,1.895)Dist: 27.6293
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 53.3877
+My Debug: RX (dBm) power on Decider Layer-73.2323
+My Debug: RX (mW) power on Decider Layer4.75085e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (944.494,1048.96,1.895)Dist: 29.6281
+Vehicle 4 Pos: (917.241,1053.5,1.895)Dist: 57.2574
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 83.1046
+Function HandleSelfMessage - Vehicle 3Position Sent:(2272.05,821.409,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(919.777,1053.08,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.5787
+My Debug: RX (mW) power on Decider Layer4.38659e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 56.8674
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 27.3493
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 26.4986
+My Debug: RX (dBm) power on Decider Layer-64.2416
+My Debug: RX (mW) power on Decider Layer3.76569e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 29.5181
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 56.8674
+Vehicle 7 Pos: (2324.47,809.574,1.895)Dist: 83.2216
+My Debug: RX (dBm) power on Decider Layer-69.4457
+My Debug: RX (mW) power on Decider Layer1.13612e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 83.2216
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 26.4986
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 53.74
+My Debug: RX (dBm) power on Decider Layer-63.0203
+My Debug: RX (mW) power on Decider Layer4.9885e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 83.1046
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 25.6463
+My Debug: RX (dBm) power on Decider Layer-63.7023
+My Debug: RX (mW) power on Decider Layer4.2635e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 29.7169
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 27.7413
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 53.3877
+My Debug: RX (dBm) power on Decider Layer-70.0268
+My Debug: RX (mW) power on Decider Layer9.93841e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (944.494,1048.96,1.895)Dist: 29.6281
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 57.4582
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 83.1046
+Function HandleSelfMessage - Vehicle 2Position Sent:(947.141,1048.52,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7023
+My Debug: RX (mW) power on Decider Layer4.2635e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 57.4582
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 27.7413
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 25.6463
+My Debug: RX (dBm) power on Decider Layer-64.2998
+My Debug: RX (mW) power on Decider Layer3.71548e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 29.7169
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 57.4582
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 83.1046
+My Debug: RX (dBm) power on Decider Layer-69.3886
+My Debug: RX (mW) power on Decider Layer1.15117e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (976.453,1043.63,1.895)Dist: 83.1046
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 25.6463
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 53.3877
+Function HandleSelfMessage - Vehicle 7Position Sent:(2321.73,810.033,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2240.17,826.562,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.2376
+My Debug: RX (mW) power on Decider Layer4.74505e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 56.8674
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 27.3493
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 26.296
+My Debug: RX (dBm) power on Decider Layer-69.4318
+My Debug: RX (mW) power on Decider Layer1.13978e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2242.91,826.116,1.895)Dist: 29.5181
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 27.3493
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 53.6538
+My Debug: RX (dBm) power on Decider Layer-73.2441
+My Debug: RX (mW) power on Decider Layer4.73795e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 29.5181
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 56.8674
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 83.2176
+My Debug: RX (dBm) power on Decider Layer-64.2656
+My Debug: RX (mW) power on Decider Layer3.74489e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 29.5999
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 27.3493
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 53.6538
+My Debug: RX (dBm) power on Decider Layer-69.9673
+My Debug: RX (mW) power on Decider Layer1.00755e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 57.0659
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 27.3493
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 26.296
+My Debug: RX (dBm) power on Decider Layer-73.2441
+My Debug: RX (mW) power on Decider Layer4.73795e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 83.2176
+Vehicle 5 Pos: (2299.05,817.06,1.895)Dist: 26.4986
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 53.74
+Function HandleSelfMessage - Vehicle 5Position Sent:(2296.51,817.469,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.2376
+My Debug: RX (mW) power on Decider Layer4.74505e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 83.2176
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 26.296
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 53.74
+My Debug: RX (dBm) power on Decider Layer-63.6157
+My Debug: RX (mW) power on Decider Layer4.34941e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 29.5999
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 27.466
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 53.6538
+My Debug: RX (dBm) power on Decider Layer-69.9673
+My Debug: RX (mW) power on Decider Layer1.00755e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2272.05,821.409,1.895)Dist: 29.5181
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 57.0659
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 83.2176
+Function HandleSelfMessage - Vehicle 0Position Sent:(979.185,1043.17,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.3232
+My Debug: RX (mW) power on Decider Layer3.69554e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 29.797
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 27.7413
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 53.3877
+My Debug: RX (dBm) power on Decider Layer-70.0548
+My Debug: RX (mW) power on Decider Layer9.8747e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 57.6433
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 27.7413
+Vehicle 6 Pos: (894.481,1057.3,1.895)Dist: 25.6463
+My Debug: RX (dBm) power on Decider Layer-73.2661
+My Debug: RX (mW) power on Decider Layer4.71398e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 83.429
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 25.6463
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 53.3877
+Function HandleSelfMessage - Vehicle 6Position Sent:(896.892,1056.9,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.0674
+My Debug: RX (mW) power on Decider Layer4.93473e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 57.6433
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 27.7413
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 25.7857
+My Debug: RX (dBm) power on Decider Layer-69.4283
+My Debug: RX (mW) power on Decider Layer1.1407e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 29.797
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 27.7413
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 53.632
+My Debug: RX (dBm) power on Decider Layer-73.2661
+My Debug: RX (mW) power on Decider Layer4.71398e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 29.7169
+Vehicle 4 Pos: (919.777,1053.08,1.895)Dist: 57.4582
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 83.429
+Function HandleSelfMessage - Vehicle 3Position Sent:(2269.39,821.838,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(922.327,1052.66,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.6157
+My Debug: RX (mW) power on Decider Layer4.34941e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 57.0659
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 27.466
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 26.296
+My Debug: RX (dBm) power on Decider Layer-64.2656
+My Debug: RX (mW) power on Decider Layer3.74489e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 29.5999
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 57.0659
+Vehicle 7 Pos: (2321.73,810.033,1.895)Dist: 83.2176
+My Debug: RX (dBm) power on Decider Layer-69.4318
+My Debug: RX (mW) power on Decider Layer1.13978e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 83.2176
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 26.296
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 53.6538
+My Debug: RX (dBm) power on Decider Layer-63.0674
+My Debug: RX (mW) power on Decider Layer4.93473e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 83.429
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 25.7857
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 53.3877
+My Debug: RX (dBm) power on Decider Layer-63.7351
+My Debug: RX (mW) power on Decider Layer4.23141e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 29.797
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 27.8463
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 53.632
+My Debug: RX (dBm) power on Decider Layer-70.0548
+My Debug: RX (mW) power on Decider Layer9.8747e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (947.141,1048.52,1.895)Dist: 29.7169
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 57.6433
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 83.429
+Function HandleSelfMessage - Vehicle 2Position Sent:(949.794,1048.08,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7351
+My Debug: RX (mW) power on Decider Layer4.23141e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 57.6433
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 27.8463
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 25.7857
+My Debug: RX (dBm) power on Decider Layer-64.3232
+My Debug: RX (mW) power on Decider Layer3.69554e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 29.797
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 57.6433
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 83.429
+My Debug: RX (dBm) power on Decider Layer-69.4283
+My Debug: RX (mW) power on Decider Layer1.1407e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (979.185,1043.17,1.895)Dist: 83.429
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 25.7857
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 53.632
+Function HandleSelfMessage - Vehicle 7Position Sent:(2319.03,810.482,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2237.44,827.006,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1874
+My Debug: RX (mW) power on Decider Layer4.80023e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 57.0659
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 27.466
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 26.1445
+My Debug: RX (dBm) power on Decider Layer-69.4239
+My Debug: RX (mW) power on Decider Layer1.14185e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2240.17,826.562,1.895)Dist: 29.5999
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 27.466
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 53.6051
+My Debug: RX (dBm) power on Decider Layer-73.2471
+My Debug: RX (mW) power on Decider Layer4.73468e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 29.5999
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 57.0659
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 83.2464
+My Debug: RX (dBm) power on Decider Layer-64.2882
+My Debug: RX (mW) power on Decider Layer3.72547e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 29.677
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 27.466
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 53.6051
+My Debug: RX (dBm) power on Decider Layer-69.9947
+My Debug: RX (mW) power on Decider Layer1.00122e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 57.2461
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 27.466
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 26.1445
+My Debug: RX (dBm) power on Decider Layer-73.2471
+My Debug: RX (mW) power on Decider Layer4.73468e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 83.2464
+Vehicle 5 Pos: (2296.51,817.469,1.895)Dist: 26.296
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 53.6538
+Function HandleSelfMessage - Vehicle 5Position Sent:(2293.95,817.88,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1874
+My Debug: RX (mW) power on Decider Layer4.80023e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 83.2464
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 26.1445
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 53.6538
+My Debug: RX (dBm) power on Decider Layer-63.6483
+My Debug: RX (mW) power on Decider Layer4.31692e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 29.677
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 27.5692
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 53.6051
+My Debug: RX (dBm) power on Decider Layer-69.9947
+My Debug: RX (mW) power on Decider Layer1.00122e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2269.39,821.838,1.895)Dist: 29.5999
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 57.2461
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 83.2464
+Function HandleSelfMessage - Vehicle 0Position Sent:(981.914,1042.72,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.345
+My Debug: RX (mW) power on Decider Layer3.67702e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 29.8719
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 27.8463
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 53.632
+My Debug: RX (dBm) power on Decider Layer-70.0811
+My Debug: RX (mW) power on Decider Layer9.81492e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 57.8185
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 27.8463
+Vehicle 6 Pos: (896.892,1056.9,1.895)Dist: 25.7857
+My Debug: RX (dBm) power on Decider Layer-73.2979
+My Debug: RX (mW) power on Decider Layer4.67957e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 83.7351
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 25.7857
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 53.632
+Function HandleSelfMessage - Vehicle 6Position Sent:(899.32,1056.49,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1113
+My Debug: RX (mW) power on Decider Layer4.88502e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 57.8185
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 27.8463
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 25.9166
+My Debug: RX (dBm) power on Decider Layer-69.4656
+My Debug: RX (mW) power on Decider Layer1.13093e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 29.8719
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 27.8463
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 53.8632
+My Debug: RX (dBm) power on Decider Layer-73.2979
+My Debug: RX (mW) power on Decider Layer4.67957e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 29.797
+Vehicle 4 Pos: (922.327,1052.66,1.895)Dist: 57.6433
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 83.7351
+Function HandleSelfMessage - Vehicle 3Position Sent:(2266.74,822.265,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(924.883,1052.23,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.6483
+My Debug: RX (mW) power on Decider Layer4.31692e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 57.2461
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 27.5692
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 26.1445
+My Debug: RX (dBm) power on Decider Layer-64.2882
+My Debug: RX (mW) power on Decider Layer3.72547e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 29.677
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 57.2461
+Vehicle 7 Pos: (2319.03,810.482,1.895)Dist: 83.2464
+My Debug: RX (dBm) power on Decider Layer-69.4239
+My Debug: RX (mW) power on Decider Layer1.14185e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 83.2464
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 26.1445
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 53.6051
+My Debug: RX (dBm) power on Decider Layer-63.1113
+My Debug: RX (mW) power on Decider Layer4.88502e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 83.7351
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 25.9166
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 53.632
+My Debug: RX (dBm) power on Decider Layer-63.7664
+My Debug: RX (mW) power on Decider Layer4.20108e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 29.8719
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 27.9467
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 53.8632
+My Debug: RX (dBm) power on Decider Layer-70.0811
+My Debug: RX (mW) power on Decider Layer9.81492e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (949.794,1048.08,1.895)Dist: 29.797
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 57.8185
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 83.7351
+Function HandleSelfMessage - Vehicle 2Position Sent:(952.449,1047.63,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7664
+My Debug: RX (mW) power on Decider Layer4.20108e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 57.8185
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 27.9467
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 25.9166
+My Debug: RX (dBm) power on Decider Layer-64.345
+My Debug: RX (mW) power on Decider Layer3.67702e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 29.8719
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 57.8185
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 83.7351
+My Debug: RX (dBm) power on Decider Layer-69.4656
+My Debug: RX (mW) power on Decider Layer1.13093e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (981.914,1042.72,1.895)Dist: 83.7351
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 25.9166
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 53.8632
+Function HandleSelfMessage - Vehicle 7Position Sent:(2316.37,810.917,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2234.71,827.45,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1502
+My Debug: RX (mW) power on Decider Layer4.84152e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 57.2461
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 27.5692
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 26.0327
+My Debug: RX (dBm) power on Decider Layer-69.4226
+My Debug: RX (mW) power on Decider Layer1.14219e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2237.44,827.006,1.895)Dist: 29.677
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 27.5692
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 53.597
+My Debug: RX (dBm) power on Decider Layer-73.2549
+My Debug: RX (mW) power on Decider Layer4.72615e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 29.677
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 57.2461
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 83.3215
+My Debug: RX (dBm) power on Decider Layer-64.3124
+My Debug: RX (mW) power on Decider Layer3.70472e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 29.76
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 27.5692
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 53.597
+My Debug: RX (dBm) power on Decider Layer-70.023
+My Debug: RX (mW) power on Decider Layer9.94707e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 57.4332
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 27.5692
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 26.0327
+My Debug: RX (dBm) power on Decider Layer-73.2549
+My Debug: RX (mW) power on Decider Layer4.72615e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 83.3215
+Vehicle 5 Pos: (2293.95,817.88,1.895)Dist: 26.1445
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 53.6051
+Function HandleSelfMessage - Vehicle 5Position Sent:(2291.4,818.291,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1502
+My Debug: RX (mW) power on Decider Layer4.84152e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 83.3215
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 26.0327
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 53.6051
+My Debug: RX (dBm) power on Decider Layer-63.681
+My Debug: RX (mW) power on Decider Layer4.28453e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 29.76
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 27.6732
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 53.597
+My Debug: RX (dBm) power on Decider Layer-70.023
+My Debug: RX (mW) power on Decider Layer9.94707e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2266.74,822.265,1.895)Dist: 29.677
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 57.4332
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 83.3215
+Function HandleSelfMessage - Vehicle 0Position Sent:(984.642,1042.26,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.3697
+My Debug: RX (mW) power on Decider Layer3.6562e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 29.9568
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 27.9467
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 53.8632
+My Debug: RX (dBm) power on Decider Layer-70.1072
+My Debug: RX (mW) power on Decider Layer9.75614e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 57.9924
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 27.9467
+Vehicle 6 Pos: (899.32,1056.49,1.895)Dist: 25.9166
+My Debug: RX (dBm) power on Decider Layer-73.3284
+My Debug: RX (mW) power on Decider Layer4.6469e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 84.0289
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 25.9166
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 53.8632
+Function HandleSelfMessage - Vehicle 6Position Sent:(901.758,1056.09,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1514
+My Debug: RX (mW) power on Decider Layer4.84013e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 57.9924
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 27.9467
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 26.0365
+My Debug: RX (dBm) power on Decider Layer-69.4993
+My Debug: RX (mW) power on Decider Layer1.12221e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 29.9568
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 27.9467
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 54.0721
+My Debug: RX (dBm) power on Decider Layer-73.3284
+My Debug: RX (mW) power on Decider Layer4.6469e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 29.8719
+Vehicle 4 Pos: (924.883,1052.23,1.895)Dist: 57.8185
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 84.0289
+Function HandleSelfMessage - Vehicle 3Position Sent:(2264.08,822.692,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(927.44,1051.8,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.681
+My Debug: RX (mW) power on Decider Layer4.28453e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 57.4332
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 27.6732
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 26.0327
+My Debug: RX (dBm) power on Decider Layer-64.3124
+My Debug: RX (mW) power on Decider Layer3.70472e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 29.76
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 57.4332
+Vehicle 7 Pos: (2316.37,810.917,1.895)Dist: 83.3215
+My Debug: RX (dBm) power on Decider Layer-69.4226
+My Debug: RX (mW) power on Decider Layer1.14219e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 83.3215
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 26.0327
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 53.597
+My Debug: RX (dBm) power on Decider Layer-63.1514
+My Debug: RX (mW) power on Decider Layer4.84013e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 84.0289
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 26.0365
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 53.8632
+My Debug: RX (dBm) power on Decider Layer-63.794
+My Debug: RX (mW) power on Decider Layer4.17446e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 29.9568
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 28.0356
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 54.0721
+My Debug: RX (dBm) power on Decider Layer-70.1072
+My Debug: RX (mW) power on Decider Layer9.75614e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (952.449,1047.63,1.895)Dist: 29.8719
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 57.9924
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 84.0289
+Function HandleSelfMessage - Vehicle 2Position Sent:(955.093,1047.19,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.794
+My Debug: RX (mW) power on Decider Layer4.17446e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 57.9924
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 28.0356
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 26.0365
+My Debug: RX (dBm) power on Decider Layer-64.3697
+My Debug: RX (mW) power on Decider Layer3.6562e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 29.9568
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 57.9924
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 84.0289
+My Debug: RX (dBm) power on Decider Layer-69.4993
+My Debug: RX (mW) power on Decider Layer1.12221e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (984.642,1042.26,1.895)Dist: 84.0289
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 26.0365
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 54.0721
+Function HandleSelfMessage - Vehicle 7Position Sent:(2313.75,811.346,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2231.97,827.896,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1266
+My Debug: RX (mW) power on Decider Layer4.86785e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 57.4332
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 27.6732
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 25.9622
+My Debug: RX (dBm) power on Decider Layer-69.4272
+My Debug: RX (mW) power on Decider Layer1.14099e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2234.71,827.45,1.895)Dist: 29.76
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 27.6732
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 53.6252
+My Debug: RX (dBm) power on Decider Layer-73.2676
+My Debug: RX (mW) power on Decider Layer4.71236e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 29.76
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 57.4332
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 83.4433
+My Debug: RX (dBm) power on Decider Layer-64.3396
+My Debug: RX (mW) power on Decider Layer3.6816e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 29.8533
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 27.6732
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 53.6252
+My Debug: RX (dBm) power on Decider Layer-70.0521
+My Debug: RX (mW) power on Decider Layer9.88083e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 57.6254
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 27.6732
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 25.9622
+My Debug: RX (dBm) power on Decider Layer-73.2676
+My Debug: RX (mW) power on Decider Layer4.71236e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 83.4433
+Vehicle 5 Pos: (2291.4,818.291,1.895)Dist: 26.0327
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 53.597
+Function HandleSelfMessage - Vehicle 5Position Sent:(2288.85,818.702,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1266
+My Debug: RX (mW) power on Decider Layer4.86785e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 83.4433
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 25.9622
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 53.597
+My Debug: RX (dBm) power on Decider Layer-63.712
+My Debug: RX (mW) power on Decider Layer4.25405e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 29.8533
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 27.7721
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 53.6252
+My Debug: RX (dBm) power on Decider Layer-70.0521
+My Debug: RX (mW) power on Decider Layer9.88083e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2264.08,822.692,1.895)Dist: 29.76
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 57.6254
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 83.4433
+Function HandleSelfMessage - Vehicle 0Position Sent:(987.373,1041.81,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.3921
+My Debug: RX (mW) power on Decider Layer3.63737e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 30.0343
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 28.0356
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 54.0721
+My Debug: RX (dBm) power on Decider Layer-70.1342
+My Debug: RX (mW) power on Decider Layer9.69563e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 58.1731
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 28.0356
+Vehicle 6 Pos: (901.758,1056.09,1.895)Dist: 26.0365
+My Debug: RX (dBm) power on Decider Layer-73.3588
+My Debug: RX (mW) power on Decider Layer4.61447e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 84.3237
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 26.0365
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 54.0721
+Function HandleSelfMessage - Vehicle 6Position Sent:(904.198,1055.68,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1894
+My Debug: RX (mW) power on Decider Layer4.798e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 58.1731
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 28.0356
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 26.1505
+My Debug: RX (dBm) power on Decider Layer-69.5341
+My Debug: RX (mW) power on Decider Layer1.11325e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 30.0343
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 28.0356
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 54.2894
+My Debug: RX (dBm) power on Decider Layer-73.3588
+My Debug: RX (mW) power on Decider Layer4.61447e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 29.9568
+Vehicle 4 Pos: (927.44,1051.8,1.895)Dist: 57.9924
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 84.3237
+Function HandleSelfMessage - Vehicle 3Position Sent:(2261.43,823.119,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(929.992,1051.38,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.712
+My Debug: RX (mW) power on Decider Layer4.25405e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 57.6254
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 27.7721
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 25.9622
+My Debug: RX (dBm) power on Decider Layer-64.3396
+My Debug: RX (mW) power on Decider Layer3.6816e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 29.8533
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 57.6254
+Vehicle 7 Pos: (2313.75,811.346,1.895)Dist: 83.4433
+My Debug: RX (dBm) power on Decider Layer-69.4272
+My Debug: RX (mW) power on Decider Layer1.14099e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 83.4433
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 25.9622
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 53.6252
+My Debug: RX (dBm) power on Decider Layer-63.1894
+My Debug: RX (mW) power on Decider Layer4.798e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 84.3237
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 26.1505
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 54.0721
+My Debug: RX (dBm) power on Decider Layer-63.8259
+My Debug: RX (mW) power on Decider Layer4.14388e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 30.0343
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 28.1389
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 54.2894
+My Debug: RX (dBm) power on Decider Layer-70.1342
+My Debug: RX (mW) power on Decider Layer9.69563e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (955.093,1047.19,1.895)Dist: 29.9568
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 58.1731
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 84.3237
+Function HandleSelfMessage - Vehicle 2Position Sent:(957.748,1046.75,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8259
+My Debug: RX (mW) power on Decider Layer4.14388e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 58.1731
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 28.1389
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 26.1505
+My Debug: RX (dBm) power on Decider Layer-64.3921
+My Debug: RX (mW) power on Decider Layer3.63737e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 30.0343
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 58.1731
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 84.3237
+My Debug: RX (dBm) power on Decider Layer-69.5341
+My Debug: RX (mW) power on Decider Layer1.11325e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (987.373,1041.81,1.895)Dist: 84.3237
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 26.1505
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 54.2894
+Function HandleSelfMessage - Vehicle 7Position Sent:(2311.16,811.763,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2229.24,828.341,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1149
+My Debug: RX (mW) power on Decider Layer4.881e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 57.6254
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 27.7721
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 25.9272
+My Debug: RX (dBm) power on Decider Layer-69.4398
+My Debug: RX (mW) power on Decider Layer1.13767e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2231.97,827.896,1.895)Dist: 29.8533
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 27.7721
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 53.7034
+My Debug: RX (dBm) power on Decider Layer-73.2827
+My Debug: RX (mW) power on Decider Layer4.69604e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 29.8533
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 57.6254
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 83.5882
+My Debug: RX (dBm) power on Decider Layer-64.359
+My Debug: RX (mW) power on Decider Layer3.66525e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 29.9198
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 27.7721
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 53.7034
+My Debug: RX (dBm) power on Decider Layer-70.0792
+My Debug: RX (mW) power on Decider Layer9.81935e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 57.8055
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 27.7721
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 25.9272
+My Debug: RX (dBm) power on Decider Layer-73.2827
+My Debug: RX (mW) power on Decider Layer4.69604e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 83.5882
+Vehicle 5 Pos: (2288.85,818.702,1.895)Dist: 25.9622
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 53.6252
+Function HandleSelfMessage - Vehicle 5Position Sent:(2286.3,819.113,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1149
+My Debug: RX (mW) power on Decider Layer4.881e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 83.5882
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 25.9272
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 53.6252
+My Debug: RX (dBm) power on Decider Layer-63.7474
+My Debug: RX (mW) power on Decider Layer4.21947e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 29.9198
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 27.8857
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 53.7034
+My Debug: RX (dBm) power on Decider Layer-70.0792
+My Debug: RX (mW) power on Decider Layer9.81935e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2261.43,823.119,1.895)Dist: 29.8533
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 57.8055
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 83.5882
+Function HandleSelfMessage - Vehicle 0Position Sent:(990.109,1041.35,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.4168
+My Debug: RX (mW) power on Decider Layer3.61678e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 30.1196
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 28.1389
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 54.2894
+My Debug: RX (dBm) power on Decider Layer-70.1606
+My Debug: RX (mW) power on Decider Layer9.63703e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 58.3497
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 28.1389
+Vehicle 6 Pos: (904.198,1055.68,1.895)Dist: 26.1505
+My Debug: RX (dBm) power on Decider Layer-73.3902
+My Debug: RX (mW) power on Decider Layer4.58125e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 84.6289
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 26.1505
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 54.2894
+Function HandleSelfMessage - Vehicle 6Position Sent:(906.633,1055.27,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.232
+My Debug: RX (mW) power on Decider Layer4.75115e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 58.3497
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 28.1389
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 26.2791
+My Debug: RX (dBm) power on Decider Layer-69.5692
+My Debug: RX (mW) power on Decider Layer1.10428e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 30.1196
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 28.1389
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 54.5093
+My Debug: RX (dBm) power on Decider Layer-73.3902
+My Debug: RX (mW) power on Decider Layer4.58125e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 30.0343
+Vehicle 4 Pos: (929.992,1051.38,1.895)Dist: 58.1731
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 84.6289
+Function HandleSelfMessage - Vehicle 3Position Sent:(2258.77,823.548,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(932.554,1050.95,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7474
+My Debug: RX (mW) power on Decider Layer4.21947e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 57.8055
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 27.8857
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 25.9272
+My Debug: RX (dBm) power on Decider Layer-64.359
+My Debug: RX (mW) power on Decider Layer3.66525e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 29.9198
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 57.8055
+Vehicle 7 Pos: (2311.16,811.763,1.895)Dist: 83.5882
+My Debug: RX (dBm) power on Decider Layer-69.4398
+My Debug: RX (mW) power on Decider Layer1.13767e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 83.5882
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 25.9272
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 53.7034
+My Debug: RX (dBm) power on Decider Layer-63.232
+My Debug: RX (mW) power on Decider Layer4.75115e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 84.6289
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 26.2791
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 54.2894
+My Debug: RX (dBm) power on Decider Layer-63.8541
+My Debug: RX (mW) power on Decider Layer4.11713e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 30.1196
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 28.2301
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 54.5093
+My Debug: RX (dBm) power on Decider Layer-70.1606
+My Debug: RX (mW) power on Decider Layer9.63703e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (957.748,1046.75,1.895)Dist: 30.0343
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 58.3497
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 84.6289
+Function HandleSelfMessage - Vehicle 2Position Sent:(960.4,1046.31,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8541
+My Debug: RX (mW) power on Decider Layer4.11713e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 58.3497
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 28.2301
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 26.2791
+My Debug: RX (dBm) power on Decider Layer-64.4168
+My Debug: RX (mW) power on Decider Layer3.61678e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 30.1196
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 58.3497
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 84.6289
+My Debug: RX (dBm) power on Decider Layer-69.5692
+My Debug: RX (mW) power on Decider Layer1.10428e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (990.109,1041.35,1.895)Dist: 84.6289
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 26.2791
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 54.5093
+Function HandleSelfMessage - Vehicle 7Position Sent:(2308.62,812.174,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2226.51,828.785,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1198
+My Debug: RX (mW) power on Decider Layer4.87552e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 57.8055
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 27.8857
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 25.9418
+My Debug: RX (dBm) power on Decider Layer-69.4566
+My Debug: RX (mW) power on Decider Layer1.1333e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2229.24,828.341,1.895)Dist: 29.9198
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 27.8857
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 53.807
+My Debug: RX (dBm) power on Decider Layer-73.3019
+My Debug: RX (mW) power on Decider Layer4.67531e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 29.9198
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 57.8055
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 83.7732
+My Debug: RX (dBm) power on Decider Layer-64.3825
+My Debug: RX (mW) power on Decider Layer3.64542e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 30.0011
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 27.8857
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 53.807
+My Debug: RX (dBm) power on Decider Layer-70.1047
+My Debug: RX (mW) power on Decider Layer9.76173e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 57.9758
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 27.8857
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 25.9418
+My Debug: RX (dBm) power on Decider Layer-73.3019
+My Debug: RX (mW) power on Decider Layer4.67531e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 83.7732
+Vehicle 5 Pos: (2286.3,819.113,1.895)Dist: 25.9272
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 53.7034
+Function HandleSelfMessage - Vehicle 5Position Sent:(2283.74,819.526,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1198
+My Debug: RX (mW) power on Decider Layer4.87552e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 83.7732
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 25.9418
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 53.7034
+My Debug: RX (dBm) power on Decider Layer-63.7751
+My Debug: RX (mW) power on Decider Layer4.19265e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 30.0011
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 27.9748
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 53.807
+My Debug: RX (dBm) power on Decider Layer-70.1047
+My Debug: RX (mW) power on Decider Layer9.76173e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2258.77,823.548,1.895)Dist: 29.9198
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 57.9758
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 83.7732
+Function HandleSelfMessage - Vehicle 0Position Sent:(992.848,1040.89,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.4394
+My Debug: RX (mW) power on Decider Layer3.59798e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 30.1982
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 28.2301
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 54.5093
+My Debug: RX (dBm) power on Decider Layer-70.1885
+My Debug: RX (mW) power on Decider Layer9.57535e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 58.5374
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 28.2301
+Vehicle 6 Pos: (906.633,1055.27,1.895)Dist: 26.2791
+My Debug: RX (dBm) power on Decider Layer-73.4205
+My Debug: RX (mW) power on Decider Layer4.54937e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 84.9249
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 26.2791
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 54.5093
+Function HandleSelfMessage - Vehicle 6Position Sent:(909.081,1054.87,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.2678
+My Debug: RX (mW) power on Decider Layer4.7122e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 58.5374
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 28.2301
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 26.3875
+My Debug: RX (dBm) power on Decider Layer-69.6038
+My Debug: RX (mW) power on Decider Layer1.09553e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 30.1982
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 28.2301
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 54.7267
+My Debug: RX (dBm) power on Decider Layer-73.4205
+My Debug: RX (mW) power on Decider Layer4.54937e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 30.1196
+Vehicle 4 Pos: (932.554,1050.95,1.895)Dist: 58.3497
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 84.9249
+Function HandleSelfMessage - Vehicle 3Position Sent:(2256.12,823.975,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(935.109,1050.52,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.7751
+My Debug: RX (mW) power on Decider Layer4.19265e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 57.9758
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 27.9748
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 25.9418
+My Debug: RX (dBm) power on Decider Layer-64.3825
+My Debug: RX (mW) power on Decider Layer3.64542e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 30.0011
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 57.9758
+Vehicle 7 Pos: (2308.62,812.174,1.895)Dist: 83.7732
+My Debug: RX (dBm) power on Decider Layer-69.4566
+My Debug: RX (mW) power on Decider Layer1.1333e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 83.7732
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 25.9418
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 53.807
+My Debug: RX (dBm) power on Decider Layer-63.2678
+My Debug: RX (mW) power on Decider Layer4.7122e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 84.9249
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 26.3875
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 54.5093
+My Debug: RX (dBm) power on Decider Layer-63.8875
+My Debug: RX (mW) power on Decider Layer4.08552e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 30.1982
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 28.3391
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 54.7267
+My Debug: RX (dBm) power on Decider Layer-70.1885
+My Debug: RX (mW) power on Decider Layer9.57535e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (960.4,1046.31,1.895)Dist: 30.1196
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 58.5374
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 84.9249
+Function HandleSelfMessage - Vehicle 2Position Sent:(963.062,1045.86,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8875
+My Debug: RX (mW) power on Decider Layer4.08552e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 58.5374
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 28.3391
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 26.3875
+My Debug: RX (dBm) power on Decider Layer-64.4394
+My Debug: RX (mW) power on Decider Layer3.59798e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 30.1982
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 58.5374
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 84.9249
+My Debug: RX (dBm) power on Decider Layer-69.6038
+My Debug: RX (mW) power on Decider Layer1.09553e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (992.848,1040.89,1.895)Dist: 84.9249
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 26.3875
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 54.7267
+Function HandleSelfMessage - Vehicle 7Position Sent:(2306.11,812.579,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2223.77,829.229,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1349
+My Debug: RX (mW) power on Decider Layer4.85854e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 57.9758
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 27.9748
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 25.9871
+My Debug: RX (dBm) power on Decider Layer-69.4802
+My Debug: RX (mW) power on Decider Layer1.12715e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2226.51,828.785,1.895)Dist: 30.0011
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 27.9748
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 53.9536
+My Debug: RX (dBm) power on Decider Layer-73.3251
+My Debug: RX (mW) power on Decider Layer4.65039e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 30.0011
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 57.9758
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 83.9974
+My Debug: RX (dBm) power on Decider Layer-64.4049
+My Debug: RX (mW) power on Decider Layer3.62672e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 30.0783
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 27.9748
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 53.9536
+My Debug: RX (dBm) power on Decider Layer-70.1314
+My Debug: RX (mW) power on Decider Layer9.70193e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 58.1543
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 27.9748
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 25.9871
+My Debug: RX (dBm) power on Decider Layer-73.3251
+My Debug: RX (mW) power on Decider Layer4.65039e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 83.9974
+Vehicle 5 Pos: (2283.74,819.526,1.895)Dist: 25.9418
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 53.807
+Function HandleSelfMessage - Vehicle 5Position Sent:(2281.18,819.938,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1349
+My Debug: RX (mW) power on Decider Layer4.85854e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 83.9974
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 25.9871
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 53.807
+My Debug: RX (dBm) power on Decider Layer-63.8065
+My Debug: RX (mW) power on Decider Layer4.16248e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 30.0783
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 28.076
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 53.9536
+My Debug: RX (dBm) power on Decider Layer-70.1314
+My Debug: RX (mW) power on Decider Layer9.70193e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2256.12,823.975,1.895)Dist: 30.0011
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 58.1543
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 83.9974
+Function HandleSelfMessage - Vehicle 0Position Sent:(995.582,1040.44,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.4618
+My Debug: RX (mW) power on Decider Layer3.57947e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 30.2762
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 28.3391
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 54.7267
+My Debug: RX (dBm) power on Decider Layer-70.2127
+My Debug: RX (mW) power on Decider Layer9.52204e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 58.701
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 28.3391
+Vehicle 6 Pos: (909.081,1054.87,1.895)Dist: 26.3875
+My Debug: RX (dBm) power on Decider Layer-73.4511
+My Debug: RX (mW) power on Decider Layer4.51739e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 85.2249
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 26.3875
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 54.7267
+Function HandleSelfMessage - Vehicle 6Position Sent:(911.518,1054.46,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.3125
+My Debug: RX (mW) power on Decider Layer4.66387e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 58.701
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 28.3391
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 26.5239
+My Debug: RX (dBm) power on Decider Layer-69.6389
+My Debug: RX (mW) power on Decider Layer1.08669e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 30.2762
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 28.3391
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 54.9487
+My Debug: RX (dBm) power on Decider Layer-73.4511
+My Debug: RX (mW) power on Decider Layer4.51739e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 30.1982
+Vehicle 4 Pos: (935.109,1050.52,1.895)Dist: 58.5374
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 85.2249
+Function HandleSelfMessage - Vehicle 3Position Sent:(2253.46,824.403,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(937.681,1050.1,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8065
+My Debug: RX (mW) power on Decider Layer4.16248e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 58.1543
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 28.076
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 25.9871
+My Debug: RX (dBm) power on Decider Layer-64.4049
+My Debug: RX (mW) power on Decider Layer3.62672e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 30.0783
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 58.1543
+Vehicle 7 Pos: (2306.11,812.579,1.895)Dist: 83.9974
+My Debug: RX (dBm) power on Decider Layer-69.4802
+My Debug: RX (mW) power on Decider Layer1.12715e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 83.9974
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 25.9871
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 53.9536
+My Debug: RX (dBm) power on Decider Layer-63.3125
+My Debug: RX (mW) power on Decider Layer4.66387e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 85.2249
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 26.5239
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 54.7267
+My Debug: RX (dBm) power on Decider Layer-63.9137
+My Debug: RX (mW) power on Decider Layer4.06093e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 30.2762
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 28.4248
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 54.9487
+My Debug: RX (dBm) power on Decider Layer-70.2127
+My Debug: RX (mW) power on Decider Layer9.52204e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (963.062,1045.86,1.895)Dist: 30.1982
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 58.701
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 85.2249
+Function HandleSelfMessage - Vehicle 2Position Sent:(965.718,1045.42,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9137
+My Debug: RX (mW) power on Decider Layer4.06093e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 58.701
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 28.4248
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 26.5239
+My Debug: RX (dBm) power on Decider Layer-64.4618
+My Debug: RX (mW) power on Decider Layer3.57947e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 30.2762
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 58.701
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 85.2249
+My Debug: RX (dBm) power on Decider Layer-69.6389
+My Debug: RX (mW) power on Decider Layer1.08669e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (995.582,1040.44,1.895)Dist: 85.2249
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 26.5239
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 54.9487
+Function HandleSelfMessage - Vehicle 7Position Sent:(2303.63,812.978,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2221.03,829.675,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1652
+My Debug: RX (mW) power on Decider Layer4.82484e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 58.1543
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 28.076
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 26.0777
+My Debug: RX (dBm) power on Decider Layer-69.5088
+My Debug: RX (mW) power on Decider Layer1.11974e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2223.77,829.229,1.895)Dist: 30.0783
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 28.076
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 54.1317
+My Debug: RX (dBm) power on Decider Layer-73.3533
+My Debug: RX (mW) power on Decider Layer4.6203e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 30.0783
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 58.1543
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 84.2705
+My Debug: RX (dBm) power on Decider Layer-64.4322
+My Debug: RX (mW) power on Decider Layer3.60398e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 30.173
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 28.076
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 54.1317
+My Debug: RX (dBm) power on Decider Layer-70.1585
+My Debug: RX (mW) power on Decider Layer9.64155e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 58.3361
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 28.076
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 26.0777
+My Debug: RX (dBm) power on Decider Layer-73.3533
+My Debug: RX (mW) power on Decider Layer4.6203e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 84.2705
+Vehicle 5 Pos: (2281.18,819.938,1.895)Dist: 25.9871
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 53.9536
+Function HandleSelfMessage - Vehicle 5Position Sent:(2278.62,820.351,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1652
+My Debug: RX (mW) power on Decider Layer4.82484e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 84.2705
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 26.0777
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 53.9536
+My Debug: RX (dBm) power on Decider Layer-63.8334
+My Debug: RX (mW) power on Decider Layer4.13677e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 30.173
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 28.163
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 54.1317
+My Debug: RX (dBm) power on Decider Layer-70.1585
+My Debug: RX (mW) power on Decider Layer9.64155e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2253.46,824.403,1.895)Dist: 30.0783
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 58.3361
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 84.2705
+Function HandleSelfMessage - Vehicle 0Position Sent:(998.318,1039.98,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.4827
+My Debug: RX (mW) power on Decider Layer3.56228e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 30.3491
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 28.4248
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 54.9487
+My Debug: RX (dBm) power on Decider Layer-70.2389
+My Debug: RX (mW) power on Decider Layer9.46481e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 58.8782
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 28.4248
+Vehicle 6 Pos: (911.518,1054.46,1.895)Dist: 26.5239
+My Debug: RX (dBm) power on Decider Layer-73.4804
+My Debug: RX (mW) power on Decider Layer4.48706e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 85.5125
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 26.5239
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 54.9487
+Function HandleSelfMessage - Vehicle 6Position Sent:(913.971,1054.05,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.3486
+My Debug: RX (mW) power on Decider Layer4.62528e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 58.8782
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 28.4248
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 26.6343
+My Debug: RX (dBm) power on Decider Layer-69.6728
+My Debug: RX (mW) power on Decider Layer1.07825e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 30.3491
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 28.4248
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 55.1634
+My Debug: RX (dBm) power on Decider Layer-73.4804
+My Debug: RX (mW) power on Decider Layer4.48706e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 30.2762
+Vehicle 4 Pos: (937.681,1050.1,1.895)Dist: 58.701
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 85.5125
+Function HandleSelfMessage - Vehicle 3Position Sent:(2250.82,824.83,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(940.242,1049.67,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8334
+My Debug: RX (mW) power on Decider Layer4.13677e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 58.3361
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 28.163
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 26.0777
+My Debug: RX (dBm) power on Decider Layer-64.4322
+My Debug: RX (mW) power on Decider Layer3.60398e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 30.173
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 58.3361
+Vehicle 7 Pos: (2303.63,812.978,1.895)Dist: 84.2705
+My Debug: RX (dBm) power on Decider Layer-69.5088
+My Debug: RX (mW) power on Decider Layer1.11974e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 84.2705
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 26.0777
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 54.1317
+My Debug: RX (dBm) power on Decider Layer-63.3486
+My Debug: RX (mW) power on Decider Layer4.62528e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 85.5125
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 26.6343
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 54.9487
+My Debug: RX (dBm) power on Decider Layer-63.9455
+My Debug: RX (mW) power on Decider Layer4.03131e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 30.3491
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 28.5291
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 55.1634
+My Debug: RX (dBm) power on Decider Layer-70.2389
+My Debug: RX (mW) power on Decider Layer9.46481e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (965.718,1045.42,1.895)Dist: 30.2762
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 58.8782
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 85.5125
+Function HandleSelfMessage - Vehicle 2Position Sent:(968.382,1044.97,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9455
+My Debug: RX (mW) power on Decider Layer4.03131e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 58.8782
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 28.5291
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 26.6343
+My Debug: RX (dBm) power on Decider Layer-64.4827
+My Debug: RX (mW) power on Decider Layer3.56228e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 30.3491
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 58.8782
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 85.5125
+My Debug: RX (dBm) power on Decider Layer-69.6728
+My Debug: RX (mW) power on Decider Layer1.07825e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (998.318,1039.98,1.895)Dist: 85.5125
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 26.6343
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 55.1634
+Function HandleSelfMessage - Vehicle 7Position Sent:(2301.73,816.628,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2218.3,830.12,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1373
+My Debug: RX (mW) power on Decider Layer4.85591e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 58.3361
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 28.163
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 25.9941
+My Debug: RX (dBm) power on Decider Layer-69.5304
+My Debug: RX (mW) power on Decider Layer1.1142e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2221.03,829.675,1.895)Dist: 30.173
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 28.163
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 54.2662
+My Debug: RX (dBm) power on Decider Layer-73.3783
+My Debug: RX (mW) power on Decider Layer4.59376e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 30.173
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 58.3361
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 84.5135
+My Debug: RX (dBm) power on Decider Layer-64.4535
+My Debug: RX (mW) power on Decider Layer3.58629e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 30.2474
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 28.163
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 54.2662
+My Debug: RX (dBm) power on Decider Layer-70.1858
+My Debug: RX (mW) power on Decider Layer9.58124e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 58.5194
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 28.163
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 25.9941
+My Debug: RX (dBm) power on Decider Layer-73.3783
+My Debug: RX (mW) power on Decider Layer4.59376e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 84.5135
+Vehicle 5 Pos: (2278.62,820.351,1.895)Dist: 26.0777
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 54.1317
+Function HandleSelfMessage - Vehicle 5Position Sent:(2276.07,820.762,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1373
+My Debug: RX (mW) power on Decider Layer4.85591e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 84.5135
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 25.9941
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 54.1317
+My Debug: RX (dBm) power on Decider Layer-63.8669
+My Debug: RX (mW) power on Decider Layer4.10494e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 30.2474
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 28.272
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 54.2662
+My Debug: RX (dBm) power on Decider Layer-70.1858
+My Debug: RX (mW) power on Decider Layer9.58124e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2250.82,824.83,1.895)Dist: 30.173
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 58.5194
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 84.5135
+Function HandleSelfMessage - Vehicle 0Position Sent:(1001.05,1039.52,1.895)
+My Debug: RX (dBm) power on Decider Layer-64.5037
+My Debug: RX (mW) power on Decider Layer3.54514e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 30.4224
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 28.5291
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 55.1634
+My Debug: RX (dBm) power on Decider Layer-70.2629
+My Debug: RX (mW) power on Decider Layer9.41263e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 59.0412
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 28.5291
+Vehicle 6 Pos: (913.971,1054.05,1.895)Dist: 26.6343
+My Debug: RX (dBm) power on Decider Layer-73.5094
+My Debug: RX (mW) power on Decider Layer4.45717e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 85.7987
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 26.6343
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 55.1634
+Function HandleSelfMessage - Vehicle 6Position Sent:(916.425,1053.64,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.3887
+My Debug: RX (mW) power on Decider Layer4.58277e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 59.0412
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 28.5291
+Vehicle 6 Pos: (916.425,1053.64,1.895)Dist: 26.7576
+My Debug: RX (dBm) power on Decider Layer-69.7063
+My Debug: RX (mW) power on Decider Layer1.06997e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 30.4224
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 28.5291
+Vehicle 6 Pos: (916.425,1053.64,1.895)Dist: 55.3763
+My Debug: RX (dBm) power on Decider Layer-73.5094
+My Debug: RX (mW) power on Decider Layer4.45717e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 30.3491
+Vehicle 4 Pos: (940.242,1049.67,1.895)Dist: 58.8782
+Vehicle 6 Pos: (916.425,1053.64,1.895)Dist: 85.7987
+Function HandleSelfMessage - Vehicle 3Position Sent:(2248.16,825.262,1.895)
+Function HandleSelfMessage - Vehicle 4Position Sent:(942.818,1049.24,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.8669
+My Debug: RX (mW) power on Decider Layer4.10494e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 58.5194
+Vehicle 3 Pos: (2248.16,825.262,1.895)Dist: 28.272
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 25.9941
+My Debug: RX (dBm) power on Decider Layer-64.4535
+My Debug: RX (mW) power on Decider Layer3.58629e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2248.16,825.262,1.895)Dist: 30.2474
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 58.5194
+Vehicle 7 Pos: (2301.73,816.628,1.895)Dist: 84.5135
+My Debug: RX (dBm) power on Decider Layer-69.5304
+My Debug: RX (mW) power on Decider Layer1.1142e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 84.5135
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 25.9941
+Vehicle 3 Pos: (2248.16,825.262,1.895)Dist: 54.2662
+My Debug: RX (dBm) power on Decider Layer-63.3887
+My Debug: RX (mW) power on Decider Layer4.58277e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 85.7987
+Vehicle 4 Pos: (942.818,1049.24,1.895)Dist: 26.7576
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 55.1634
+My Debug: RX (dBm) power on Decider Layer-63.9728
+My Debug: RX (mW) power on Decider Layer4.00608e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 30.4224
+Vehicle 4 Pos: (942.818,1049.24,1.895)Dist: 28.6188
+Vehicle 6 Pos: (916.425,1053.64,1.895)Dist: 55.3763
+My Debug: RX (dBm) power on Decider Layer-70.2629
+My Debug: RX (mW) power on Decider Layer9.41263e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (968.382,1044.97,1.895)Dist: 30.3491
+Vehicle 4 Pos: (942.818,1049.24,1.895)Dist: 59.0412
+Vehicle 6 Pos: (916.425,1053.64,1.895)Dist: 85.7987
+Function HandleSelfMessage - Vehicle 2Position Sent:(971.047,1044.53,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.9728
+My Debug: RX (mW) power on Decider Layer4.00608e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 59.0412
+Vehicle 2 Pos: (971.047,1044.53,1.895)Dist: 28.6188
+Vehicle 6 Pos: (916.425,1053.64,1.895)Dist: 26.7576
+My Debug: RX (dBm) power on Decider Layer-64.5037
+My Debug: RX (mW) power on Decider Layer3.54514e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 2 Pos: (971.047,1044.53,1.895)Dist: 30.4224
+Vehicle 4 Pos: (942.818,1049.24,1.895)Dist: 59.0412
+Vehicle 6 Pos: (916.425,1053.64,1.895)Dist: 85.7987
+My Debug: RX (dBm) power on Decider Layer-69.7063
+My Debug: RX (mW) power on Decider Layer1.06997e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 85.7987
+Vehicle 4 Pos: (942.818,1049.24,1.895)Dist: 26.7576
+Vehicle 2 Pos: (971.047,1044.53,1.895)Dist: 55.3763
+Function HandleSelfMessage - Vehicle 7Position Sent:(2299.29,817.021,1.895)
+Function HandleSelfMessage - Vehicle 1Position Sent:(2215.57,830.565,1.895)
+My Debug: RX (dBm) power on Decider Layer-63.1815
+My Debug: RX (mW) power on Decider Layer4.80677e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 58.5194
+Vehicle 3 Pos: (2248.16,825.262,1.895)Dist: 28.272
+Vehicle 7 Pos: (2299.29,817.021,1.895)Dist: 26.1267
+My Debug: RX (dBm) power on Decider Layer-63.2247
+My Debug: RX (mW) power on Decider Layer4.75913e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 7 Pos: (2299.29,817.021,1.895)Dist: 26.2571
+My Debug: RX (dBm) power on Decider Layer-69.5655
+My Debug: RX (mW) power on Decider Layer1.10522e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2218.3,830.12,1.895)Dist: 30.2474
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 28.272
+Vehicle 7 Pos: (2299.29,817.021,1.895)Dist: 54.4861
+My Debug: RX (dBm) power on Decider Layer-73.4089
+My Debug: RX (mW) power on Decider Layer4.56151e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 3 Pos: (2248.16,825.262,1.895)Dist: 30.2474
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 58.5194
+Vehicle 7 Pos: (2299.29,817.021,1.895)Dist: 84.8118
+My Debug: RX (dBm) power on Decider Layer-64.476
+My Debug: RX (mW) power on Decider Layer3.56779e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2215.57,830.565,1.895)Dist: 30.3257
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 28.272
+Vehicle 7 Pos: (2299.29,817.021,1.895)Dist: 54.4861
+My Debug: RX (dBm) power on Decider Layer-70.2104
+My Debug: RX (mW) power on Decider Layer9.52719e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2215.57,830.565,1.895)Dist: 58.6852
+Vehicle 3 Pos: (2248.16,825.262,1.895)Dist: 28.272
+Vehicle 7 Pos: (2299.29,817.021,1.895)Dist: 26.1267
+My Debug: RX (dBm) power on Decider Layer-73.4089
+My Debug: RX (mW) power on Decider Layer4.56151e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 1 Pos: (2215.57,830.565,1.895)Dist: 84.8118
+Vehicle 5 Pos: (2276.07,820.762,1.895)Dist: 25.9941
+Vehicle 3 Pos: (2248.16,825.262,1.895)Dist: 54.2662
+My Debug: RX (dBm) power on Decider Layer-75.739
+My Debug: RX (mW) power on Decider Layer2.6675e-08
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 7 Pos: (2299.29,817.021,1.895)Dist: 26.2571
+Vehicle 1 Pos: (2215.57,830.565,1.895)Dist: 110.907
+Function HandleSelfMessage - Vehicle 8Position Sent:(894.481,1057.3,1.895)
+My Debug: RX (dBm) power on Decider Layer-62.7125
+My Debug: RX (mW) power on Decider Layer5.35491e-07
+My Debug: TX (dBm) power on Decider Layer13.0103
+My Debug: TX (mW) power on Decider Layer20
+FSPMList of Neighbor Vehicles Updated
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 85.7987
+Vehicle 4 Pos: (942.818,1049.24,1.895)Dist: 26.7576
+Vehicle 2 Pos: (971.047,1044.53,1.895)Dist: 55.3763
+Vehicle 8 Pos: (894.481,1057.3,1.895)Dist: 24.7534
+Function On Beacon - My real position (918.897,1053.23,1.895)
+
+Function Least Squares - Vehicle6
+Function Least Squares - NodeToSubtract: (894.481,1057.3,1.895) 24.7534
+Vehicle 0 Pos: (1001.05,1039.52,1.895)Dist: 85.7987
+Vehicle 4 Pos: (942.818,1049.24,1.895)Dist: 26.7576
+Vehicle 2 Pos: (971.047,1044.53,1.895)Dist: 55.3763
+Vehicle 8 Pos: (894.481,1057.3,1.895)Dist: 24.7534
+node on list(1001.05,1039.52,1.895) 85.7987
+node to subtract(894.481,1057.3,1.895) 24.7534
+node on list(942.818,1049.24,1.895) 26.7576
+node to subtract(894.481,1057.3,1.895) 24.7534
+node on list(971.047,1044.53,1.895) 55.3763
+node to subtract(894.481,1057.3,1.895) 24.7534
+3
