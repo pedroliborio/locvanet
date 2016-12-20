@@ -35,9 +35,9 @@
 
 #include <fstream>
 
-#include "localization/Multilateration/Multilateration.hpp"
-#include "localization/RSSI/FreeSpaceModel.hpp"
-#include "localization/RSSI/TwoRayInterference.hpp"
+#include <localization/Multilateration/Multilateration.hpp>
+#include <localization/RSSI/FreeSpaceModel.hpp>
+#include <localization/RSSI/TwoRayInterference.hpp>
 
 using Veins::TraCIMobility;
 using Veins::TraCICommandInterface;
@@ -51,6 +51,18 @@ using namespace GeographicLib;
  * Using BaseWaveApplayer of Veins
  */
 class LocAppCom : public BaseWaveApplLayer {
+    private:
+        std::list<AnchorNode> anchorNodes;//list of neighbor vehicles
+        Coord coopPosFS; //cooperative Positioning Estimation
+        Coord coopPosTRGI; //cooperative Positioning Estimation
+        double constVelLight = 299792458.0; //m/s
+        double lambda = 0.051; //wave length for CCH frequency
+        double frequencyCCH = 5.890; //GHz
+        double pTx = 20.0; //milliWatts
+        double alpha = 2.0; // pathloss exponent
+        double epsilonR = 1.02; //dieletric constant
+        double ht = 1.895; //height of antenn transmitter
+        double hr = 1.895; //height of antenna receiver
     public:
         virtual void initialize(int stage);
         virtual void finish();
@@ -62,9 +74,6 @@ class LocAppCom : public BaseWaveApplLayer {
     protected:
         AnnotationManager* annotations;
         static const simsignalwrap_t mobilityStateChangedSignal;
-        std::list<AnchorNode> anchorNodes;//list of neighbor vehicles
-        Coord coopPosFS; //cooperative Positioning Estimation
-        Coord coopPosTRGI; //cooperative Positioning Estimation
         //Coord gDRPosition;
         //bool gpsOutage;// Is GPS In Outage?
         //Coord lastGPSPos;  //Last GPS Know Position

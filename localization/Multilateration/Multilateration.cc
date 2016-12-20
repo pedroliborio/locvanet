@@ -16,13 +16,13 @@ Multilateration::~Multilateration() {
     // TODO Auto-generated destructor stub
 }
 
-Coord Multilateration::LeastSquares( std::vector<Coord> *positions, std::vector<double> *distances){
+Coord Multilateration::LeastSquares(Coord *positions, double *distances, int size){
         Coord estimatedPosition;
         Coord *posToSubtract;
         double *distToSubtract;
         int i, j;
         //Minus one because the last line of the matrix will be subtracted by the others lines
-        int size =  positions.size() - 1;
+        size--;
 
         //Create matrixes using the TNT library
         //Composing the Linear Equation Ax - b to be solved by LeastSquares
@@ -53,30 +53,32 @@ Coord Multilateration::LeastSquares( std::vector<Coord> *positions, std::vector<
         return estimatedPosition;
 }
 
-std::vector<Coord> Multilateration::InitializePositions(std::list<AnchorNode> *anchorNodes){
-    std::vector<Coord> positions;
+ void Multilateration::InitializePosDist(std::list<AnchorNode> *anchorNodes, Coord *positions, double *distances, std::string model){
+    int i, size;
+    size = anchorNodes->size();
+    positions = (Coord*) malloc(size * sizeof(Coord));
+    i=0;
     for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-        positions.push_back(it->realPosition);
+        positions[i] = it->realPosition;
+        i++;
     }
-    return positions;
-}
 
-std::vector<double> Multilateration::InitializeDistFS(std::list<AnchorNode> *anchorNodes){
-    std::vector<double> distFS;
-    for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-        distFS.push_back(it->rssiDistanceFS);
+    distances = (double*) malloc(size * sizeof(Coord));
+
+    i=0;
+    if(model == FREE_SPACE){//FreeSpace
+        for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
+            distances[i] =it->rssiDistanceFS;
+            i++;
+        }
     }
-    return distFS;
-}
-
-std::vector<double> Multilateration::InitializeDistTRGI(std::list<AnchorNode> *anchorNodes){
-    std::vector<double> distTRGI;
-    for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-        distTRGI.push_back(it->rssiDistanceTRGI);
+    else{//Two ray Interference
+        for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
+            distances[i] =it->rssiDistanceTRGI;
+            i++;
+        }
     }
-    return distTRGI;
 }
-
 
 
 /*Coord Multilateration::LeastSquares(std::list<AnchorNode> *anchorNodes){

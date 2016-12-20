@@ -21,8 +21,8 @@ public:
     FreeSpaceModel();
     virtual ~FreeSpaceModel();
 
-    double getRSSI(double distance);
-    double getDistance(double rssi);
+    static double getRSSI(double distance);
+    static double getDistance(double rssi);
 
     double getAlpha() const {
         return alpha;

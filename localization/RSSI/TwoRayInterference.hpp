@@ -23,8 +23,8 @@ private:
 public:
     TwoRayInterference();
     virtual ~TwoRayInterference();
-    double getRSSI(double distance);
-    double getDistance(double rssi, double distance);
+    static double getRSSI(double distance);
+    static double getDistance(double rssi, double distance);
 
     double getAlpha() const {
         return alpha;

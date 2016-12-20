@@ -136,12 +136,16 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     if(anchorNodes.size() > 3){
         //TODO Call Multilateration Method
         std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n\n";
-        std::vector<Coord> positions;
-        positionsMultilateration::InitializePositions(&anchorNodes);
-        std::vector<double> distancesFS = Multilateration::InitializeDistFS(&anchorNodes);
-        std::vector<double> distancesTRGI = Multilateration::InitializeDistTRGI(&anchorNodes);
-        coopPosFS = Multilateration::LeastSquares(&positions, &distancesFS);
-        coopPosTRGI = Multilateration::LeastSquares(&positions, &distancesTRGI);
+        Coord *positions = NULL;
+        double *distances = NULL;
+        Multilateration::InitializePosDist(&anchorNodes, positions, distances, Multilateration::FREE_SPACE);
+        coopPosFS = Multilateration::LeastSquares(positions, distances, anchorNodes.size());
+        free(positions);
+        free(distances);
+        Multilateration::InitializePosDist(&anchorNodes, positions, distances, Multilateration::TWO_RAY_GROUND_INTERFERENCE);
+        coopPosTRGI = Multilateration::LeastSquares(positions, distances, anchorNodes.size());
+        free(positions);
+        free(distances);
     }
     else{
         coopPosFS.x = coopPosFS.y = coopPosFS.z =  0;
