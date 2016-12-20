@@ -30,8 +30,8 @@ class Multilateration {
 public:
     Multilateration();
     virtual ~Multilateration();
-    static Coord LeastSquares(Coord *positions, double *distances, int size);
-    static void InitializePosDist(std::list<AnchorNode> *anchorNodes, Coord *positions, double *distances, std::string model);
+    static Coord LeastSquares(std::vector<Coord> *positions, std::vector<double> *distances, int size);
+    static void InitializePosDist(std::list<AnchorNode> *anchorNodes, std::vector<Coord> *positions, std::vector<double> *distances, std::string model);
 };
 
 #endif /* LOCALIZATION_MULTILATERATION_MULTILATERATION_HPP_ */

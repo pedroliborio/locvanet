@@ -81,20 +81,18 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //annotations->scheduleErase(1, annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
     //annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
     ***/
-
-    //TODO GetRSSI EV << "Vehicle:" << wsm->getSenderAddress() << "Received Power: " << wsm->getRxPower()<<"\n";
-    //Here the vehicle need to maintain a vector with the position of neighbors
     AnchorNode anchorNode;
     anchorNode.timestamp = wsm->getTimestamp();
     anchorNode.realPosition = wsm->getSenderPos();
     anchorNode.realDistance = wsm->getSenderPos().distance(mobility->getCurrentPosition());
     anchorNode.vehID = wsm->getSenderAddress();
+
+    //Calculating RSSI
     anchorNode.rssiFS = FreeSpaceModel::getRSSI(anchorNode.realDistance, this->pTx, this->alpha, this->lambda);
     anchorNode.rssiDistanceFS = FreeSpaceModel::getDistance(anchorNode.rssiFS, this->pTx, this->alpha, this->lambda);
     anchorNode.rssiTRGI = TwoRayInterference::getRSSI(anchorNode.realDistance, this->pTx, this->lambda, this->ht, this->hr, this->epsilonR);
     anchorNode.rssiDistanceTRGI = TwoRayInterference::getDistance(anchorNode.rssiTRGI, anchorNode.realDistance, this->pTx, this->lambda, this->ht, this->hr, this->epsilonR);
 
-    //TODO Calc the RSSI Distance
     //Update the list of neighbors vehicles
     UpdateNeighborList(anchorNode);
 
@@ -108,31 +106,30 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     if(anchorNodes.size() > 3){
         //TODO Call Multilateration Method
         std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n\n";
-        Coord *positions = NULL;
-        double *distances = NULL;
-        Multilateration::InitializePosDist(&anchorNodes, positions, distances, "FREE_SPACE");
-        coopPosFS = Multilateration::LeastSquares(positions, distances, anchorNodes.size());
-        free(positions);
-        free(distances);
-        Multilateration::InitializePosDist(&anchorNodes, positions, distances, "TWO_RAY_GROUND_INTERFERENCE");
-        coopPosTRGI = Multilateration::LeastSquares(positions, distances, anchorNodes.size());
-        free(positions);
-        free(distances);
+        std::vector<Coord> positions (anchorNodes.size());
+        std::vector<double> distances (anchorNodes.size());
+        Multilateration::InitializePosDist(&anchorNodes, &positions, &distances, "FREE_SPACE");
+        coopPosFS = Multilateration::LeastSquares(&positions, &distances, anchorNodes.size());
+        Multilateration::InitializePosDist(&anchorNodes, &positions, &distances, "TWO_RAY_GROUND_INTERFERENCE");
+        coopPosTRGI = Multilateration::LeastSquares(&positions, &distances, anchorNodes.size());
+        positions.clear();
+        distances.clear();
     }
     else{
         coopPosFS.x = coopPosFS.y = coopPosFS.z =  0;
         coopPosTRGI.x = coopPosTRGI.y = coopPosTRGI.z =  0;
     }
 
-    //Log File with results of CP Approach
-    //vehID (Neighbor) | Timestamp | MyRealPosition (SUMO) |
-    //Neighbor Position (SUMO) |  Real Distance | Est. RSSI Dist FS | RSSI FS |
-    //Est. RSSI Dist TRGI | RSSI TRGI | My Estimated Position (Via CP FSpace) | My Estimated Position (Via CP TRGI) |
+    /****************Log File with results of CP Approach
+    **vehID (Neighbor) | Timestamp | MyRealPosition (SUMO) |
+    **Neighbor Position (SUMO) |  Real Distance | Est. RSSI Dist FS | RSSI FS |
+    **Est. RSSI Dist TRGI | RSSI TRGI | My Estimated Position (Via CP FSpace) | My Estimated Position (Via CP TRGI) |
+    * */
 
     std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
-    beaconLogFile <<  anchorNode.vehID
+    beaconLogFile << anchorNode.vehID
             <<'\t'<< anchorNode.timestamp
-            << '\t' <<  mobility->getCurrentPosition().x <<'\t'<< mobility->getCurrentPosition().y <<'\t'<< mobility->getCurrentPosition().z
+            <<'\t'<< mobility->getCurrentPosition().x <<'\t'<< mobility->getCurrentPosition().y <<'\t'<< mobility->getCurrentPosition().z
             <<'\t'<< anchorNode.realDistance
             <<'\t'<< anchorNode.realPosition
             <<'\t'<< anchorNode.realDistance
@@ -163,7 +160,7 @@ void LocAppCom::UpdateNeighborList(AnchorNode anchorNode){
             return;
         }
     }
-    //If anchor node not exists add this one
+    //If anchor node not exists, add this one
     anchorNodes.push_back(anchorNode);
 }
 

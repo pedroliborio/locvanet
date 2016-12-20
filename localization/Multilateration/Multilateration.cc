@@ -16,11 +16,9 @@ Multilateration::~Multilateration() {
     // TODO Auto-generated destructor stub
 }
 
-Coord Multilateration::LeastSquares(Coord *positions, double *distances, int size){
-        Coord estimatedPosition;
-        Coord *posToSubtract;
-        double *distToSubtract;
-        int i, j;
+Coord Multilateration::LeastSquares(std::vector<Coord> *positions, std::vector<double> *distances, int size){
+        Coord estimatedPosition(0,0,0);
+        int i;
         //Minus one because the last line of the matrix will be subtracted by the others lines
         size--;
 
@@ -34,47 +32,46 @@ Coord Multilateration::LeastSquares(Coord *positions, double *distances, int siz
         //distToSubtract = (double) distances->at(size);
 
         for(i=0; i < size; i++){
-            A[i][0] =  2.0 * (positions[i].x - positions[size].x);
-            A[i][1] =  2.0 * (positions[i].y - positions[size].y);
+            std::cout << positions->at(i) << "\t" << distances->at(i) << endl;
+            A[i][0] =  2.0 * (positions->at(i).x - positions->at(size).x);
+            A[i][1] =  2.0 * (positions->at(i).y - positions->at(size).y);
 
-            b[i] = pow(distances[size],2) - pow(distances[i],2) +
-                   pow(positions[i].x,2) - pow(positions[size].x,2) +
-                   pow(positions[i].y,2) - pow(positions[size].y,2);
+            b[i] = pow(distances->at(size),2) - pow(distances->at(i),2) +
+                   pow(positions->at(i).x,2) - pow(positions->at(size).x,2) +
+                   pow(positions->at(i).y,2) - pow(positions->at(size).y,2);
         }
 
         JAMA::QR<double> qrFact(A);
 
         x = qrFact.solve(b);
 
-        estimatedPosition.x = x[0];
-        estimatedPosition.y = x[1];
-        estimatedPosition.z = 0;
+        if(x.dim1()> 0){
+            estimatedPosition.x = x[0];
+            estimatedPosition.y = x[1];
+            estimatedPosition.z = 0;
+        }
 
         return estimatedPosition;
 }
 
- void Multilateration::InitializePosDist(std::list<AnchorNode> *anchorNodes, Coord *positions, double *distances, std::string model){
-    int i, size;
-    size = anchorNodes->size();
-    positions = (Coord*) malloc(size * sizeof(Coord));
+ void Multilateration::InitializePosDist(std::list<AnchorNode> *anchorNodes, std::vector<Coord> *positions, std::vector<double> *distances, std::string model){
+    int i;
     i=0;
     for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-        positions[i] = it->realPosition;
+        positions->at(i) = it->realPosition;
         i++;
     }
-
-    distances = (double*) malloc(size * sizeof(Coord));
 
     i=0;
     if(model == "FREE_SPACE"){//FreeSpace
         for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-            distances[i] =it->rssiDistanceFS;
+            distances->at(i) =it->rssiDistanceFS;
             i++;
         }
     }
     else{//Two ray Interference
         for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-            distances[i] =it->rssiDistanceTRGI;
+            distances->at(i) =it->rssiDistanceTRGI;
             i++;
         }
     }
