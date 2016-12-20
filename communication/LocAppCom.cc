@@ -89,42 +89,14 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     anchorNode.realPosition = wsm->getSenderPos();
     anchorNode.realDistance = wsm->getSenderPos().distance(mobility->getCurrentPosition());
     anchorNode.vehID = wsm->getSenderAddress();
-    anchorNode.rssiFS = FreeSpaceModel::getRSSI(anchorNode.realDistance);
-    anchorNode.rssiDistanceFS = FreeSpaceModel::getDistance(anchorNode.rssiFS);
-    anchorNode.rssiTRGI = TwoRayInterference::getRSSI(anchorNode.realDistance);
-    anchorNode.rssiDistanceTRGI = TwoRayInterference::getDistance(anchorNode.rssiTRGI, anchorNode.realDistance);
+    anchorNode.rssiFS = FreeSpaceModel::getRSSI(anchorNode.realDistance, this->pTx, this->alpha, this->lambda);
+    anchorNode.rssiDistanceFS = FreeSpaceModel::getDistance(anchorNode.rssiFS, this->pTx, this->alpha, this->lambda);
+    anchorNode.rssiTRGI = TwoRayInterference::getRSSI(anchorNode.realDistance, this->pTx, this->lambda, this->ht, this->hr, this->epsilonR);
+    anchorNode.rssiDistanceTRGI = TwoRayInterference::getDistance(anchorNode.rssiTRGI, anchorNode.realDistance, this->pTx, this->lambda, this->ht, this->hr, this->epsilonR);
 
     //TODO Calc the RSSI Distance
     //Update the list of neighbors vehicles
     UpdateNeighborList(anchorNode);
-
-
-
-    /*switch(lossModel){
-    case 'F':
-        printf("FSPM");
-        anchorNode.rssi = FreeSpaceRSSI(anchorNode.realDistance);
-        anchorNode.rssiDistance = FreeSpaceRSSIDist(anchorNode.rssi);
-        break;
-    case 'T':
-        printf("TRGI");
-        anchorNode.rssi = TwoRayInterferenceRSSI(anchorNode.realDistance);
-        anchorNode.rssiDistance = TwoRayInterferenceRSSIDist(anchorNode.rssi,anchorNode.realDistance);
-        break;
-    default:
-        //Use real distance
-        printf("Real Distance");
-        anchorNode.rssi = 0;
-        anchorNode.rssiDistance = anchorNode.realDistance;
-    }*/
-
-    //std::cout << "List of Neighbor Vehicles Before Update\n";
-    //PrintNeighborList();
-
-
-
-    //Update distances by radio ranging (precisa do rssi tem que ser passivo)
-    //UpdateNeighborListDistances();
 
     std::cout << "List of Neighbor Vehicles Updated\n";
     PrintNeighborList();
@@ -138,11 +110,11 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
         std::cout << "Function On Beacon - My real position " << mobility->getCurrentPosition() << "\n\n";
         Coord *positions = NULL;
         double *distances = NULL;
-        Multilateration::InitializePosDist(&anchorNodes, positions, distances, Multilateration::FREE_SPACE);
+        Multilateration::InitializePosDist(&anchorNodes, positions, distances, "FREE_SPACE");
         coopPosFS = Multilateration::LeastSquares(positions, distances, anchorNodes.size());
         free(positions);
         free(distances);
-        Multilateration::InitializePosDist(&anchorNodes, positions, distances, Multilateration::TWO_RAY_GROUND_INTERFERENCE);
+        Multilateration::InitializePosDist(&anchorNodes, positions, distances, "TWO_RAY_GROUND_INTERFERENCE");
         coopPosTRGI = Multilateration::LeastSquares(positions, distances, anchorNodes.size());
         free(positions);
         free(distances);
@@ -153,14 +125,25 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     }
 
     //Log File with results of CP Approach
-    //MyRealPosition (SUMO) | My Estimated Position (Via CP) | vehID (Neighbor) | Timestamp | Neighbor Position (SUMO) |  Real Distance | Est. RSSI Dist | RSSI
+    //vehID (Neighbor) | Timestamp | MyRealPosition (SUMO) |
+    //Neighbor Position (SUMO) |  Real Distance | Est. RSSI Dist FS | RSSI FS |
+    //Est. RSSI Dist TRGI | RSSI TRGI | My Estimated Position (Via CP FSpace) | My Estimated Position (Via CP TRGI) |
 
-    /*std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
-    beaconLogFile << mobility->getCurrentPosition().x <<'\t'<< mobility->getCurrentPosition().y <<'\t'<< mobility->getCurrentPosition().z
-                <<'\t'<< coopPos.x << '\t'<< coopPos.y << '\t'<< coopPos.z <<'\t'<<  anchorNode.vehID <<'\t'<< anchorNode.timestamp
-                <<'\t'<< anchorNode.realPosition.x <<'\t'<< anchorNode.realPosition.y <<'\t'<< anchorNode.realPosition.z
-                <<'\t'<< anchorNode.realDistance <<'\t'<< anchorNode.rssiDistance <<'\t'<< anchorNode.rssi <<'\t' <<endl;
-    beaconLogFile.close();*/
+    std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
+    beaconLogFile <<  anchorNode.vehID
+            <<'\t'<< anchorNode.timestamp
+            << '\t' <<  mobility->getCurrentPosition().x <<'\t'<< mobility->getCurrentPosition().y <<'\t'<< mobility->getCurrentPosition().z
+            <<'\t'<< anchorNode.realDistance
+            <<'\t'<< anchorNode.realPosition
+            <<'\t'<< anchorNode.realDistance
+            <<'\t'<< anchorNode.rssiDistanceFS
+            <<'\t'<< anchorNode.rssiFS
+            <<'\t'<< anchorNode.rssiDistanceTRGI
+            <<'\t'<< anchorNode.rssiFS
+            <<'\t'<< coopPosFS.x <<'\t'<< coopPosFS.y <<'\t'<< coopPosFS.z
+            <<'\t'<< coopPosTRGI.x <<'\t'<< coopPosTRGI.y <<'\t'<< coopPosTRGI.z
+            << endl;
+    beaconLogFile.close();
 
     //The begin of Cooperative Positioning Approach
 }

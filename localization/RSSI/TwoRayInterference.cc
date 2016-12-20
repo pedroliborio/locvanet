@@ -16,7 +16,7 @@ TwoRayInterference::~TwoRayInterference() {
     // TODO Auto-generated destructor stub
 }
 
-double TwoRayInterference::getRSSI(double d){
+double TwoRayInterference::getRSSI(double d, double pTx, double lambda, double ht, double hr, double epsilonR){
     double rssi;
     double distLOS, distRef, sinTheta, cosTheta, gamma, phi, attenuation;
 
@@ -39,7 +39,7 @@ double TwoRayInterference::getRSSI(double d){
     return rssi;
 }
 
-double TwoRayInterference::getDistance(double rssi, double d){
+double TwoRayInterference::getDistance(double rssi, double d, double pTx, double lambda, double ht, double hr, double epsilonR){
     double distance;
     double distLOS, distRef, sinTheta, cosTheta, gamma, phi;
 

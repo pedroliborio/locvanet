@@ -66,7 +66,7 @@ Coord Multilateration::LeastSquares(Coord *positions, double *distances, int siz
     distances = (double*) malloc(size * sizeof(Coord));
 
     i=0;
-    if(model == FREE_SPACE){//FreeSpace
+    if(model == "FREE_SPACE"){//FreeSpace
         for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
             distances[i] =it->rssiDistanceFS;
             i++;

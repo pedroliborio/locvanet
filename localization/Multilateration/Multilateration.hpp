@@ -32,8 +32,6 @@ public:
     virtual ~Multilateration();
     static Coord LeastSquares(Coord *positions, double *distances, int size);
     static void InitializePosDist(std::list<AnchorNode> *anchorNodes, Coord *positions, double *distances, std::string model);
-    static const std::string FREE_SPACE;
-    static const std::string TWO_RAY_GROUND_INTERFERENCE;
 };
 
 #endif /* LOCALIZATION_MULTILATERATION_MULTILATERATION_HPP_ */
