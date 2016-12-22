@@ -17,11 +17,14 @@ struct AnchorNode_t{
             int vehID; //sender vehicle ID
             Coord realPosition; //vehicle sender real position
             double realDistance; //real distance (euclidean)
-            double rssiDistanceFS; //Distance RSSI
-            double rssiDistanceTRGI;
-            double rssiFS; //RSSI;
-            double rssiTRGI;
-            simtime_t timestamp; // timestamp of the message
+            double rssiDistanceFS; //RSSI Distance FS
+            double rssiDistanceTRGI;//RSSI Distance TRGI
+            double rssiFS; //RSSI FS;
+            double rssiTRGI; //RSSI TRGI
+            double rssiDistAvgFilterFS = .0; //RSSI Distance FS Avg Filter
+            double rssiDistAvgFilterTRGI = .0; //RSSI Distance TRGI Avg Filter
+            simtime_t timestamp; // timestamp of the beacon received
+            int k = 0; //Actual Iteration for the Avg Filter
 };typedef struct AnchorNode_t AnchorNode;
 
 

@@ -21,6 +21,7 @@ INCLUDE_PATH = \
     -Icommunication \
     -Ilocalization \
     -Ilocalization/DeadReckoning \
+    -Ilocalization/Filters \
     -Ilocalization/GeographicLib \
     -Ilocalization/GeographicLib/doc \
     -Ilocalization/GeographicLib/include \
@@ -50,6 +51,7 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 OBJS = \
     $O/communication/LocAppCom.o \
     $O/localization/DeadReckoning/DeadReckoning.o \
+    $O/localization/Filters/Filters.o \
     $O/localization/GeographicLib/src/GeodesicLineExact.o \
     $O/localization/GeographicLib/src/CircularEngine.o \
     $O/localization/GeographicLib/src/DMS.o \
@@ -183,6 +185,7 @@ clean:
 	$(Q)-rm -f communication/*_m.cc communication/*_m.h communication/*_sm.cc communication/*_sm.h
 	$(Q)-rm -f localization/*_m.cc localization/*_m.h localization/*_sm.cc localization/*_sm.h
 	$(Q)-rm -f localization/DeadReckoning/*_m.cc localization/DeadReckoning/*_m.h localization/DeadReckoning/*_sm.cc localization/DeadReckoning/*_sm.h
+	$(Q)-rm -f localization/Filters/*_m.cc localization/Filters/*_m.h localization/Filters/*_sm.cc localization/Filters/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/*_m.cc localization/GeographicLib/*_m.h localization/GeographicLib/*_sm.cc localization/GeographicLib/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/doc/*_m.cc localization/GeographicLib/doc/*_m.h localization/GeographicLib/doc/*_sm.cc localization/GeographicLib/doc/*_sm.h
 	$(Q)-rm -f localization/GeographicLib/include/*_m.cc localization/GeographicLib/include/*_m.h localization/GeographicLib/include/*_sm.cc localization/GeographicLib/include/*_sm.h
@@ -201,11 +204,12 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/DeadReckoning/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/Multilateration/*.cc localization/RSSI/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/results/*.cc sumoscenarios/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/DeadReckoning/*.cc localization/Filters/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/Multilateration/*.cc localization/RSSI/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/results/*.cc sumoscenarios/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/communication/LocAppCom.o: communication/LocAppCom.cc \
 	communication/LocAppCom.h \
+	localization/Filters/Filters.h \
 	localization/jama125/jama_qr.h \
 	localization/tnt_126/tnt_array1d.h \
 	localization/tnt_126/tnt_array2d.h \
@@ -247,6 +251,8 @@ $O/communication/LocAppCom.o: communication/LocAppCom.cc \
 	$(VEINS_RSSI_PROJ)/src/veins/modules/world/annotations/AnnotationManager.h
 $O/localization/DeadReckoning/DeadReckoning.o: localization/DeadReckoning/DeadReckoning.cc \
 	localization/DeadReckoning/DeadReckoning.h
+$O/localization/Filters/Filters.o: localization/Filters/Filters.cc \
+	localization/Filters/Filters.h
 $O/localization/GeographicLib/src/Accumulator.o: localization/GeographicLib/src/Accumulator.cc
 $O/localization/GeographicLib/src/AlbersEqualArea.o: localization/GeographicLib/src/AlbersEqualArea.cc
 $O/localization/GeographicLib/src/AzimuthalEquidistant.o: localization/GeographicLib/src/AzimuthalEquidistant.cc

@@ -93,6 +93,11 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     anchorNode.rssiTRGI = TwoRayInterference::getRSSI(anchorNode.realDistance, this->pTx, this->lambda, this->ht, this->hr, this->epsilonR);
     anchorNode.rssiDistanceTRGI = TwoRayInterference::getDistance(anchorNode.rssiTRGI, anchorNode.realDistance, this->pTx, this->lambda, this->ht, this->hr, this->epsilonR);
 
+    //Improving measurements with Avg Filter
+    anchorNode.k++;//Increment k_th iteration
+    anchorNode.rssiDistAvgFilterFS = Filters::AverageFilter(anchorNode.k, anchorNode.rssiDistAvgFilterFS, anchorNode.rssiDistanceFS);
+    anchorNode.rssiDistAvgFilterTRGI = Filters::AverageFilter(anchorNode.k, anchorNode.rssiDistAvgFilterTRGI, anchorNode.rssiDistanceTRGI);
+
     //Update the list of neighbors vehicles
     UpdateNeighborList(anchorNode);
 
@@ -110,8 +115,10 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
         std::vector<double> distances (anchorNodes.size());
         Multilateration::InitializePosDist(&anchorNodes, &positions, &distances, "FREE_SPACE");
         coopPosFS = Multilateration::LeastSquares(&positions, &distances, anchorNodes.size());
+        coopPosFS.z = mobility->getCurrentPosition().z;
         Multilateration::InitializePosDist(&anchorNodes, &positions, &distances, "TWO_RAY_GROUND_INTERFERENCE");
         coopPosTRGI = Multilateration::LeastSquares(&positions, &distances, anchorNodes.size());
+        coopPosTRGI.z = mobility->getCurrentPosition().z;
         positions.clear();
         distances.clear();
     }
@@ -131,12 +138,14 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
             <<'\t'<< anchorNode.timestamp
             <<'\t'<< mobility->getCurrentPosition().x <<'\t'<< mobility->getCurrentPosition().y <<'\t'<< mobility->getCurrentPosition().z
             <<'\t'<< anchorNode.realDistance
-            <<'\t'<< anchorNode.realPosition
+            <<'\t'<< anchorNode.realPosition.x <<'\t'<< anchorNode.realPosition.y <<'\t'<< anchorNode.realPosition.z
             <<'\t'<< anchorNode.realDistance
             <<'\t'<< anchorNode.rssiDistanceFS
             <<'\t'<< anchorNode.rssiFS
             <<'\t'<< anchorNode.rssiDistanceTRGI
-            <<'\t'<< anchorNode.rssiFS
+            <<'\t'<< anchorNode.rssiTRGI
+            <<'\t'<< anchorNode.rssiDistAvgFilterFS
+            <<'\t'<< anchorNode.rssiDistAvgFilterTRGI
             <<'\t'<< coopPosFS.x <<'\t'<< coopPosFS.y <<'\t'<< coopPosFS.z
             <<'\t'<< coopPosTRGI.x <<'\t'<< coopPosTRGI.y <<'\t'<< coopPosTRGI.z
             << endl;
@@ -157,6 +166,9 @@ void LocAppCom::UpdateNeighborList(AnchorNode anchorNode){
             it->rssiDistanceFS = anchorNode.rssiDistanceFS;
             it->rssiFS = anchorNode.rssiTRGI;
             it->rssiDistanceFS = anchorNode.rssiDistanceTRGI;
+            it->rssiDistAvgFilterFS = anchorNode.rssiDistAvgFilterFS;
+            it->rssiDistAvgFilterTRGI = anchorNode.rssiDistAvgFilterTRGI;
+            it->k = anchorNode.rssiDistAvgFilterTRGI;
             return;
         }
     }

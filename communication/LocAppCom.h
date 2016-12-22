@@ -38,6 +38,7 @@
 #include <localization/Multilateration/Multilateration.hpp>
 #include <localization/RSSI/FreeSpaceModel.hpp>
 #include <localization/RSSI/TwoRayInterference.hpp>
+#include <localization/Filters/Filters.h>
 
 using Veins::TraCIMobility;
 using Veins::TraCICommandInterface;
@@ -55,6 +56,7 @@ class LocAppCom : public BaseWaveApplLayer {
         std::list<AnchorNode> anchorNodes;//list of neighbor vehicles
         Coord coopPosFS; //cooperative Positioning Estimation
         Coord coopPosTRGI; //cooperative Positioning Estimation
+        //RSSI Variables
         double constVelLight = 299792458.0; //m/s
         double lambda = 0.051; //wave length for CCH frequency
         double frequencyCCH = 5.890; //GHz
