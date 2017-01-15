@@ -31,6 +31,7 @@ INCLUDE_PATH = \
     -Ilocalization/RSSI \
     -Ilocalization/jama125 \
     -Ilocalization/tnt_126 \
+    -Ioutages \
     -Isimulations \
     -Isimulations/results \
     -Isumoscenarios
@@ -195,6 +196,7 @@ clean:
 	$(Q)-rm -f localization/RSSI/*_m.cc localization/RSSI/*_m.h localization/RSSI/*_sm.cc localization/RSSI/*_sm.h
 	$(Q)-rm -f localization/jama125/*_m.cc localization/jama125/*_m.h localization/jama125/*_sm.cc localization/jama125/*_sm.h
 	$(Q)-rm -f localization/tnt_126/*_m.cc localization/tnt_126/*_m.h localization/tnt_126/*_sm.cc localization/tnt_126/*_sm.h
+	$(Q)-rm -f outages/*_m.cc outages/*_m.h outages/*_sm.cc outages/*_sm.h
 	$(Q)-rm -f simulations/*_m.cc simulations/*_m.h simulations/*_sm.cc simulations/*_sm.h
 	$(Q)-rm -f simulations/results/*_m.cc simulations/results/*_m.h simulations/results/*_sm.cc simulations/results/*_sm.h
 	$(Q)-rm -f sumoscenarios/*_m.cc sumoscenarios/*_m.h sumoscenarios/*_sm.cc sumoscenarios/*_sm.h
@@ -204,11 +206,12 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/DeadReckoning/*.cc localization/Filters/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/Multilateration/*.cc localization/RSSI/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/results/*.cc sumoscenarios/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc communication/*.cc localization/*.cc localization/DeadReckoning/*.cc localization/Filters/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/Multilateration/*.cc localization/RSSI/*.cc localization/jama125/*.cc localization/tnt_126/*.cc outages/*.cc simulations/*.cc simulations/results/*.cc sumoscenarios/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/communication/LocAppCom.o: communication/LocAppCom.cc \
 	communication/LocAppCom.h \
+	localization/DeadReckoning/DeadReckoning.h \
 	localization/Filters/Filters.h \
 	localization/jama125/jama_qr.h \
 	localization/tnt_126/tnt_array1d.h \

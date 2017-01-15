@@ -28,6 +28,8 @@
 #include <exception>
 #include <cmath>
 #include <ctime>
+#include <iomanip>
+#include <limits>
 
 //TNT and JAMA libraries
 #include <tnt_array2d.h>
@@ -39,6 +41,7 @@
 #include <localization/RSSI/FreeSpaceModel.hpp>
 #include <localization/RSSI/TwoRayInterference.hpp>
 #include <localization/Filters/Filters.h>
+#include <localization/DeadReckoning/DeadReckoning.h>
 
 using Veins::TraCIMobility;
 using Veins::TraCICommandInterface;
@@ -53,10 +56,22 @@ using namespace GeographicLib;
  */
 class LocAppCom : public BaseWaveApplLayer {
     private:
+        bool isInOutage; //Flag that indicates the begins of outage;
+        bool isInRecover; //Flag that Indicates the begins of recover;
         std::list<AnchorNode> anchorNodes;//list of neighbor vehicles
+
+        //**************Position Variables
         Coord coopPosFS; //cooperative Positioning Estimation
         Coord coopPosTRGI; //cooperative Positioning Estimation
-        //RSSI Variables
+        LatLon lastSUMOPos, lastGDRPos;//last SUMO, GPS and DR Estimations
+        LatLon atualSUMOPos;
+        LatLon gpsOutPos, gpsRecPos; //GPS outage and recovery positions...
+        double distOutage;
+
+        //*************Error Variables
+        double errorGPSOut, errorGPSRec, errorGDR;
+
+        //***********************RSSI Variables
         double constVelLight = 299792458.0; //m/s
         double lambda = 0.051; //wave length for CCH frequency
         double frequencyCCH = 5.890; //GHz
@@ -71,6 +86,7 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj, cObject* details);
         TraCIMobility* mobility;
         TraCICommandInterface* traci;
+        TraCICommandInterface::Vehicle* traciVehicle;
         time_t timeSeed;
         //Struct with the attributes of a neighbor node
     protected:
@@ -90,11 +106,16 @@ class LocAppCom : public BaseWaveApplLayer {
         virtual void onBeacon(WaveShortMessage* wsm);
         //This method crate a beacon with vehicle kinematics information
         virtual void handleSelfMsg(cMessage* msg);
-        void UpdateNeighborList(AnchorNode anchorNode);
+        void UpdateNeighborList(AnchorNode *anchorNode);
         void UpdateNeighborListDistances(void);
         void PrintNeighborList(void);
         void GeodesicDRModule(void);
         void VehicleKinematicsModule(void);
+        void getAnchorNode(int id, AnchorNode *anchorNode);
+        void GetGPSOutageCoordinates();
+        void GetOutageDataFromFile(std::string path);
+        bool RecognizeOutage();
+        bool RecognizeRecover();
 
        // void UpdateNeighborsList(void);
 };
