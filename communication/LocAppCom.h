@@ -19,6 +19,7 @@
 //Veins libraries
 #include "veins/modules/application/ieee80211p/BaseWaveApplLayer.h"
 #include "veins/modules/mobility/traci/TraCIMobility.h"
+#include "TraCIConnection.h"
 //Geodesic Library
 #include <localization/GeographicLib/include/GeographicLib/Geodesic.hpp>
 #include <localization/GeographicLib/include/GeographicLib/Constants.hpp>
@@ -44,9 +45,12 @@
 #include <localization/DeadReckoning/DeadReckoning.h>
 
 using Veins::TraCIMobility;
+using Veins::TraCIMobilityAccess;
 using Veins::TraCICommandInterface;
-
 using Veins::AnnotationManager;
+using Veins::AnnotationManagerAccess;
+using Veins::TraCIConnection;
+using Veins::TraCICoord;
 
 using namespace GeographicLib;
 
@@ -87,6 +91,7 @@ class LocAppCom : public BaseWaveApplLayer {
         TraCIMobility* mobility;
         TraCICommandInterface* traci;
         TraCICommandInterface::Vehicle* traciVehicle;
+        //TraCICommandInterface::* connection;
         time_t timeSeed;
         //Struct with the attributes of a neighbor node
     protected:

@@ -15,19 +15,18 @@
 
 #include "LocAppCom.h"
 
-using Veins::TraCIMobility;
-using Veins::TraCIMobilityAccess;
-using Veins::AnnotationManagerAccess;
-
 const simsignalwrap_t LocAppCom::mobilityStateChangedSignal = simsignalwrap_t(MIXIM_SIGNAL_MOBILITY_CHANGE_NAME);
 
 Define_Module(LocAppCom);
 
+//TraCIConnection* conn = FindModule<TraCIConnection*>::findSubModule(getParentModule)
+
+
 void LocAppCom::initialize(int stage){
     BaseWaveApplLayer::initialize(stage);
     if (stage == 0) {
-
         mobility = TraCIMobilityAccess().get(getParentModule());
+        //connection = FindModule<TraCIConnection*>::findSubModule(getParentModule());
         traci = mobility->getCommandInterface();
         traciVehicle = mobility->getVehicleCommandInterface();
         timeSeed = time(0);
@@ -40,9 +39,6 @@ void LocAppCom::initialize(int stage){
         this->lastGDRPos.lon = 0;
         this->isInOutage = false;
         GetGPSOutageCoordinates();//Take information of outage from dataset.
-
-
-
 
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
@@ -107,6 +103,7 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
             //Update GPS Information
             //....
             //Create a beacon...
+
             WaveShortMessage* wsm = prepareWSM("beacon", beaconLengthBits, type_CCH, beaconPriority, 0, -1);
             //Put current position in the beacon
             wsm->setSenderPos(mobility->getCurrentPosition());
@@ -193,13 +190,17 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     **Neighbor Position (SUMO) |  Real Distance | Est. RSSI Dist FS | RSSI FS |
     **Est. RSSI Dist TRGI | RSSI TRGI | My Estimated Position (Via CP FSpace) | My Estimated Position (Via CP TRGI) |
     * */
-    //fixme ONLY FOR DEBUG OF POSITION AND PROJECTIONS
+    //FIXME ONLY FOR DEBUG OF POSITION AND PROJECTIONS
+    std::pair<double,double> coordTraCI = traci->getTraCIXY(mobility->getCurrentPosition());
+    std::cout << coordTraCI.first << ' '<< coordTraCI.second << endl;
     std::pair<double,double> lonlat = traci->getLonLat(mobility->getCurrentPosition());
     std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
     beaconLogFile << anchorNode.vehID
             <<'\t'<< anchorNode.timestamp
             <<'\t'<< std::setprecision(10) << lonlat.second
             <<'\t'<< std::setprecision(10) << lonlat.first
+            <<'\t'<< std::setprecision(10) << coordTraCI.second
+            <<'\t'<< std::setprecision(10) << coordTraCI.first
             <<'\t'<< std::setprecision(10) << mobility->getCurrentPosition().x
             <<'\t'<< std::setprecision(10) << mobility->getCurrentPosition().y
             <<'\t'<< std::setprecision(10) << mobility->getCurrentPosition().z

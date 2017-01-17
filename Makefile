@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for locvanet
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -I../veins-RSSI/src -L../veins-RSSI/out/$$\(CONFIGNAME\)/src -lveins-RSSI -KVEINS_RSSI_PROJ=../veins-RSSI
+#  opp_makemake -f --deep -O out -I../veins-RSSI/src -I../veins-RSSI/src/veins/modules/mobility/traci -L../veins-RSSI/out/$$\(CONFIGNAME\)/src -lveins-RSSI -KVEINS_RSSI_PROJ=../veins-RSSI
 #
 
 # Name of target to be created (-o option)
@@ -17,6 +17,7 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LI
 # C++ include paths (with -I)
 INCLUDE_PATH = \
     -I../veins-RSSI/src \
+    -I../veins-RSSI/src/veins/modules/mobility/traci \
     -I. \
     -Icommunication \
     -Ilocalization \
