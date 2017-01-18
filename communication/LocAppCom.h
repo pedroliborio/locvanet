@@ -38,12 +38,14 @@
 
 #include <fstream>
 
-#include <localization/Multilateration/Multilateration.hpp>
-#include <localization/RSSI/FreeSpaceModel.hpp>
-#include <localization/RSSI/TwoRayInterference.hpp>
-#include <localization/Filters/Filters.h>
-#include <localization/DeadReckoning/DeadReckoning.h>
+#include <Filters.h>
+#include <DeadReckoning.h>
+#include <FreeSpaceModel.h>
+#include <Multilateration.h>
+#include <TwoRayInterference.h>
+#include <Types.h>
 
+//Veins namespace
 using Veins::TraCIMobility;
 using Veins::TraCIMobilityAccess;
 using Veins::TraCICommandInterface;
@@ -52,6 +54,8 @@ using Veins::AnnotationManagerAccess;
 using Veins::TraCIConnection;
 using Veins::TraCICoord;
 
+//Localization namespace
+using namespace Localization;
 using namespace GeographicLib;
 
 /**
@@ -67,10 +71,16 @@ class LocAppCom : public BaseWaveApplLayer {
         //**************Position Variables
         Coord coopPosFS; //cooperative Positioning Estimation
         Coord coopPosTRGI; //cooperative Positioning Estimation
-        LatLon lastSUMOPos, lastGDRPos;//last SUMO, GPS and DR Estimations
-        LatLon atualSUMOPos;
-        LatLon gpsOutPos, gpsRecPos; //GPS outage and recovery positions...
+        LonLat lastSUMOPos, lastGDRPos;//last SUMO, GPS and DR Estimations
+        LonLat atualSUMOPos;
+        LonLat gpsOutPos, gpsRecPos; //GPS outage and recovery positions...
         double distOutage;
+
+        /**** DR Module*/
+        DeadReckoning *drModule;
+
+        /**** GPS Module*/
+
 
         //*************Error Variables
         double errorGPSOut, errorGPSRec, errorGDR;
@@ -121,6 +131,8 @@ class LocAppCom : public BaseWaveApplLayer {
         void GetOutageDataFromFile(std::string path);
         bool RecognizeOutage();
         bool RecognizeRecover();
+
+
 
        // void UpdateNeighborsList(void);
 };

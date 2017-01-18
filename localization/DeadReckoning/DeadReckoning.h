@@ -1,33 +1,28 @@
 /*
  * DeadReckoning.h
  *
- *  Created on: Dec 19, 2016
+ *  Created on: Jan 18, 2017
  *      Author: liborio
  */
 
 #ifndef LOCALIZATION_DEADRECKONING_DEADRECKONING_H_
 #define LOCALIZATION_DEADRECKONING_DEADRECKONING_H_
 
+#include <Types.h>
 
-//Geodesic Library
-#include "Geodesic.hpp"
-#include <Constants.hpp>
-#include <Geocentric.hpp>
-#include <LocalCartesian.hpp>
-
-struct t_LatLon{
-    double lat;
-    double lon;
-};typedef struct t_LatLon LatLon;
-
-using namespace GeographicLib;
+namespace Localization {
 
 class DeadReckoning {
+private:
+    LonLat lastKnowPos;
+    double error;
 public:
     DeadReckoning();
     virtual ~DeadReckoning();
-    static void getPosition(LatLon *lastGDRPos, LatLon *lastSUMOPos, LatLon *atualSUMOPos);
-    static void getError(double *errorGDR, LatLon *lastGDRPos, LatLon *atualSUMOPos);
+    void getPosition(LonLat *lastGDRPos, LonLat *lastSUMOPos, LonLat *atualSUMOPos);
+    void getError(double *errorGDR, LonLat *lastGDRPos, LonLat *atualSUMOPos);
 };
+
+} /* namespace Localization */
 
 #endif /* LOCALIZATION_DEADRECKONING_DEADRECKONING_H_ */

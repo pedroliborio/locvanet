@@ -1,11 +1,13 @@
 /*
- * FreeSpaceModel.cpp
+ * FreeSpaceModel.cc
  *
- *  Created on: Dec 19, 2016
+ *  Created on: Jan 18, 2017
  *      Author: liborio
  */
 
-#include <FreeSpaceModel.hpp>
+#include <FreeSpaceModel.h>
+
+namespace Localization {
 
 FreeSpaceModel::FreeSpaceModel() {
     // TODO Auto-generated constructor stub
@@ -16,15 +18,13 @@ FreeSpaceModel::~FreeSpaceModel() {
     // TODO Auto-generated destructor stub
 }
 
-double FreeSpaceModel::getRSSI(double distance, double pTx, double alpha, double lambda){
-    double rssi;
+void FreeSpaceModel::setRSSI(double distance, double pTx, double alpha, double lambda){
     rssi = 10*log10(pTx) - 10 * log10((16* M_PI * M_PI * pow(distance, alpha)) / pow(lambda,alpha));
     return rssi; //dBmW
 }
 
-double FreeSpaceModel::getDistance(double rssi, double pTx, double alpha, double lambda){
-    double distance;
+void FreeSpaceModel::setDistance(double rssi, double pTx, double alpha, double lambda){
     distance = (lambda / (pow((4 * M_PI),(2/alpha)) ) ) * (pow(pTx, (1/alpha))) * (pow(10,( - (rssi / (10*alpha) ) )));
-    return distance;//meters
 }
 
+} /* namespace Localization */

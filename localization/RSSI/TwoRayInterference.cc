@@ -1,11 +1,13 @@
 /*
- * TwoRayInterference.cpp
+ * TwoRayInterference.cc
  *
- *  Created on: Dec 19, 2016
+ *  Created on: Jan 18, 2017
  *      Author: liborio
  */
 
-#include <TwoRayInterference.hpp>
+#include <TwoRayInterference.h>
+
+namespace Localization {
 
 TwoRayInterference::TwoRayInterference() {
     // TODO Auto-generated constructor stub
@@ -16,10 +18,8 @@ TwoRayInterference::~TwoRayInterference() {
     // TODO Auto-generated destructor stub
 }
 
-double TwoRayInterference::getRSSI(double d, double pTx, double lambda, double ht, double hr, double epsilonR){
+void TwoRayInterference::setRSSI(double d, double pTx, double lambda, double ht, double hr, double epsilonR){
     double rssi;
-    double distLOS, distRef, sinTheta, cosTheta, gamma, phi, attenuation;
-
     distLOS = sqrt( pow (d,2) + pow((ht - hr),2) ); //distance in the LOS (Line Of sight)
 
     distRef = sqrt( pow (d,2) + pow((ht + hr),2) ); //distance in the reflection path
@@ -39,8 +39,7 @@ double TwoRayInterference::getRSSI(double d, double pTx, double lambda, double h
     return rssi;
 }
 
-double TwoRayInterference::getDistance(double rssi, double d, double pTx, double lambda, double ht, double hr, double epsilonR){
-    double distance;
+void TwoRayInterference::setDistance(double rssi, double d, double pTx, double lambda, double ht, double hr, double epsilonR){
     double distLOS, distRef, sinTheta, cosTheta, gamma, phi;
 
     distLOS = sqrt( pow (d,2) + pow((ht - hr),2) ); //distance in the LOS (Line Of sight)
@@ -52,6 +51,6 @@ double TwoRayInterference::getDistance(double rssi, double d, double pTx, double
 
     distance =  sqrt(pTx) * (lambda / 4 * M_PI) * (pow(10,( (-20 -(rssi)) / 20)))  *
                 (sqrt( (pow((1 + gamma * cos(phi)),2) + pow(gamma,2) * pow(sin(phi),2)) ));
-
-    return distance;
 }
+
+} /* namespace Localization */
