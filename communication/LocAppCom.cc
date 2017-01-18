@@ -142,8 +142,8 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     getAnchorNode(wsm->getSenderAddress(), &anchorNode);
 
     anchorNode.timestamp = wsm->getTimestamp();
-    anchorNode.realPosition = wsm->getSenderPos();
-    anchorNode.realDistance = wsm->getSenderPos().distance(mobility->getCurrentPosition());
+    anchorNode.realPos = wsm->getSenderPos();
+    anchorNode.realDist = wsm->getSenderPos().distance(mobility->getCurrentPosition());
     anchorNode.vehID = wsm->getSenderAddress();
 
     //Calculating RSSI

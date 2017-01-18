@@ -100,7 +100,7 @@ OBJS = \
     $O/localization/Multilateration/Multilateration.o \
     $O/localization/Projections/Projection.o \
     $O/localization/RSSI/FreeSpaceModel.o \
-    $O/localization/RSSI/TwoRayInterference.o
+    $O/localization/RSSI/TwoRayInterferenceModel.o
 
 # Message files
 MSGFILES =
@@ -229,10 +229,10 @@ $O/communication/LocAppCom.o: communication/LocAppCom.cc \
 	Types/Types.h \
 	communication/LocAppCom.h \
 	localization/DeadReckoning/DeadReckoning.h \
-	localization/Filters/Filters.h \
+	localization/GPS/GPS.h \
 	localization/Multilateration/Multilateration.h \
 	localization/RSSI/FreeSpaceModel.h \
-	localization/RSSI/TwoRayInterference.h \
+	localization/RSSI/TwoRayInterferenceModel.h \
 	localization/jama125/jama_qr.h \
 	localization/tnt_126/tnt_array1d.h \
 	localization/tnt_126/tnt_array2d.h \
@@ -327,6 +327,6 @@ $O/localization/Projections/Projection.o: localization/Projections/Projection.cc
 	localization/Projections/Projection.h
 $O/localization/RSSI/FreeSpaceModel.o: localization/RSSI/FreeSpaceModel.cc \
 	localization/RSSI/FreeSpaceModel.h
-$O/localization/RSSI/TwoRayInterference.o: localization/RSSI/TwoRayInterference.cc \
-	localization/RSSI/TwoRayInterference.h
+$O/localization/RSSI/TwoRayInterferenceModel.o: localization/RSSI/TwoRayInterferenceModel.cc \
+	localization/RSSI/TwoRayInterferenceModel.h
 

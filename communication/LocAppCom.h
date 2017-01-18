@@ -38,12 +38,12 @@
 
 #include <fstream>
 
-#include <Filters.h>
-#include <DeadReckoning.h>
-#include <FreeSpaceModel.h>
-#include <Multilateration.h>
-#include <TwoRayInterference.h>
 #include <Types.h>
+#include <GPS.h>
+#include <Multilateration.h>
+#include <DeadReckoning.h>
+#include <RSSI/FreeSpaceModel.h>
+#include <RSSI/TwoRayInterferenceModel.h>
 
 //Veins namespace
 using Veins::TraCIMobility;
@@ -76,11 +76,16 @@ class LocAppCom : public BaseWaveApplLayer {
         LonLat gpsOutPos, gpsRecPos; //GPS outage and recovery positions...
         double distOutage;
 
-        /**** DR Module*/
-        DeadReckoning *drModule;
+        //****************Modules
+        DeadReckoning drModule;
+        GPS gpsModule;
 
-        /**** GPS Module*/
+        //************RSSI Models
+        FreeSpaceModel fsModel;
+        TwoRayInterferenceModel trgiModel;
 
+        //***************Multilateration methods
+        Multilateration multilateration;
 
         //*************Error Variables
         double errorGPSOut, errorGPSRec, errorGDR;
