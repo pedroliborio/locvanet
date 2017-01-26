@@ -8,9 +8,17 @@
 #ifndef LOCALIZATION_MULTILATERATION_MULTILATERATION_H_
 #define LOCALIZATION_MULTILATERATION_MULTILATERATION_H_
 
+#include<Types.h>
+#include<tnt.h>
+#include<jama_qr.h>
+
 namespace Localization {
 
 class Multilateration {
+private:
+    std::vector<Coord> positions;
+    std::vector<double> distances;
+    Coord estPosition;
 public:
     const int REAL_POS = 0;
     const int DR_POS = 1;
@@ -27,6 +35,10 @@ public:
     void LeastSquares(void);
     void getDistList(std::list<AnchorNode> *anchorNodes, const int DIST_TYPE);
     void getPosList(std::list<AnchorNode> *anchorNodes, const int POS_TYPE);
+
+    const Coord& getEstPosition() const {
+        return estPosition;
+    }
 };
 
 } /* namespace Localization */

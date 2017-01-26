@@ -9,19 +9,43 @@
 #define LOCALIZATION_PROJECTIONS_PROJECTION_H_
 
 #include <proj_api.h>
+#include <Projection.h>
+#include <Types.h>
+#include <fstream>
 
-namespace Projection {
+namespace Localization {
 
 class Projection {
 private:
-    Coord netoffset;
+    Coord utmCoord;
+    LonLat geoCoord;
+    projXY netOffset;
+    projPJ pj_utm;
 
 public:
     Projection();
+    Projection(std::string fileProjName);
     virtual ~Projection();
-    void fromUTMToLatLon(Coord *coord, Coord *netOffset, std::string projString);
+    void FromUTMToLonLat(void);
+    void FromLonLatToUTM(void);
+
+    const LonLat& getGeoCoord() const {
+        return geoCoord;
+    }
+
+    void setGeoCoord(const LonLat& geoCoord) {
+        this->geoCoord = geoCoord;
+    }
+
+    const Coord& getUtmCoord() const {
+        return utmCoord;
+    }
+
+    void setUtmCoord(const Coord& utmCoord) {
+        this->utmCoord = utmCoord;
+    }
 };
 
-} /* namespace Projection */
+} /* namespace Localization */
 
 #endif /* LOCALIZATION_PROJECTIONS_PROJECTION_H_ */

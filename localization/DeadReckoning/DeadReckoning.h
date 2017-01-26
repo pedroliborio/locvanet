@@ -9,18 +9,44 @@
 #define LOCALIZATION_DEADRECKONING_DEADRECKONING_H_
 
 #include <Types.h>
+#include <GeographicLib/Geodesic.hpp>
+#include <GeographicLib/Constants.hpp>
+
+using namespace GeographicLib;
 
 namespace Localization {
 
 class DeadReckoning {
 private:
-    LonLat lastKnowPos;
-    double error;
+    LonLat lastKnowPosGeo;
+    Coord lastKnowPosUTM;
+    double errorGeo;
+    double errorUTM;
 public:
     DeadReckoning();
+    DeadReckoning(LonLat lastGPSPos);
     virtual ~DeadReckoning();
-    void getPosition(LonLat *lastGDRPos, LonLat *lastSUMOPos, LonLat *atualSUMOPos);
-    void getError(double *errorGDR, LonLat *lastGDRPos, LonLat *atualSUMOPos);
+    void setGeoPos(LonLat *lastSUMOPos, LonLat *atualSUMOPos);
+    void setUTMPos(Coord utmCoord);
+    void setErrorLonLat(LonLat *atualSUMOPos);
+    void setErrorUTM(Coord *atualSUMOPos);
+
+
+    double getErrorGeo() const {
+        return errorGeo;
+    }
+
+    double getErrorUtm() const {
+        return errorUTM;
+    }
+
+    const LonLat& getLastKnowPosGeo() const {
+        return lastKnowPosGeo;
+    }
+
+    const Coord& getLastKnowPosUtm() const {
+        return lastKnowPosUTM;
+    }
 };
 
 } /* namespace Localization */

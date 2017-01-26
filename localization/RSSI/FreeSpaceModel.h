@@ -8,6 +8,8 @@
 #ifndef LOCALIZATION_RSSI_FREESPACEMODEL_H_
 #define LOCALIZATION_RSSI_FREESPACEMODEL_H_
 
+#include<cmath>
+
 namespace Localization {
 
 class FreeSpaceModel {
@@ -19,6 +21,15 @@ public:
     virtual ~FreeSpaceModel();
     void setRSSI(double distance, double pTx, double alpha, double lambda);
     void setDistance(double rssi, double pTx, double alpha, double lambda);
+
+    double getDistance() const {
+        return distance;
+    }
+
+    double getRSSI() const {
+        return rssi;
+    }
+
 };
 
 } /* namespace Localization */

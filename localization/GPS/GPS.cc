@@ -14,8 +14,37 @@ GPS::GPS() {
 
 }
 
+GPS::GPS(std::string outagesFile) {
+    GetOutageInformation(outagesFile);
+}
+
 GPS::~GPS() {
     // TODO Auto-generated destructor stub
 }
+
+void GPS::GetOutageInformation(std::string outagesFile){
+    std::string date, time, line;
+    std::string path = "outages/"+outagesFile+".txt";
+    std::fstream file(path);
+    std::fstream fileOut("temp.txt");
+
+
+    getline(file, line); // get header
+
+    file >> date >> time >> gpsOutGeoPos.lat >> gpsOutGeoPos.lon >> errorGPSOut;
+
+    file >> date >> time >> gpsRecGeoPos.lat >> gpsRecGeoPos.lon >> errorGPSRec;
+
+    //put header back
+    fileOut << line;
+    //put another lines back
+    while (getline(file,line)){
+        fileOut << line << '\n';
+    }
+
+    fileOut.close();
+    file.close();
+}
+
 
 } /* namespace Localization */

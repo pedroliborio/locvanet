@@ -21,6 +21,7 @@ Multilateration::~Multilateration() {
 void Multilateration::LeastSquares(void){
         int i;
         //Minus one because the last line of the matrix will be subtracted by the others lines
+        int size = positions.size();
         size--;
 
         //Create matrixes using the TNT library
@@ -55,67 +56,78 @@ void Multilateration::LeastSquares(void){
 
 void Multilateration::getDistList(std::list<AnchorNode> *anchorNodes, const int DIST_TYPE){
     int i = 0;
-    switch(DIST_TYPE){
-        case REAL_DIST:
-            for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-                distances.push_back(it->realDist);
-                i++;
-            }
-            break;
-        case DR_DIST:
+    if(DIST_TYPE == REAL_DIST){
+        for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
+            distances.push_back(it->realDist);
+            i++;
+        }
+    }
+    else{
+        if(DIST_TYPE == DR_DIST){
             for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
                 distances.push_back(it->deadReckDist);
                 i++;
             }
-            break;
-        case GPS_DIST:
-            for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-                distances.push_back(it->gpsDist);
-                i++;
+        }
+        else{
+            if(DIST_TYPE == GPS_DIST){
+                for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
+                    distances.push_back(it->gpsDist);
+                    i++;
+                }
             }
-            break;
-        case FS_DIST:
-            for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-                distances.push_back(it->rssiDistFS);
-                i++;
+            else{
+                if(DIST_TYPE == FS_DIST){
+                    for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
+                        distances.push_back(it->realRSSIDistFS);
+                        i++;
+                    }
+                }
+                else{
+                    if(DIST_TYPE == TRGI_DIST){
+                        for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
+                            distances.push_back(it->realRSSIDistTRGI);
+                            i++;
+                        }
+                    }
+                    else{
+                        std::cout << "Multilateration: Type of distance not found";
+                        exit(0);
+                    }
+                }
+
             }
-            break;
-        case TRGI_DIST:
-            for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-                distances.push_back(it->rssiDistTRGI);
-                i++;
-            }
-            break;
-        default:
-            std::cout << "Multilateration: Type of distance not found";
-            exit(0);
+        }
     }
 }
 
 void Multilateration::getPosList(std::list<AnchorNode> *anchorNodes, const int POS_TYPE){
     int i =0;
-    switch(POS_TYPE){
-        case REAL_POS:
-            for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-                positions.push_back(it->realPos);
-                i++;
-            }
-            break;
-        case DR_POS:
+    if(POS_TYPE == REAL_POS){
+        for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
+            positions.push_back(it->realPos);
+            i++;
+        }
+    }
+    else{
+        if(POS_TYPE == DR_POS){
             for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
                 positions.push_back(it->deadReckPos);
                 i++;
             }
-            break;
-        case GPS_POS:
-           for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
-               positions.push_back(it->gpsPos);
-               i++;
-           }
-           break;
-        default:
-            std::cout << "Multilateration: Type of Position not found";
-            exit(0);
+        }
+        else{
+            if(POS_TYPE == GPS_POS){
+               for(std::list<AnchorNode>::iterator it = anchorNodes->begin(); it!= anchorNodes->end(); ++it){
+                   positions.push_back(it->gpsPos);
+                   i++;
+               }
+            }
+            else{
+                std::cout << "Multilateration: Type of Position not found";
+                exit(0);
+            }
+        }
     }
 }
 

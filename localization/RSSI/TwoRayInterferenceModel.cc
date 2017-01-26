@@ -18,7 +18,9 @@ TwoRayInterferenceModel::~TwoRayInterferenceModel() {
     // TODO Auto-generated destructor stub
 }
 
-void TwoRayInterference::setRSSI(double d, double pTx, double lambda, double ht, double hr, double epsilonR){
+void TwoRayInterferenceModel::setRSSI(double d, double pTx, double lambda, double ht, double hr, double epsilonR){
+    double distLOS, distRef, sinTheta, cosTheta, gamma, phi, attenuation;
+
     distLOS = sqrt( pow (d,2) + pow((ht - hr),2) ); //distance in the LOS (Line Of sight)
 
     distRef = sqrt( pow (d,2) + pow((ht + hr),2) ); //distance in the reflection path
@@ -37,7 +39,7 @@ void TwoRayInterference::setRSSI(double d, double pTx, double lambda, double ht,
     //dbmW
 }
 
-void TwoRayInterference::setDistance(double rssi, double d, double pTx, double lambda, double ht, double hr, double epsilonR){
+void TwoRayInterferenceModel::setDistance(double rssi, double d, double pTx, double lambda, double ht, double hr, double epsilonR){
     double distLOS, distRef, sinTheta, cosTheta, gamma, phi;
 
     distLOS = sqrt( pow (d,2) + pow((ht - hr),2) ); //distance in the LOS (Line Of sight)

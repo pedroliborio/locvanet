@@ -18,20 +18,39 @@ struct t_LonLat{
 
 struct AnchorNode_t{
             int vehID; //sender vehicle ID
-            Coord realPos; //vehicle sender real position
+            simtime_t timestamp; // timestamp of the beacon received
+            //Positions
+            Coord realPos;
             Coord deadReckPos;
             Coord gpsPos;
-            double realDist; //real distance (euclidean)
+            //Distances
+            double realDist;
             double deadReckDist;
             double gpsDist;
-            double rssiDistFS; //RSSI Distance FS
-            double rssiDistTRGI;//RSSI Distance TRGI
-            double rssiFS; //RSSI FS;
-            double rssiTRGI; //RSSI TRGI
-            double rssiDistAvgFilterFS = .0; //RSSI Distance FS Avg Filter
-            double rssiDistAvgFilterTRGI = .0; //RSSI Distance TRGI Avg Filter
-            simtime_t timestamp; // timestamp of the beacon received
+            //Error
+            double errorGPS;
+            double errorDR;
+            //Rssi...
+            double realRSSIDistFS; //Real RSSI Distance FS
+            double realRSSIDistTRGI;//Real RSSI Distance TRGI
+            double realRSSIFS; //Real RSSI FS;
+            double realRSSITRGI; //Real RSSI TRGI
+
+            double drRSSIDistFS; //Real RSSI Distance FS
+            double drRSSIDistTRGI;//Real RSSI Distance TRGI
+            double drRSSIFS; //Real RSSI FS;
+            double drRSSITRGI; //Real RSSI TRGI
+
+            // Avg Filter above real rssi dists
+            double realRSSIDistAvgFilterFS = .0; //RSSI Distance FS Avg Filter
+            double realRSSIDistAvgFilterTRGI = .0; //RSSI Distance TRGI Avg Filter
+            //Avg filter above dr rssi dists
+            double drRSSIDistAvgFilterFS = .0; //RSSI Distance FS Avg Filter
+            double drRSSIDistAvgFilterTRGI = .0; //RSSI Distance TRGI Avg Filter
+
             int k = 0; //Actual Iteration for the Avg Filter
+            bool inOutage;
+
 };typedef struct AnchorNode_t AnchorNode;
 
 namespace Localization {

@@ -17,6 +17,10 @@ public:
     Filters();
     virtual ~Filters();
     void setAverageFilter(int k, double mean, double x_k);
+
+    double getAvgFilter() const {
+        return avgFilter;
+    }
 };
 
 } /* namespace Localization */
