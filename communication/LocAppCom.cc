@@ -32,8 +32,8 @@ void LocAppCom::initialize(int stage){
         timeSeed = time(0);
 
         //Initialize Projection...
-        int pos = traciVehicle->getRouteId().find("Entrance");
-        projection = new Projection( traciVehicle->getRouteId().substr(0,pos) );
+        //size of (EntranceExit or ExitEntrance ) == 12
+        projection = new Projection( traciVehicle->getRouteId().substr( 0,(traciVehicle->getRouteId().size() - 12) ) );
 
         //Initialize SUMO Positions tracker
         lastSUMOUTMPos = traci->getTraCIXY(mobility->getCurrentPosition());
@@ -82,6 +82,11 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
     switch (msg->getKind()) {
         case SEND_BEACON_EVT: {
             WaveShortMessage* wsm = prepareWSM("beacon", beaconLengthBits, type_CCH, beaconPriority, 0, -1);
+
+            std::cout << lastSUMOUTMPos <<"-"<<lastSUMOGeoPos.lat <<"-"<< lastSUMOGeoPos.lon << endl;
+            std::cout << traci->getTraCIXY(mobility->getCurrentPosition()) << endl;
+
+            exit(0);
 
             lastSUMOUTMPos = atualSUMOUTMPos;
             lastSUMOGeoPos = atualSUMOGeoPos;

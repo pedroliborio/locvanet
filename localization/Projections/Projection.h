@@ -12,6 +12,8 @@
 #include <Projection.h>
 #include <Types.h>
 #include <fstream>
+#include <iomanip>
+#include <limits>
 
 namespace Localization {
 
@@ -43,6 +45,15 @@ public:
 
     void setUtmCoord(const Coord& utmCoord) {
         this->utmCoord = utmCoord;
+    }
+
+    const projXY& getNetOffset() const {
+        return netOffset;
+    }
+
+    void setNetOffset(const projXY& netOffset)
+    {
+        this->netOffset = netOffset;
     }
 };
 

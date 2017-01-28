@@ -16,14 +16,19 @@ Projection::Projection() {
 
 Projection::Projection(std::string fileProjName) {
     std::string catcher, projString;
-    std::fstream file("../localization/Projection/parameters/"+fileProjName+".txt");
+
+    std::fstream file("../localization/Projections/parameters/"+fileProjName+".txt");
+
     file >> this->netOffset.u >> this->netOffset.v;
+    std::getline(file,projString);
+    projString = projString.substr(1);
 
-    while(file >> catcher){
-        projString+=catcher+' ';
+    std::cout << std::setprecision(10) << this->netOffset.u <<'-'<< std::setprecision(10) << this->netOffset.v <<'x'<< projString<<'-'<< endl;
+
+    if (!( this->pj_utm = pj_init_plus(projString.c_str()) )){
+        std::cout << "wtttttffff mannnnn" << endl;
+        exit(0);
     }
-
-    this->pj_utm = pj_init_plus(projString.c_str());
 }
 
 Projection::~Projection() {

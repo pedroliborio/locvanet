@@ -8,7 +8,6 @@
 #ifndef TYPES_TYPES_H_
 #define TYPES_TYPES_H_
 
-
 #include "veins/base/utils/Coord.h"
 
 struct t_LonLat{
