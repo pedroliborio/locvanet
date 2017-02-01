@@ -20,21 +20,13 @@
 #include "veins/modules/application/ieee80211p/BaseWaveApplLayer.h"
 #include "veins/modules/mobility/traci/TraCIMobility.h"
 #include "TraCIConnection.h"
-//Geodesic Library
-#include <localization/GeographicLib/include/GeographicLib/Geodesic.hpp>
-#include <localization/GeographicLib/include/GeographicLib/Constants.hpp>
-#include <localization/GeographicLib/include/GeographicLib/Geocentric.hpp>
-#include <localization/GeographicLib/include/GeographicLib/LocalCartesian.hpp>
+
 //Utils libraries
 #include <exception>
 #include <cmath>
 #include <ctime>
 #include <iomanip>
 #include <limits>
-
-//TNT and JAMA libraries
-#include <tnt_array2d.h>
-#include <jama_qr.h>
 
 #include <fstream>
 
@@ -61,6 +53,7 @@ using Veins::TraCICoord;
 //Localization namespace
 using namespace Localization;
 using namespace GeographicLib;
+using namespace Veins;
 
 /**
  * Communication approach for localization based on beaconing
@@ -142,7 +135,8 @@ protected:
     virtual void handleSelfMsg(cMessage* msg);
     void UpdateNeighborList(AnchorNode *anchorNode);
     void UpdateNeighborListDistances(void);
-    void PrintNeighborList(void);
+    void PrintNeighborList(AnchorNode *anchorNode);
+    void PrintAnchorNode(AnchorNode *anchorNode);
     void GeodesicDRModule(void);
     void VehicleKinematicsModule(void);
     void getAnchorNode(int id, AnchorNode *anchorNode);

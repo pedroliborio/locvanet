@@ -9,6 +9,7 @@
 #define LOCALIZATION_OUTAGE_H_
 
 #include <Types.h>
+#include <limits>
 
 namespace Localization {
 
@@ -18,8 +19,8 @@ private:
     bool inRecover;
     Coord outagePos;
     Coord recoverPos;
-    double distOutage;
-    double distRecover;
+    double distOutage = std::numeric_limits<double>::max();
+    double distRecover = std::numeric_limits<double>::max();
 public:
     Outage();
     Outage(Coord outPos, Coord recPos);

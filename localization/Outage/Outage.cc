@@ -28,7 +28,6 @@ Outage::~Outage() {
 
 void Outage::ControlOutage(Coord *sumoPos){
     double dist;
-
     if(inOutage == false && inRecover==false ){
         dist = outagePos.sqrdist(*sumoPos);
         if(dist > distOutage){

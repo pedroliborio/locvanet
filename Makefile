@@ -36,8 +36,7 @@ INCLUDE_PATH = \
     -Ilocalization/Projections \
     -Ilocalization/Projections/parameters \
     -Ilocalization/RSSI \
-    -Ilocalization/jama125 \
-    -Ilocalization/tnt_126 \
+    -Ilocalization/jama_tnt \
     -Isimulations \
     -Isimulations/results \
     -Isumoscenarios
@@ -210,8 +209,7 @@ clean:
 	$(Q)-rm -f localization/Projections/*_m.cc localization/Projections/*_m.h localization/Projections/*_sm.cc localization/Projections/*_sm.h
 	$(Q)-rm -f localization/Projections/parameters/*_m.cc localization/Projections/parameters/*_m.h localization/Projections/parameters/*_sm.cc localization/Projections/parameters/*_sm.h
 	$(Q)-rm -f localization/RSSI/*_m.cc localization/RSSI/*_m.h localization/RSSI/*_sm.cc localization/RSSI/*_sm.h
-	$(Q)-rm -f localization/jama125/*_m.cc localization/jama125/*_m.h localization/jama125/*_sm.cc localization/jama125/*_sm.h
-	$(Q)-rm -f localization/tnt_126/*_m.cc localization/tnt_126/*_m.h localization/tnt_126/*_sm.cc localization/tnt_126/*_sm.h
+	$(Q)-rm -f localization/jama_tnt/*_m.cc localization/jama_tnt/*_m.h localization/jama_tnt/*_sm.cc localization/jama_tnt/*_sm.h
 	$(Q)-rm -f simulations/*_m.cc simulations/*_m.h simulations/*_sm.cc simulations/*_sm.h
 	$(Q)-rm -f simulations/results/*_m.cc simulations/results/*_m.h simulations/results/*_sm.cc simulations/results/*_sm.h
 	$(Q)-rm -f sumoscenarios/*_m.cc sumoscenarios/*_m.h sumoscenarios/*_sm.cc sumoscenarios/*_sm.h
@@ -221,7 +219,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Types/*.cc communication/*.cc localization/*.cc localization/DeadReckoning/*.cc localization/Filters/*.cc localization/GPS/*.cc localization/GPS/outages/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/Multilateration/*.cc localization/Outage/*.cc localization/Projections/*.cc localization/Projections/parameters/*.cc localization/RSSI/*.cc localization/jama125/*.cc localization/tnt_126/*.cc simulations/*.cc simulations/results/*.cc sumoscenarios/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Types/*.cc communication/*.cc localization/*.cc localization/DeadReckoning/*.cc localization/Filters/*.cc localization/GPS/*.cc localization/GPS/outages/*.cc localization/GeographicLib/*.cc localization/GeographicLib/doc/*.cc localization/GeographicLib/include/*.cc localization/GeographicLib/include/GeographicLib/*.cc localization/GeographicLib/src/*.cc localization/Multilateration/*.cc localization/Outage/*.cc localization/Projections/*.cc localization/Projections/parameters/*.cc localization/RSSI/*.cc localization/jama_tnt/*.cc simulations/*.cc simulations/results/*.cc sumoscenarios/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/Types/Types.o: Types/Types.cc \
@@ -241,28 +239,28 @@ $O/communication/LocAppCom.o: communication/LocAppCom.cc \
 	localization/Projections/Projection.h \
 	localization/RSSI/FreeSpaceModel.h \
 	localization/RSSI/TwoRayInterferenceModel.h \
-	localization/jama125/jama_qr.h \
-	localization/tnt_126/tnt.h \
-	localization/tnt_126/tnt_array1d.h \
-	localization/tnt_126/tnt_array1d_utils.h \
-	localization/tnt_126/tnt_array2d.h \
-	localization/tnt_126/tnt_array2d_utils.h \
-	localization/tnt_126/tnt_array3d.h \
-	localization/tnt_126/tnt_array3d_utils.h \
-	localization/tnt_126/tnt_cmat.h \
-	localization/tnt_126/tnt_fortran_array1d.h \
-	localization/tnt_126/tnt_fortran_array1d_utils.h \
-	localization/tnt_126/tnt_fortran_array2d.h \
-	localization/tnt_126/tnt_fortran_array2d_utils.h \
-	localization/tnt_126/tnt_fortran_array3d.h \
-	localization/tnt_126/tnt_fortran_array3d_utils.h \
-	localization/tnt_126/tnt_i_refvec.h \
-	localization/tnt_126/tnt_math_utils.h \
-	localization/tnt_126/tnt_sparse_matrix_csr.h \
-	localization/tnt_126/tnt_stopwatch.h \
-	localization/tnt_126/tnt_subscript.h \
-	localization/tnt_126/tnt_vec.h \
-	localization/tnt_126/tnt_version.h \
+	localization/jama_tnt/jama_qr.h \
+	localization/jama_tnt/tnt.h \
+	localization/jama_tnt/tnt_array1d.h \
+	localization/jama_tnt/tnt_array1d_utils.h \
+	localization/jama_tnt/tnt_array2d.h \
+	localization/jama_tnt/tnt_array2d_utils.h \
+	localization/jama_tnt/tnt_array3d.h \
+	localization/jama_tnt/tnt_array3d_utils.h \
+	localization/jama_tnt/tnt_cmat.h \
+	localization/jama_tnt/tnt_fortran_array1d.h \
+	localization/jama_tnt/tnt_fortran_array1d_utils.h \
+	localization/jama_tnt/tnt_fortran_array2d.h \
+	localization/jama_tnt/tnt_fortran_array2d_utils.h \
+	localization/jama_tnt/tnt_fortran_array3d.h \
+	localization/jama_tnt/tnt_fortran_array3d_utils.h \
+	localization/jama_tnt/tnt_i_refvec.h \
+	localization/jama_tnt/tnt_math_utils.h \
+	localization/jama_tnt/tnt_sparse_matrix_csr.h \
+	localization/jama_tnt/tnt_stopwatch.h \
+	localization/jama_tnt/tnt_subscript.h \
+	localization/jama_tnt/tnt_vec.h \
+	localization/jama_tnt/tnt_version.h \
 	$(VEINS_PROJ)/src/veins/base/connectionManager/BaseConnectionManager.h \
 	$(VEINS_PROJ)/src/veins/base/connectionManager/ChannelAccess.h \
 	$(VEINS_PROJ)/src/veins/base/connectionManager/NicEntry.h \
@@ -354,28 +352,28 @@ $O/localization/GeographicLib/src/Utility.o: localization/GeographicLib/src/Util
 $O/localization/Multilateration/Multilateration.o: localization/Multilateration/Multilateration.cc \
 	Types/Types.h \
 	localization/Multilateration/Multilateration.h \
-	localization/jama125/jama_qr.h \
-	localization/tnt_126/tnt.h \
-	localization/tnt_126/tnt_array1d.h \
-	localization/tnt_126/tnt_array1d_utils.h \
-	localization/tnt_126/tnt_array2d.h \
-	localization/tnt_126/tnt_array2d_utils.h \
-	localization/tnt_126/tnt_array3d.h \
-	localization/tnt_126/tnt_array3d_utils.h \
-	localization/tnt_126/tnt_cmat.h \
-	localization/tnt_126/tnt_fortran_array1d.h \
-	localization/tnt_126/tnt_fortran_array1d_utils.h \
-	localization/tnt_126/tnt_fortran_array2d.h \
-	localization/tnt_126/tnt_fortran_array2d_utils.h \
-	localization/tnt_126/tnt_fortran_array3d.h \
-	localization/tnt_126/tnt_fortran_array3d_utils.h \
-	localization/tnt_126/tnt_i_refvec.h \
-	localization/tnt_126/tnt_math_utils.h \
-	localization/tnt_126/tnt_sparse_matrix_csr.h \
-	localization/tnt_126/tnt_stopwatch.h \
-	localization/tnt_126/tnt_subscript.h \
-	localization/tnt_126/tnt_vec.h \
-	localization/tnt_126/tnt_version.h \
+	localization/jama_tnt/jama_qr.h \
+	localization/jama_tnt/tnt.h \
+	localization/jama_tnt/tnt_array1d.h \
+	localization/jama_tnt/tnt_array1d_utils.h \
+	localization/jama_tnt/tnt_array2d.h \
+	localization/jama_tnt/tnt_array2d_utils.h \
+	localization/jama_tnt/tnt_array3d.h \
+	localization/jama_tnt/tnt_array3d_utils.h \
+	localization/jama_tnt/tnt_cmat.h \
+	localization/jama_tnt/tnt_fortran_array1d.h \
+	localization/jama_tnt/tnt_fortran_array1d_utils.h \
+	localization/jama_tnt/tnt_fortran_array2d.h \
+	localization/jama_tnt/tnt_fortran_array2d_utils.h \
+	localization/jama_tnt/tnt_fortran_array3d.h \
+	localization/jama_tnt/tnt_fortran_array3d_utils.h \
+	localization/jama_tnt/tnt_i_refvec.h \
+	localization/jama_tnt/tnt_math_utils.h \
+	localization/jama_tnt/tnt_sparse_matrix_csr.h \
+	localization/jama_tnt/tnt_stopwatch.h \
+	localization/jama_tnt/tnt_subscript.h \
+	localization/jama_tnt/tnt_vec.h \
+	localization/jama_tnt/tnt_version.h \
 	$(VEINS_PROJ)/src/veins/base/utils/Coord.h \
 	$(VEINS_PROJ)/src/veins/base/utils/FWMath.h \
 	$(VEINS_PROJ)/src/veins/base/utils/MiXiMDefs.h \

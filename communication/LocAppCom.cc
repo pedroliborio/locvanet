@@ -22,6 +22,7 @@ Define_Module(LocAppCom);
 //TraCIConnection* conn = FindModule<TraCIConnection*>::findSubModule(getParentModule)
 
 
+
 void LocAppCom::initialize(int stage){
     BaseWaveApplLayer::initialize(stage);
     if (stage == 0) {
@@ -49,15 +50,30 @@ void LocAppCom::initialize(int stage){
 
         projection->setGeoCoord(gpsModule->getGpsOutGeoPos());
         projection->FromLonLatToUTM();
-
         gpsModule->setGpsOutUtmPos(projection->getUtmCoord());
-
         projection->setGeoCoord(gpsModule->getGpsRecGeoPos());
         projection->FromLonLatToUTM();
-
         gpsModule->setGpsRecUtmPos(projection->getUtmCoord());
 
+        /*std::cout << "GPS: "
+        <<" - "<< myId
+        <<" - "<< gpsModule->getGpsOutUtmPos()
+        <<" - "<< std::setprecision(10) << gpsModule->getGpsOutGeoPos().lon <<", " << std::setprecision(10) << gpsModule->getGpsOutGeoPos().lat
+        <<" - "<< gpsModule->getGpsRecUtmPos()
+        <<" - "<< std::setprecision(10) << gpsModule->getGpsRecGeoPos().lon <<", " << std::setprecision(10) << gpsModule->getGpsRecGeoPos().lat
+        <<" - "<< std::setprecision(10) << gpsModule->getErrorGpsOut()
+        <<" - "<< std::setprecision(10) << gpsModule->getErrorGpsRec()
+        << "\n\n";*/
+
         outageModule = new Outage(gpsModule->getGpsOutUtmPos(), gpsModule->getGpsRecUtmPos());
+
+        /*std::cout << "Outage: "
+                    <<" - "<< myId
+                    <<" - "<< outageModule->getDistOutage()
+                    <<" - "<< outageModule->getDistRecover()
+                    <<" - "<< outageModule->getOutagePos()
+                    <<" - "<< outageModule->getRecoverPos()
+                    << "\n\n";*/
 
         //GDR Module
         drModule =  new DeadReckoning(gpsModule->getGpsOutGeoPos());
@@ -71,6 +87,10 @@ void LocAppCom::initialize(int stage){
         //Multilateration Module
         multilateration = new Multilateration();
 
+        //Phy Models for RSSI
+        fsModel = new FreeSpaceModel();
+        trgiModel = new TwoRayInterferenceModel();
+
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
 
@@ -82,23 +102,19 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
     switch (msg->getKind()) {
         case SEND_BEACON_EVT: {
             WaveShortMessage* wsm = prepareWSM("beacon", beaconLengthBits, type_CCH, beaconPriority, 0, -1);
-
-            std::cout << lastSUMOUTMPos <<"-"<<lastSUMOGeoPos.lat <<"-"<< lastSUMOGeoPos.lon << endl;
-            std::cout << traci->getTraCIXY(mobility->getCurrentPosition()) << endl;
-
-            exit(0);
+            Coord currentPos = traci->getTraCIXY(mobility->getCurrentPosition());
 
             lastSUMOUTMPos = atualSUMOUTMPos;
             lastSUMOGeoPos = atualSUMOGeoPos;
-            atualSUMOUTMPos = traci->getTraCIXY(mobility->getCurrentPosition());
-            projection->setUtmCoord(lastSUMOUTMPos);
+            atualSUMOUTMPos = currentPos;
+            projection->setUtmCoord(atualSUMOUTMPos);
             projection->FromUTMToLonLat();
             atualSUMOGeoPos = projection->getGeoCoord();
+
             //Real Position
             wsm->setSenderRealPos(atualSUMOUTMPos);
-
-
             outageModule->ControlOutage(&atualSUMOUTMPos);
+
             //antes da queda
             if(!outageModule->isInOutage() && !outageModule->isInRecover()){
                 wsm->setInOutage(false);
@@ -106,10 +122,29 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
                 wsm->setErrorGPS(gpsModule->getErrorGpsOut());
                 wsm->setSenderDRPos(drModule->getLastKnowPosUtm());
                 wsm->setErrorDR(drModule->getErrorUtm());
+
+                /*std::cout << "Before Outage: "
+                <<" - "<< myId
+                <<" - "<< outageModule->getDistOutage()
+                <<" - "<< outageModule->getDistRecover()
+                <<" - "<< outageModule->getOutagePos()
+                <<" - "<< outageModule->getRecoverPos()
+                <<" - "<< outageModule->isInOutage()
+                <<" - "<< outageModule->isInRecover()
+                << "\n\n";*/
             }
             else{
                 //em queda
                 if(outageModule->isInOutage() && !outageModule->isInRecover()){
+                    /*std::cout << "In Outage: "
+                    <<" - "<< myId
+                    <<" - "<< outageModule->getDistOutage()
+                    <<" - "<< outageModule->getDistRecover()
+                    <<" - "<< outageModule->getOutagePos()
+                    <<" - "<< outageModule->getRecoverPos()
+                    <<" - "<< outageModule->isInOutage()
+                    <<" - "<< outageModule->isInRecover()
+                    << "\n\n";*/
                     wsm->setInOutage(true);
                     drModule->setGeoPos(&lastSUMOGeoPos, &atualSUMOGeoPos);
                     drModule->setErrorLonLat(&atualSUMOGeoPos);
@@ -121,6 +156,15 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
                     wsm->setErrorDR(drModule->getErrorUtm());
                 }
                 else{
+                    /*std::cout << "After Outage: "
+                    <<" - "<< myId
+                    <<" - "<< outageModule->getDistOutage()
+                    <<" - "<< outageModule->getDistRecover()
+                    <<" - "<< outageModule->getOutagePos()
+                    <<" - "<< outageModule->getRecoverPos()
+                    <<" - "<< outageModule->isInOutage()
+                    <<" - "<< outageModule->isInRecover()
+                    << "\n\n";*/
                     //apos a queda
                     wsm->setInOutage(false);
                     wsm->setSenderGPSPos(gpsModule->getGpsRecUtmPos());
@@ -130,11 +174,12 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
                 }
             }
 
+            //}
             sendWSM(wsm);
             //Draw annotation
             //findHost()->getDisplayString().updateWith("r=16,blue");
             //annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"green"));
-            //Schedule the beacon to sent
+            //Schedule nest time to  send beacon
             scheduleAt(simTime() + par("beaconInterval").doubleValue(), sendBeaconEvt);
             break;
         }
@@ -148,13 +193,20 @@ void LocAppCom::handleSelfMsg(cMessage* msg){
 
 void  LocAppCom::onBeacon(WaveShortMessage* wsm){
 
-    /***
+
     //Draw annotation"
     //findHost()->getDisplayString().updateWith("r=16,blue");
     //annotations->scheduleErase(1, annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
     //annotations->scheduleErase(1,annotations->drawLine(wsm->getSenderPos(), mobility->getCurrentPosition(),"blue"));
-    ***/
 
+    //FIXME It's necessary actualize the tracking of the ego vehicle before
+    //continue the process same as handleselfmessage.
+    Coord currentPos = traci->getTraCIXY(mobility->getCurrentPosition());
+    //make the multilateration
+
+    /*std::cout <<"VEHICLE"<< myId << "\n\n";
+    std::cout <<"POS 1"<< currentPos << "\n\n";
+    std::cout <<"POS 2"<< atualSUMOUTMPos << "\n\n";*/
 
     AnchorNode anchorNode;
     //If the anchorNode already exists it will be get to be update
@@ -165,16 +217,16 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     anchorNode.inOutage = wsm->getInOutage();
 
     anchorNode.realPos = wsm->getSenderPos();
-    anchorNode.realDist = anchorNode.realPos.sqrdist(mobility->getCurrentPosition());
+    anchorNode.realDist = anchorNode.realPos.distance(currentPos);
 
     //TODO Talvez aplicar o RSSI direto nas distancias DR ou sobre o erro?
     anchorNode.deadReckPos = wsm->getSenderDRPos();
     anchorNode.errorDR = wsm->getErrorDR();
-    anchorNode.deadReckDist = anchorNode.deadReckPos.sqrdist(mobility->getCurrentPosition());
+    anchorNode.deadReckDist = anchorNode.deadReckPos.distance(currentPos);
 
     anchorNode.gpsPos = wsm->getSenderGPSPos();
     anchorNode.errorGPS = wsm->getErrorGPS();
-    anchorNode.gpsDist = anchorNode.gpsPos.sqrdist(mobility->getCurrentPosition());
+    anchorNode.gpsDist = anchorNode.gpsPos.distance(currentPos);
 
     //TODO Mecanismo para minimizar o erro ou seja utlizar nós anchoras com erro minimo
     //So utilizar na mutilateração nós ancoras em queda.
@@ -216,12 +268,10 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
 
     //Update new values at the list
     //Somente utilizamos a multilateração com a posição dos nós em queda
-    if(anchorNode.inOutage){
-        UpdateNeighborList(&anchorNode);
-    }
-
-    std::cout << "List of Neighbor Vehicles Updated\n";
-    //PrintNeighborList();
+    //if(anchorNode.inOutage){
+    UpdateNeighborList(&anchorNode);
+    //}
+    //PrintAnchorNode(&anchorNode);
 
     //FIXME IMplement a mechanism to discard a beacon after some round
     //TODO Timestamp for compute the ttl of the beacon and use it for discard after some time
@@ -232,6 +282,12 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
         multilateration->DoMultilateration(&anchorNodes,multilateration->REAL_POS, multilateration->REAL_DIST);
         coopPosReal = multilateration->getEstPosition();
         coopPosReal.z = mobility->getCurrentPosition().z;
+
+        std::cout <<"atualSUMOPos "<< atualSUMOUTMPos<< endl;
+        std::cout <<"curPos "<< currentPos<< endl;
+        std::cout <<"CoopPos "<< coopPosReal << endl;
+
+        exit(0);
 
         multilateration->DoMultilateration(&anchorNodes,multilateration->DR_POS, multilateration->DR_DIST);
         coopPosDR = multilateration->getEstPosition();
@@ -261,16 +317,12 @@ void  LocAppCom::onBeacon(WaveShortMessage* wsm){
     //std::pair<double,double> coordTraCI = traci->getTraCIXY(mobility->getCurrentPosition());
     //std::cout << coordTraCI.first << ' '<< coordTraCI.second << endl;
     //std::pair<double,double> lonlat = traci->getLonLat(mobility->getCurrentPosition());
-    Coord testCoord = traci->getTraCIXY(mobility->getCurrentPosition());
     std::fstream beaconLogFile(std::to_string(myId)+'-'+std::to_string(timeSeed)+".txt", std::fstream::app);
     beaconLogFile << anchorNode.vehID
             <<'\t'<< anchorNode.timestamp
             <<'\t'<< std::setprecision(10) << atualSUMOUTMPos.x
             <<'\t'<< std::setprecision(10) << atualSUMOUTMPos.y
             <<'\t'<< std::setprecision(10) << atualSUMOUTMPos.z
-            <<'\t'<< std::setprecision(10) << testCoord.x
-            <<'\t'<< std::setprecision(10) << testCoord.y
-            <<'\t'<< std::setprecision(10) << testCoord.z
             <<'\t'<< std::setprecision(10) << drModule->getLastKnowPosUtm().x
             <<'\t'<< std::setprecision(10) << drModule->getLastKnowPosUtm().y
             <<'\t'<< std::setprecision(10) << drModule->getLastKnowPosUtm().z
@@ -338,6 +390,36 @@ void LocAppCom::UpdateNeighborList(AnchorNode *anchorNode){
         }
     }
     anchorNodes.push_back(*anchorNode);
+}
+
+
+void LocAppCom::PrintAnchorNode(AnchorNode *anchorNode){
+    std::cout
+    <<'\t'<<anchorNode->vehID
+    <<'\t'<<anchorNode->timestamp
+    <<'\t'<<anchorNode->realPos
+    <<'\t'<<anchorNode->deadReckPos
+    <<'\t'<<anchorNode->gpsPos
+    <<'\t'<<anchorNode->realDist
+    <<'\t'<<anchorNode->deadReckDist
+    <<'\t'<<anchorNode->gpsDist
+    <<'\t'<<anchorNode->errorGPS
+    <<'\t'<<anchorNode->errorDR
+    <<'\t'<<anchorNode->realRSSIDistFS
+    <<'\t'<<anchorNode->realRSSIDistTRGI
+    <<'\t'<<anchorNode->realRSSIFS
+    <<'\t'<<anchorNode->realRSSITRGI
+    <<'\t'<<anchorNode->drRSSIDistFS
+    <<'\t'<<anchorNode->drRSSIDistTRGI
+    <<'\t'<<anchorNode->drRSSIFS
+    <<'\t'<<anchorNode->drRSSITRGI
+    <<'\t'<<anchorNode->realRSSIDistAvgFilterFS
+    <<'\t'<<anchorNode->realRSSIDistAvgFilterTRGI
+    <<'\t'<<anchorNode->drRSSIDistAvgFilterFS
+    <<'\t'<<anchorNode->drRSSIDistAvgFilterTRGI
+    <<'\t'<<anchorNode->k
+    <<'\t'<<anchorNode->inOutage
+    << std::endl;
 }
 
 

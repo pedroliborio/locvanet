@@ -9,8 +9,10 @@
 #define LOCALIZATION_MULTILATERATION_MULTILATERATION_H_
 
 #include<Types.h>
-#include<tnt.h>
-#include<jama_qr.h>
+#include<jama_tnt/tnt.h>
+#include<jama_tnt/jama_qr.h>
+#include <iomanip>
+#include <limits>
 
 namespace Localization {
 
@@ -20,14 +22,14 @@ private:
     std::vector<double> distances;
     Coord estPosition;
 public:
-    const int REAL_POS = 0;
-    const int DR_POS = 1;
-    const int GPS_POS = 2;
-    const int REAL_DIST = 0;
-    const int DR_DIST = 1;
-    const int GPS_DIST = 2;
-    const int FS_DIST = 3;
-    const int TRGI_DIST = 4;
+    static const int REAL_POS = 0;
+    static const int DR_POS = 1;
+    static const int GPS_POS = 2;
+    static const int REAL_DIST = 0;
+    static const int DR_DIST = 1;
+    static const int GPS_DIST = 2;
+    static const int FS_DIST = 3;
+    static const int TRGI_DIST = 4;
 
     Multilateration();
     virtual ~Multilateration();

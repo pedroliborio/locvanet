@@ -24,10 +24,9 @@ GPS::~GPS() {
 
 void GPS::GetOutageInformation(std::string outagesFile){
     std::string date, time, line;
-    std::string path = "outages/"+outagesFile+".txt";
+    std::string path = "../localization/GPS/outages/"+outagesFile+".txt";
     std::fstream file(path);
     std::fstream fileOut("temp.txt");
-
 
     getline(file, line); // get header
 

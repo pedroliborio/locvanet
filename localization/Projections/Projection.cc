@@ -23,10 +23,10 @@ Projection::Projection(std::string fileProjName) {
     std::getline(file,projString);
     projString = projString.substr(1);
 
-    std::cout << std::setprecision(10) << this->netOffset.u <<'-'<< std::setprecision(10) << this->netOffset.v <<'x'<< projString<<'-'<< endl;
+    //std::cout << std::setprecision(10) << this->netOffset.u <<'-'<< std::setprecision(10) << this->netOffset.v <<'x'<< projString<<'-'<< endl;
 
     if (!( this->pj_utm = pj_init_plus(projString.c_str()) )){
-        std::cout << "wtttttffff mannnnn" << endl;
+        std::cout << "Problem in Projections when init." << endl;
         exit(0);
     }
 }
@@ -61,7 +61,7 @@ void Projection::FromLonLatToUTM(void){
     geo_coord.u*= DEG_TO_RAD;
     geo_coord.v*= DEG_TO_RAD;
 
-    coord_utm = pj_inv(geo_coord,pj_utm);
+    coord_utm = pj_fwd(geo_coord,pj_utm);
 
     utmCoord.x = coord_utm.u - netOffset.u;
     utmCoord.y = coord_utm.v - netOffset.v;
